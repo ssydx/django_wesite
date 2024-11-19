@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load custom_filters %}
+{% block content %}
+<h1>博文列表</h1>
+{% if blogcontents %}
+    {% for content in blogcontents|dictsort:'upload_date'|reverse_list %}
+    <p><a href="{{ content.get_absolute_url }}">{{ content.name }}</a>
+        <a href="{{ content.author.get_absolute_url }}">{{ content.author }}</a>({{ content.upload_date }})</p>
+    {% endfor %}
+{% else %}
+<p>暂无博主</p>
+{% endif %}
+{% endblock %}

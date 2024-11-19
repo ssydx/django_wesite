@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .green {
+            color: green;
+        }
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>temp</h1>
+    <p>{{ request }}</p>
+    <p>{{ request.user }}</p>
+    <p>{{ authors }}</p>
+    {% for author in authors.all %}
+        <p class="{% cycle 'green' 'yellow' %}">{{ author.last_name }}</p>
+    {% endfor %}
+    {% for author in authors.all reversed %}
+        <p class="{% cycle 'green' 'yellow' %}">{{ author.last_name }}-{{ author.date_of_birth|date:'m月d日Y年' }}</p>
+    {% endfor %}
+    {% for author in authors.all %}
+        <p>{{ author.last_name }}-{{ author.gender }}</p>
+    {% empty %}
+        <p>没有作者</p>
+    {% endfor %}
+    {% lorem %}
+    {% lorem 2 %}
+    {% lorem 3 p %}
+    {% lorem 3 w random %}
+    <p>It is {% now "jS F Y H:i" %}</p>
+    {% regroup authors.all by gender as gender_list %}
+    <ul>
+        {% for gender in gender_list %}
+        <li>{{ gender.grouper }}</li>
+        <ul>
+            {% for gender in gender.list %}
+            <li>{{ gender }}</li>
+            {% endfor %}
+        </ul>
+        {% endfor %}
+    </ul>
+    {% with author=authors.all|first %}
+        <p>{{ author.first_name }}</p>
+    {% endwith %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<h1>博文信息</h1>
+<p>博文标题：{{ blogcontent.name }}</p>
+<p>博文作者：<a href="{{ blogcontent.author.get_absolute_url }}">{{ blogcontent.author }}</a></p>
+<p>博文内容：{{ blogcontent.content }}</p>
+<h2>评论</h2>
+{% if blogcomments %}
+{% for blogcomment in blogcomments %}
+<p>{{ blogcomment.name }}({{ blogcomment.pub_datetime }})-{{ blogcomment.comment }}</p>
+{% endfor %}
+{% else %}
+<p>暂无评论</p>
+{% endif %}
+{% if user.is_authenticated %}
+<p><a href="{% url 'createcomment' pk=blogcontent.id %}">增加评论</a></p>
+{% else %}
+<p><a href="">登录后评论</a></p>
+{% endif %}
+{% endblock %}
