@@ -1,0 +1,13 @@
+{% extends 'blog/articles.html' %}
+<!-- {% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/css/page.css' %}">
+    <script src="{% static 'blog/js/page.js' %}"></script>
+{% endblock %} -->
+{% block main %}
+    <main>
+        <h1>{{article.title}}</h1>
+        <p>{{article.desc}}</p>
+        {{ article.content|safe }}
+    </main>
+{% endblock %}
