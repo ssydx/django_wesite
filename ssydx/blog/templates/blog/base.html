@@ -42,30 +42,29 @@
 {% block body %}
     {% block nav-container %}<div class="nav-container">
         {% block home-icon %}
-            <img class="home-icon" src="icons/home-icon.svg" alt="首页图标" height="24px" width="24px">
+            <img class="home-icon" src="icons/home-icon.svg" alt="首页图标">
         {% endblock home-icon %}
         {% block nav-left %}<div class="nav-left">
-            <a href="{% url 'articles' %}">编程</a>
-            <a href="">动画</a>
-            <a href="#">漫画</a>
-            <a href="#">小说</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
-            <a href="#">其他</a>
+            <div class="path">
+                <span>此路径有五个中文字符一二三四</span>
+                <span>此路径有一个中文字符</span>
+                <span>此路径有一个中文字符</span>
+                <span>此路径有一个中文字符</span>
+                <span>此路径有一个中文字符</span>
+                <span>此路径有一个中文字符</span>
+            </div>
         </div>{% endblock nav-left %}
+        {% block nav-center %}<div class="nav-center">
+            <span class="dividingline"></span>
+        </div>{% endblock nav-center %}
         {% block nav-right %}<div class="nav-right">
                 <form class="form-search" action="/pages/search.html" method="get" target="_blank">
-                    <input class="searchbox" type="search" name="q" placeholder="    ">
+                    <input class="searchbox" type="search" name="q" placeholder="  12  ">
                     <input class="submitbutton" type="submit" value="提交">
                 </form>
                 <form class="form-theme">
                     <label class="themelabel" for="themelist">主题</label>
-                    <select name="theme" id="themelist">
+                    <select class="selectlist" name="theme" id="themelist">
                         <option value="auto">自动</option>
                         <option value="daylight">白天</option>
                         <option value="moonlight">夜晚</option>

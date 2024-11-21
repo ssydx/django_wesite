@@ -34,33 +34,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--gy-2) var(--gx-3);
-    flex-wrap: wrap;
+    gap: var(--gy-0) var(--gx-3);
 }
-
+.home-icon {
+    height: var(--h-4);
+}
 .nav-container > .nav-left {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     display: flex;
     align-items: center;
-    gap: 0 var(--gx-3);
+    justify-content: left;
+    gap: var(--gy-2) var(--gx-3);
+}
+.nav-container > .nav-center {
+    flex: 1 1 auto;
+    align-self: stretch;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: var(--gy-2) var(--gx-3);
 }
 .nav-container > .nav-right {
-    flex: 1 0 auto;
-    max-width: 100%;
+    flex: 5 1 auto;
     display: flex;
     align-items: center;
     justify-content: right;
-    gap: 0 var(--navright-gap);
+    gap: var(--gy-2) var(--gx-3);
+    flex-wrap: wrap;
+}
+.nav-container > .nav-center:empty {
+    background-color: tomato;
+    align-self: stretch;
+    flex: 1 1 auto;
 }
 .nav-container > .nav-left:empty {
     background-color: aqua;
-    width: 100px;
-    height: 50%;
+    align-self: stretch;
+    flex: 3 1 auto;
 }
 .nav-container > .nav-right:empty {
     background-color: greenyellow;
-    height: 80%;
+    align-self: stretch;
+    flex: 2 1 auto;
 }
+
+
 
 
 /* 设置主体 */

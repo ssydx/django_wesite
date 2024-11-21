@@ -125,10 +125,7 @@ a {
 
 
 
-/* 左侧导航栏设置 */
-.nav-left > .home-icon {
-    height: calc(2 / 3 * var(--navcontainer-height));
-}
+
 .nav-left > a {
     transition: border-bottom 100ms ease, font-weight 50ms ease;
 }
@@ -136,27 +133,70 @@ a {
     font-weight: 300;
     border-bottom: 0.25em solid black;
 }
-/* 右侧导航栏设置 */
+
+.path {
+    line-height: var(--h-4);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: left;
+    gap: var(--gy-2) var(--gx-2);
+    max-height: 3.5em;
+    overflow-y: auto;
+}
+.path > span {
+    display: flex;
+    gap: var(--gy-0) var(--gx-2);
+}
+.path > span:first-child {
+    display: block;
+}
+.path > span::before {
+    content: '»';
+}
+.path > span:first-child::before {
+    content: '';
+}
+.dividingline {
+    content: '';
+    flex: 0 0 auto;
+    width: var(--w-1);
+    background-color: black;
+    border-radius: 0.25em;
+}
+
 .nav-right > .form-search {
     flex: 1 0 auto;
     display: flex;
     align-items: center;
     justify-content: right;
-    gap: 0.5em;
-    height: calc(2 / 3 * var(--navcontainer-height));
+    gap: var(--gy-0) var(--gx-2);
+    height: var(--h-4);
+}
+.nav-right > .form-theme {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: right;
+    gap: var(--gy-0) var(--gx-2);
+    height: var(--h-4);
 }
 .nav-right > .form-search > * {
     all: unset;
     border: 1px solid rgba(0, 0, 0, 0.5);
-    font-size: 0.9em;
-    padding: 0 0.5em;
-    height: calc(2 / 3 * var(--navcontainer-height));
+    font-size: calc(var(--h-4) * 3 / 5);
+    padding: var(--py-0) var(--px-2);
+    height: var(--h-4);
 }
 .nav-right > .form-search > .searchbox {
-    border-radius: calc(2 / 3 * var(--navcontainer-height));
+    border-radius: calc(var(--px-4) / 2);
     background-color: white;
-    width: 120px;
+    width: 100px;
     transition: border 400ms ease, flex 400ms ease;
+}
+.nav-right > .form-search > .submitbutton {
+    border-radius: calc(var(--px-4) / 3);
+    background-color: rgb(245, 245, 245);
 }
 .nav-right > .form-search > .searchbox::placeholder {
     text-decoration: underline turquoise solid .2em;
@@ -164,30 +204,16 @@ a {
 .nav-right > .form-search > .searchbox:focus::placeholder {
     text-decoration: none;
 }
-.nav-right > .form-search > .submitbutton {
-    border-radius: calc(1 / 10 * var(--navcontainer-height));
-    background-color: rgb(245, 245, 245);
-    white-space: nowrap;
-}
 .nav-right > .form-search > .searchbox:focus {
     flex: 1 0 auto;
     border: 1px solid rgba(0, 0, 0, 1);
 }
-.nav-right > .form-theme {
-    flex: 0 0 auto;
-    display: flex;
-    align-items: stretch;
-    justify-content: right;
-    gap: 0.5em;
-    height: calc(2 / 3 * var(--navcontainer-height));
-}
 .nav-right > .form-theme > .themelabel {
-    align-self: center;
-    font-size: 1.0em;
+    line-height: var(--h-4);
 }
 .nav-right > .form-theme > .selectlist {
-    border: 0.5px solid rgba(0, 0, 0, 0.5);
-    font-size: 0.9em;
-    border-radius: calc(1 / 10 * var(--navcontainer-height));
+    font-size: calc(var(--h-4) * 3 / 5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: calc(var(--px-4) / 3);
+    height: var(--h-4);
 }
-
