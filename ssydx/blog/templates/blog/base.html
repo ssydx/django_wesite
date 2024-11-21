@@ -41,17 +41,17 @@
 
 {% block body %}
     {% block nav-container %}<div class="nav-container">
-        {% block home-icon %}
-            <img class="home-icon" src="icons/home-icon.svg" alt="首页图标">
-        {% endblock home-icon %}
+        {% block nav-home %}
+            <a class="nav-home" href="{% url 'index' %}" title="首页">
+                <img class="home-icon" src="icons/home-icon.svg" alt="首页图标">
+            </a>
+        {% endblock nav-home %}
         {% block nav-left %}<div class="nav-left">
             <div class="path">
-                <span>此路径有五个中文字符一二三四</span>
-                <span>此路径有一个中文字符</span>
-                <span>此路径有一个中文字符</span>
-                <span>此路径有一个中文字符</span>
-                <span>此路径有一个中文字符</span>
-                <span>此路径有一个中文字符</span>
+                <a href="#">此路径有五个中文字符一二三四</a>
+                <a href="#">此路径有一个中文字符</a>
+                <a href="#">此路径有一个中文字符</a>
+                <a href="#">此路径有一个中文字符</a>
             </div>
         </div>{% endblock nav-left %}
         {% block nav-center %}<div class="nav-center">
@@ -59,7 +59,7 @@
         </div>{% endblock nav-center %}
         {% block nav-right %}<div class="nav-right">
                 <form class="form-search" action="/pages/search.html" method="get" target="_blank">
-                    <input class="searchbox" type="search" name="q" placeholder="  12  ">
+                    <input class="searchbox" type="search" name="q" placeholder="    ">
                     <input class="submitbutton" type="submit" value="提交">
                 </form>
                 <form class="form-theme">
@@ -72,7 +72,7 @@
                 </form>
         </div>{% endblock nav-right %}
     </div>{% endblock nav-container %}
-    <div class="main-wrapper">
+    {% block main-wrapper %}<div class="main-wrapper">
         <div class="toc-container">
             <div class="menu-wrapper">
                 <input id="menuCheckbox" class="checkbox-menu" type="checkbox" style="display: none;">
@@ -104,7 +104,7 @@
             </div>          
         </div>
         <div class="main">{% block main %}{% endblock main %}</div>
-    </div>
+    </div>{% endblock main-wrapper %}
 {% endblock body %}
 
 

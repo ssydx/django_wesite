@@ -2,30 +2,29 @@
 
 
 {% block aside_left1 %}
-    <p>123</p>
-    {% for article in articles %}
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-    {% endfor %}
+        {% for article in articles %}
+            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        {% endfor %}
 {% endblock %}
 
 {% block aside_left2 %}
-<p>123</p>
-    {% for article in articles %}
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-    {% endfor %}
+        {% for article in articles %}
+            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        {% endfor %}
 {% endblock %}
 
 {% block aside_left3 %}
-<p>123</p>
-    {% for article in articles %}
-        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-    {% endfor %}
+        {% for article in articles %}
+            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+        {% endfor %}
 {% endblock %}
 
 {% block main %}
-    {% with article=articles|first %}
-        <h1>{{article.title}}</h1>
-        <p>{{article.desc}}</p>
-        {{ article.content|safe }}
-    {% endwith %}
+    <main>
+        {% with article=articles|first %}
+            <h1>{{article.title}}</h1>
+            <p>{{article.desc}}</p>
+            {{ article.content|safe }}
+        {% endwith %}
+    </main>
 {% endblock main %}

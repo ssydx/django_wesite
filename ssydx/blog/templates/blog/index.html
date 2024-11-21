@@ -1,27 +1,14 @@
 {% extends 'blog/base.html' %}
 
-{% block nav-left %}
-    {% for modelname in modelnames %}
-        <a href="{% url 'articles' %}">{{ modelname }}</a>
-    {% endfor %}
-{% endblock %}
 
+{% block nav-container %}
+    <div class="nav-container" style="padding-left: 1rem;">
+        <div style="padding: auto; margin: auto; font-size: 3rem;">首页</div>
+    </div>
+{% endblock nav-container %}
 
-{% block main %}
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-    <p>1</p>
-{% endblock %}
+{% block main-wrapper %}
+    <div class="main">
+        <a href="{% url 'articles' %}">文章</a>
+    </div>
+{% endblock main-wrapper %}

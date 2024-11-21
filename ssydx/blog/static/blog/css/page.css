@@ -1,5 +1,5 @@
 @import 'map.css';
-
+/* 黑体 */
 @font-face {
     font-family: heiti;
     src: url('../fonts/黑体/SourceHanSansCN-Light.otf');
@@ -15,7 +15,7 @@
     src: url('../fonts/黑体/SourceHanSansCN-Bold.otf');
     font-weight: 300;
 }
-
+/* 宋体 */
 @font-face {
     font-family: songti;
     src: url('../fonts/宋体/SourceHanSerifCN-ExtraLight.otf');
@@ -31,7 +31,7 @@
     src: url('../fonts/宋体/SourceHanSerifCN-Bold.otf');
     font-weight: 300;
 }
-
+/* 圆体 */
 @font-face {
     font-family: yuanti;
     src: url('../fonts/圆体/ResourceHanRoundedCN-Light.ttf');
@@ -47,7 +47,7 @@
     src: url('../fonts/圆体/ResourceHanRoundedCN-Bold.ttf');
     font-weight: 300;
 }
-
+/* 楷体 */
 @font-face {
     font-family: kaiti;
     src: url('../fonts/楷体/LXGWWenKaiMono-Light.ttf');
@@ -63,7 +63,7 @@
     src: url('../fonts/楷体/LXGWWenKaiMono-Medium.ttf');
     font-weight: 300;
 }
-
+/* 艺术体 */
 @font-face {
     font-family: yishuti;
     src: url('../fonts/其他/段宁毛笔行书.ttf');
@@ -103,10 +103,7 @@ p {
     text-indent: 2em;
 }
 
-.nav-container > .nav-left > a {
-    font-family: heiti;
-    font-weight: 200;
-}
+
 
 code {
     display: block;
@@ -117,20 +114,15 @@ code {
     font-family: monospace !important;
 }
 
+
 a {
     display: block;
 }
 
-
-
-
-
-.nav-left > a {
-    transition: border-bottom 100ms ease, font-weight 50ms ease;
-}
-.nav-left > a:hover {
-    font-weight: 300;
-    border-bottom: 0.25em solid black;
+.home-icon {
+    width: 1.5em;
+    height: 1.5em;
+    flex: 0 0 auto;
 }
 
 .path {
@@ -140,22 +132,23 @@ a {
     align-items: center;
     justify-content: left;
     gap: var(--gy-2) var(--gx-2);
-    max-height: 3.5em;
+    max-height: calc(2 * var(--h-4) + var(--gy-2));
     overflow-y: auto;
 }
-.path > span {
+.path > a {
     display: flex;
     gap: var(--gy-0) var(--gx-2);
+    font-family: heiti;
+    font-weight: 200;
 }
-.path > span:first-child {
-    display: block;
+.path > a:hover {
+    font-weight: 300;
 }
-.path > span::before {
+.path > a:not(a:first-child)::before {
     content: '»';
+    font-weight: 200;
 }
-.path > span:first-child::before {
-    content: '';
-}
+
 .dividingline {
     content: '';
     flex: 0 0 auto;
@@ -181,8 +174,7 @@ a {
     height: var(--h-4);
 }
 .nav-right > .form-search > * {
-    all: unset;
-    border: 1px solid rgba(0, 0, 0, 0.5);
+    border: var(--bw-3) solid rgba(0, 0, 0, 0.5);
     font-size: calc(var(--h-4) * 3 / 5);
     padding: var(--py-0) var(--px-2);
     height: var(--h-4);
@@ -190,31 +182,58 @@ a {
 .nav-right > .form-search > .searchbox {
     border-radius: calc(var(--px-4) / 2);
     background-color: white;
-    width: 100px;
-    transition: border 400ms ease, flex 400ms ease;
+    width: calc(var(--px-4) + var(--w-5));
+    transition: flex 400ms ease;
+    font-family: songti;
+    font-weight: 200;
 }
-.nav-right > .form-search > .submitbutton {
-    border-radius: calc(var(--px-4) / 3);
-    background-color: rgb(245, 245, 245);
+.nav-right > .form-search > .searchbox:focus {
+    flex: 1 1 auto;
+    border: var(--bw-3) solid rgba(0, 0, 0, 1);
 }
 .nav-right > .form-search > .searchbox::placeholder {
-    text-decoration: underline turquoise solid .2em;
+    text-decoration: underline rgb(0, 255, 0) solid .1em;
 }
 .nav-right > .form-search > .searchbox:focus::placeholder {
     text-decoration: none;
 }
-.nav-right > .form-search > .searchbox:focus {
-    flex: 1 0 auto;
-    border: 1px solid rgba(0, 0, 0, 1);
+.nav-right > .form-search > .submitbutton {
+    border-radius: calc(var(--px-4) / 4);
+    background-color: rgb(245, 245, 245);
+    font-family: heiti;
+    font-weight: 200;
 }
 .nav-right > .form-theme > .themelabel {
     line-height: var(--h-4);
+    font-family: heiti;
+    font-weight: 200;
 }
 .nav-right > .form-theme > .selectlist {
     font-size: calc(var(--h-4) * 3 / 5);
-    border: 1px solid rgba(0, 0, 0, 0.5);
-    border-radius: calc(var(--px-4) / 3);
+    border: var(--bw-3) solid rgba(0, 0, 0, 0.5);
+    border-radius: calc(var(--px-4) / 4);
+    background-color: white;
     height: var(--h-4);
+    font-family: songti;
+    font-weight: 200;
+}
+.nav-right > .form-theme > .selectlist:focus {
+    border: var(--bw-3) solid rgba(0, 0, 0, 1);
 }
 
-
+@media (max-width: 768px) {
+    .nav-container > .nav-right > .form-search > .searchbox{
+        flex: 1 1 auto;
+        max-width: 100%;
+        transition: none;
+    }
+    .nav-container > .nav-right {
+        flex-wrap: nowrap;
+        justify-content: left;
+    }
+}
+@media (max-width: 320px) {
+    .nav-container > .nav-right > .form-theme {
+        display: none;
+    }
+}

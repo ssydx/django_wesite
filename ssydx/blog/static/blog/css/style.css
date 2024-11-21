@@ -30,16 +30,18 @@ body {
     margin-bottom: var(--mb-3);
     padding: var(--py-2) var(--px-3);
     background-color: var(--navcontainer-backgroundcolor);
-    box-shadow: 0 0 var(--navcontainer-boxshadow-gauss) var(--navcontainer-boxshadow-color);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: var(--gy-0) var(--gx-3);
+    overflow-x: auto;
 }
-.home-icon {
-    height: var(--h-4);
+.nav-home {
+    /* 为什么 */
+    height: 1.5em;
+    flex: 0 0 auto;
 }
-
 .nav-container > .nav-left {
     flex: 1 1 auto;
     display: flex;
@@ -373,15 +375,14 @@ body {
         display: contents;
     }
     /* 由于左上角增加了弹出式菜单图标，故导航栏增大左侧内边距 */
-    .nav-wrapper {
+    .nav-container {
         padding-left: calc(var(--navcontainer-height) + 2 * var(--navcontainer-gap));
     }
     /* 隐藏右侧导航栏 */
-    .nav-container > .nav-right {
+    .nav-container > .nav-left{
         display: none;
     }
-    /* 显示弹出式菜单中的右侧导航栏 */
-    .menu-container > .nav-right {
-        display: flex;
+    .nav-container > .nav-center{
+        display: none;
     }
 }
