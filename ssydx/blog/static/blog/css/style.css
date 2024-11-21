@@ -39,6 +39,7 @@ body {
 .home-icon {
     height: var(--h-4);
 }
+
 .nav-container > .nav-left {
     flex: 1 1 auto;
     display: flex;
