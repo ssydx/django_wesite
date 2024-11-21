@@ -1,0 +1,111 @@
+{% extends 'generic.html' %}
+
+
+{% comment %}
+    继承模板，之后对必要的部分进行重写
+{% endcomment %}
+
+
+{% block title %}
+    {# 重载文档标题 #}
+    <title>SSYDX</title>
+{% endblock title %}
+
+
+{% block base %}
+    {% load static %}
+    <base href="{% static 'blog/' %}" target="_self">
+{% endblock base %}
+
+
+{% block link-icon %}
+    <link rel="icon" href="icons/cywl.png">
+{% endblock link-icon %}
+
+
+{% block style %}
+{% endblock style %}
+
+
+{% block link-stylesheet %}
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/page.css">
+{% endblock link-stylesheet %}
+
+
+{% block head-script %}
+    <script src="js/temp.js"></script>
+    <script src="js/page.js"></script>
+{% endblock head-script %}
+
+
+{% block body %}
+    {% block nav-container %}<div class="nav-container">
+        {% block home-icon %}
+            <img class="home-icon" src="icons/home-icon.svg" alt="首页图标" height="24px" width="24px">
+        {% endblock home-icon %}
+        {% block nav-left %}<div class="nav-left">
+            <a href="{% url 'articles' %}">编程</a>
+            <a href="">动画</a>
+            <a href="#">漫画</a>
+            <a href="#">小说</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+            <a href="#">其他</a>
+        </div>{% endblock nav-left %}
+        {% block nav-right %}<div class="nav-right">
+                <form class="form-search" action="/pages/search.html" method="get" target="_blank">
+                    <input class="searchbox" type="search" name="q" placeholder="    ">
+                    <input class="submitbutton" type="submit" value="提交">
+                </form>
+                <form class="form-theme">
+                    <label class="themelabel" for="themelist">主题</label>
+                    <select name="theme" id="themelist">
+                        <option value="auto">自动</option>
+                        <option value="daylight">白天</option>
+                        <option value="moonlight">夜晚</option>
+                    </select>
+                </form>
+        </div>{% endblock nav-right %}
+    </div>{% endblock nav-container %}
+    <div class="main-wrapper">
+        <div class="toc-container">
+            <div class="menu-wrapper">
+                <input id="menuCheckbox" class="checkbox-menu" type="checkbox" style="display: none;">
+                <label class="label-menu" for="menuCheckbox" title="菜单"><span></span></label>
+                <div class="menu-container">
+                    <div class="aside-left">{% block aside_left1 %}{% endblock %}</div>
+                    <div class="aside-right">{% block aside_right %}{% endblock %}</div>
+                </div>
+            </div>
+            <div class="singleAside-wrapper">
+                <input id="asideCheckbox" class="checkbox-aside" type="checkbox" style="display: none;">
+                <label class="label-aside" for="asideCheckbox" title="展开/收起"></label>
+                <div class="aside-container">
+                    <div class="aside-left">{% block aside_left2 %}{% endblock %}</div>
+                    <div class="aside-right"></div>
+                </div>
+            </div>
+            <div class="doubleAside-wrapper">
+                <div class="leftAside-wrapper">
+                    <input id="asideleftCheckbox" class="checkbox-asideleft" type="checkbox" style="display: none;">
+                    <label class="label-asideleft" for="asideleftCheckbox" title="展开/收起"></label>
+                    <div class="aside-left">{% block aside_left3 %}{% endblock %}</div>
+                </div>
+                <div class="rightAside-wrapper">
+                    <input id="asiderightCheckbox" class="checkbox-asideright" type="checkbox" style="display: none;">
+                    <label class="label-asideright" for="asiderightCheckbox"  title="展开/收起"></label>
+                    <div class="aside-right"></div>
+                </div>
+            </div>          
+        </div>
+        <div class="main">{% block main %}{% endblock main %}</div>
+    </div>
+{% endblock body %}
+
+

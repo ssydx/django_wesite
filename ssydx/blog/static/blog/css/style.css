@@ -7,8 +7,8 @@
 
 /* 清除所有边距并更改框模型 */
 * {
-    margin: 0;
-    padding: 0;
+    margin: var(--m-0);
+    padding: var(--p-0);
     box-sizing: border-box;
 }
 /* 清除链接样式 */
@@ -23,45 +23,30 @@ body {
 
 
 /* 设置导航栏 */
-.nav-wrapper {
+.nav-container {
     position: sticky;
     z-index: 1000;
     top: 0;
-    height: var(--navwrapper-height);
-    margin-bottom: var(--navwrapper-marginbottom);
-    padding: 0 var(--navwrapper-paddinghorizontal);
-    background-color: var(--navwrapper-backgroundcolor);
-    box-shadow: 0 0 var(--navwrapper-boxshadow-gauss) var(--navwrapper-boxshadow-color);
+    margin-bottom: var(--mb-3);
+    padding: var(--py-2) var(--px-3);
+    background-color: var(--navcontainer-backgroundcolor);
+    box-shadow: 0 0 var(--navcontainer-boxshadow-gauss) var(--navcontainer-boxshadow-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0 var(--navwrapper-gap);
-    overflow-x: hidden;
+    gap: var(--gy-2) var(--gx-3);
+    flex-wrap: wrap;
 }
-.placeholder-nav {
-    order: 2;
-    flex: 1 1 auto;
-}
-.placeholder-nav:empty {
-    background-color: tomato;
-    height: 30%;
-    flex: 1 1 auto;
-}
-.nav-container {
-    display: contents;
-}
+
 .nav-container > .nav-left {
-    order: 1;
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    justify-content: left;
-    gap: 0 var(--navleft-gap);
+    gap: 0 var(--gx-3);
 }
 .nav-container > .nav-right {
-    order: 3;
     flex: 1 0 auto;
-    max-width: 50%;
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: right;
@@ -102,8 +87,8 @@ body {
     left: 0;
     top: 0;
     z-index: 1001;
-    height: var(--navwrapper-height);
-    width: var(--navwrapper-height);
+    height: var(--navcontainer-height);
+    width: var(--navcontainer-height);
     background-color: var(--menu-backgroundcolor);
     display: flex;
     align-items: center;
@@ -111,7 +96,7 @@ body {
 }
 .label-menu > span {
     /* 图标内线条 */
-    height: calc(1 / 15 * var(--navwrapper-height));
+    height: calc(1 / 15 * var(--navcontainer-height));
     width: 70%;
     display: block;
     transition: all 400ms ease;
@@ -121,8 +106,8 @@ body {
     /* 图标内线条 */
     content: '';
     position: relative;
-    top: calc(-4 / 15 * var(--navwrapper-height));
-    height: calc(1 / 15 * var(--navwrapper-height));
+    top: calc(-4 / 15 * var(--navcontainer-height));
+    height: calc(1 / 15 * var(--navcontainer-height));
     width: 100%;
     display: block;
     background-color: inherit;
@@ -131,8 +116,8 @@ body {
     /* 图标内线条 */
     content: '';
     position: relative;
-    top: calc(3 / 15 * var(--navwrapper-height));
-    height: calc(1 / 15 * var(--navwrapper-height));
+    top: calc(3 / 15 * var(--navcontainer-height));
+    height: calc(1 / 15 * var(--navcontainer-height));
     width: 100%;
     display: block;
     background-color: inherit;
@@ -145,7 +130,7 @@ body {
     top: 0;
 }
 .checkbox-menu:checked ~ .label-menu > span::after {
-    top: calc(-1 / 15 * var(--navwrapper-height));
+    top: calc(-1 / 15 * var(--navcontainer-height));
 }
 .checkbox-menu:checked:hover ~ .label-menu > span {
     transform: rotate(135deg);
@@ -164,7 +149,7 @@ body {
     /* 为了避免右侧导航栏加入导致水平溢出 */
     overflow-x: hidden;
     padding: var(--menucontainer-padding);
-    padding-top: calc(var(--navwrapper-height) + var(--menucontainer-padding));
+    padding-top: calc(var(--navcontainer-height) + var(--menucontainer-padding));
     background-color: var(--menucontainer-backgroundcolor);
     box-shadow: 0 0 var(--menucontainer-boxshadow-gauss) var(--menucontainer-boxshadow-color);
 }
@@ -204,8 +189,8 @@ body {
     order: 1;
     flex: 0 0 auto;
     position: sticky;
-    top: var(--navwrapper-height);
-    height: calc(100vh - var(--navwrapper-height));
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
     display: none;
 }
 .label-aside {
@@ -232,7 +217,7 @@ body {
     overflow-y: auto;
     background-color: var(--singleaside-backgroundcolor);
     padding: var(--singleaside-padding);
-    padding-bottom: calc(var(--navwrapper-marginbottom) + var(--singleaside-padding));
+    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--singleaside-padding));
     transition: width 200ms ease, visibility 100ms ease;
 }
 .aside-container > .aside-left {
@@ -253,8 +238,8 @@ body {
     order: 1;
     flex: 0 0 auto;
     position: sticky;
-    top: var(--navwrapper-height);
-    height: calc(100vh - var(--navwrapper-height));
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
     display: flex;
 }
 .label-asideleft {
@@ -278,7 +263,7 @@ body {
     overflow-y: auto;
     background-color: var(--asideleft-backgroundcolor);
     padding: var(--asideleft-padding);
-    padding-bottom: calc(var(--navwrapper-marginbottom) + var(--asideleft-padding));
+    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideleft-padding));
     transition: width 200ms ease, visibility 100ms ease;
 }
 .checkbox-asideleft:checked ~ .aside-left {
@@ -289,8 +274,8 @@ body {
     order: 3;
     flex: 0 0 auto;
     position: sticky;
-    top: var(--navwrapper-height);
-    height: calc(100vh - var(--navwrapper-height));
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
     display: flex;
 }
 .label-asideright {
@@ -314,7 +299,7 @@ body {
     overflow-y: auto;
     background-color: var(--asideright-backgroundcolor);
     padding: var(--asideright-padding);
-    padding-bottom: calc(var(--navwrapper-marginbottom) + var(--asideright-padding));
+    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideright-padding));
     transition: width 200ms ease, visibility 100ms ease;
 }
 .checkbox-asideright:checked ~ .aside-right {
@@ -370,7 +355,7 @@ body {
     }
     /* 由于左上角增加了弹出式菜单图标，故导航栏增大左侧内边距 */
     .nav-wrapper {
-        padding-left: calc(var(--navwrapper-height) + 2 * var(--navwrapper-gap));
+        padding-left: calc(var(--navcontainer-height) + 2 * var(--navcontainer-gap));
     }
     /* 隐藏右侧导航栏 */
     .nav-container > .nav-right {

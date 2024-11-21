@@ -39,3 +39,10 @@ class ArticleView(generic.DetailView):
     extra_context = {'articles': articles,}
     template_name = 'blog/article.html'
     context_object_name = 'article'
+
+
+def test(request):
+    return render(
+        request,
+        'blog/test.html',
+    )

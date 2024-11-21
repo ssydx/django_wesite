@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}<title>
+        网站名称
+    </title>{% endblock %}
+    {% block base %}{% endblock base %}
+    {% block link-icon %}{% endblock link-icon %}
+    {% block style %}<style>
+            h1 {
+                text-align: center;
+            }
+            p {
+                text-indent: 2em;
+                text-align: justify;
+            }
+            span {
+                color: red;
+            }
+    </style>{% endblock style %}
+    {% block link-stylesheet %}{% endblock link-stylesheet %}
+    {% block head-script %}{% endblock head-script %}
+    {% block head-other %}{% endblock head-other %}
+</head>
+<body>
+    {% block body %}
+        <span>ssydx-{% now 'm-d-Y h:i:s' %}</span>
+        <h1>{% lorem 5 w %}</h1>
+        {% lorem 5 p random %}
+    {% endblock body %}
+    {% block body-script %}{% endblock body-script %}
+    {% block body-other %}{% endblock body-other %}
+</body>
+</html>
