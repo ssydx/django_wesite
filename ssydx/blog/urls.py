@@ -13,3 +13,6 @@ urlpatterns += [
 urlpatterns += [
     path('article/<int:pk>', views.ArticleView.as_view(), name='article')
 ]
+urlpatterns += [
+    path('test/', views.test, name='test'),
+]

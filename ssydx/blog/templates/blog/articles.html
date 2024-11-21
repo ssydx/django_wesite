@@ -1,24 +1,22 @@
-{% extends 'blog/components/base.html' %}
+{% extends 'blog/base.html' %}
 
-{% block style %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'blog/css/page.css' %}">
-    <script src="{% static 'blog/js/page.js' %}"></script>
-{% endblock %}
 
 {% block aside_left1 %}
+    <p>123</p>
     {% for article in articles %}
         <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
     {% endfor %}
 {% endblock %}
 
 {% block aside_left2 %}
+<p>123</p>
     {% for article in articles %}
         <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
     {% endfor %}
 {% endblock %}
 
 {% block aside_left3 %}
+<p>123</p>
     {% for article in articles %}
         <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
     {% endfor %}
@@ -30,4 +28,4 @@
         <p>{{article.desc}}</p>
         {{ article.content|safe }}
     {% endwith %}
-{% endblock %}
+{% endblock main %}

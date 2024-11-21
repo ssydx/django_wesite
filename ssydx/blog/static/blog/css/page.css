@@ -127,7 +127,7 @@ a {
 
 /* 左侧导航栏设置 */
 .nav-left > .home-icon {
-    height: calc(2 / 3 * var(--navwrapper-height));
+    height: calc(2 / 3 * var(--navcontainer-height));
 }
 .nav-left > a {
     transition: border-bottom 100ms ease, font-weight 50ms ease;
@@ -143,17 +143,17 @@ a {
     align-items: center;
     justify-content: right;
     gap: 0.5em;
-    height: calc(2 / 3 * var(--navwrapper-height));
+    height: calc(2 / 3 * var(--navcontainer-height));
 }
 .nav-right > .form-search > * {
     all: unset;
     border: 1px solid rgba(0, 0, 0, 0.5);
     font-size: 0.9em;
     padding: 0 0.5em;
-    height: calc(2 / 3 * var(--navwrapper-height));
+    height: calc(2 / 3 * var(--navcontainer-height));
 }
 .nav-right > .form-search > .searchbox {
-    border-radius: calc(2 / 3 * var(--navwrapper-height));
+    border-radius: calc(2 / 3 * var(--navcontainer-height));
     background-color: white;
     width: 120px;
     transition: border 400ms ease, flex 400ms ease;
@@ -165,7 +165,7 @@ a {
     text-decoration: none;
 }
 .nav-right > .form-search > .submitbutton {
-    border-radius: calc(1 / 10 * var(--navwrapper-height));
+    border-radius: calc(1 / 10 * var(--navcontainer-height));
     background-color: rgb(245, 245, 245);
     white-space: nowrap;
 }
@@ -179,7 +179,7 @@ a {
     align-items: stretch;
     justify-content: right;
     gap: 0.5em;
-    height: calc(2 / 3 * var(--navwrapper-height));
+    height: calc(2 / 3 * var(--navcontainer-height));
 }
 .nav-right > .form-theme > .themelabel {
     align-self: center;
@@ -188,6 +188,6 @@ a {
 .nav-right > .form-theme > .selectlist {
     border: 0.5px solid rgba(0, 0, 0, 0.5);
     font-size: 0.9em;
-    border-radius: calc(1 / 10 * var(--navwrapper-height));
+    border-radius: calc(1 / 10 * var(--navcontainer-height));
 }
 

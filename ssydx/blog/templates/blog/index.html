@@ -1,10 +1,11 @@
-{% extends 'blog/components/base.html' %}
+{% extends 'blog/base.html' %}
 
 {% block style %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'blog/css/page.css' %}">
-    <script src="{% static 'blog/js/page.js' %}"></script>
+    <link rel="stylesheet" href="css/page.css">
+    <script src="js/page.js"></script>
 {% endblock %}
+
 {% block nav_left %}
     {% for modelname in modelnames %}
         <a href="{% url 'articles' %}">{{ modelname }}</a>
