@@ -1,4 +1,4 @@
-{% extends 'generic.html' %}
+{% extends 'origin.html' %}
 
 
 {% comment %}
@@ -42,8 +42,8 @@
 {% block body %}
     {% block nav-container %}<div class="nav-container">
         {% block nav-home %}
-            <a class="nav-home" href="{% url 'index' %}" title="首页">
-                <img class="home-icon" src="icons/home-icon.svg" alt="首页图标">
+            <a class="nav-home" href="{% url 'index' %}" title="回到首页">
+                <img class="home-icon" src="icons/home-icon.svg" alt="首页">
             </a>
         {% endblock nav-home %}
         {% block nav-left %}<div class="nav-left">
@@ -51,13 +51,12 @@
                 <a href="#">此路径有五个中文字符一二三四</a>
                 <a href="#">此路径有一个中文字符</a>
                 <a href="#">此路径有一个中文字符</a>
-                <a href="#">此路径有一个中文字符</a>
             </div>
         </div>{% endblock nav-left %}
         {% block nav-center %}<div class="nav-center">
             <span class="dividingline"></span>
         </div>{% endblock nav-center %}
-        {% block nav-right %}<div class="nav-right">
+        {% block nav-right1 %}<div class="nav-right">
                 <form class="form-search" action="/pages/search.html" method="get" target="_blank">
                     <input class="searchbox" type="search" name="q" placeholder="    ">
                     <input class="submitbutton" type="submit" value="提交">
@@ -70,23 +69,39 @@
                         <option value="moonlight">夜晚</option>
                     </select>
                 </form>
-        </div>{% endblock nav-right %}
+        </div>{% endblock nav-right1 %}
     </div>{% endblock nav-container %}
+
+
     {% block main-wrapper %}<div class="main-wrapper">
         <div class="toc-container">
             <div class="menu-wrapper">
                 <input id="menuCheckbox" class="checkbox-menu" type="checkbox" style="display: none;">
                 <label class="label-menu" for="menuCheckbox" title="菜单"><span></span></label>
                 <div class="menu-container">
-                    <div class="aside-left">{% block aside_left1 %}{% endblock %}</div>
-                    <div class="aside-right">{% block aside_right %}{% endblock %}</div>
+                    {% block nav-right2 %}<div class="nav-right">
+                        <form class="form-search" action="/pages/search.html" method="get" target="_blank">
+                            <input class="searchbox" type="search" name="q" placeholder="    ">
+                            <input class="submitbutton" type="submit" value="提交">
+                        </form>
+                        <form class="form-theme">
+                            <label class="themelabel" for="themelist">主题</label>
+                            <select class="selectlist" name="theme" id="themelist">
+                                <option value="auto">自动</option>
+                                <option value="daylight">白天</option>
+                                <option value="moonlight">夜晚</option>
+                            </select>
+                        </form>
+                    </div>{% endblock nav-right2 %}
+                    {% block aside_left1 %}<div class="aside-left"></div>{% endblock %}
+                    {% block aside_right %}<div class="aside-right"></div>{% endblock %}
                 </div>
             </div>
             <div class="singleAside-wrapper">
                 <input id="asideCheckbox" class="checkbox-aside" type="checkbox" style="display: none;">
                 <label class="label-aside" for="asideCheckbox" title="展开/收起"></label>
                 <div class="aside-container">
-                    <div class="aside-left">{% block aside_left2 %}{% endblock %}</div>
+                    {% block aside_left2 %}<div class="aside-left"></div>{% endblock %}
                     <div class="aside-right"></div>
                 </div>
             </div>
@@ -94,16 +109,16 @@
                 <div class="leftAside-wrapper">
                     <input id="asideleftCheckbox" class="checkbox-asideleft" type="checkbox" style="display: none;">
                     <label class="label-asideleft" for="asideleftCheckbox" title="展开/收起"></label>
-                    <div class="aside-left">{% block aside_left3 %}{% endblock %}</div>
+                    {% block aside_left3 %}<div class="aside-left"></div>{% endblock %}
                 </div>
                 <div class="rightAside-wrapper">
                     <input id="asiderightCheckbox" class="checkbox-asideright" type="checkbox" style="display: none;">
                     <label class="label-asideright" for="asiderightCheckbox"  title="展开/收起"></label>
                     <div class="aside-right"></div>
                 </div>
-            </div>          
+            </div>
         </div>
-        <div class="main">{% block main %}{% endblock main %}</div>
+        {% block main %}<div class="main"></div>{% endblock main %}
     </div>{% endblock main-wrapper %}
 {% endblock body %}
 

@@ -103,17 +103,9 @@ body {
     gap: 0 var(--mainwrapper-gap);
 }
 
-/* 设置目录 */
-.toc-container {
-    display: contents;
-}
-/* 设置弹出式目录 */
-.menu-wrapper {
-    /* 默认不显示 */
-    display: none;
-}
+
+
 .label-menu {
-    /* 设置弹出式菜单图标 */
     position: fixed;
     left: 0;
     top: 0;
@@ -126,7 +118,6 @@ body {
     justify-content: space-around;
 }
 .label-menu > span {
-    /* 图标内线条 */
     height: calc(1 / 15 * var(--navcontainer-height));
     width: 70%;
     display: block;
@@ -134,7 +125,6 @@ body {
     background-color: var(--menubar-backgroundcolor);
 }
 .label-menu > span::before {
-    /* 图标内线条 */
     content: '';
     position: relative;
     top: calc(-4 / 15 * var(--navcontainer-height));
@@ -166,24 +156,6 @@ body {
 .checkbox-menu:checked:hover ~ .label-menu > span {
     transform: rotate(135deg);
 }
-.menu-container {
-    position: fixed;
-    top: 0;
-    left: calc(-1 * var(--menucontainer-width));
-    transition: left 400ms ease;
-    display: flex;
-    flex-direction: column;
-    gap: var(--menucontainer-gap) 0 ;
-    width: var(--menucontainer-width);
-    height: 100vh;
-    /* overflow-y: auto; */
-    /* 为了避免右侧导航栏加入导致水平溢出 */
-    overflow-x: hidden;
-    padding: var(--menucontainer-padding);
-    padding-top: calc(var(--navcontainer-height) + var(--menucontainer-padding));
-    background-color: var(--menucontainer-backgroundcolor);
-    box-shadow: 0 0 var(--menucontainer-boxshadow-gauss) var(--menucontainer-boxshadow-color);
-}
 .menu-container > .nav-right {
     position: sticky;
     transform: translate(calc(-1 * var(--menucontainer-padding)), calc(-1 * var(--menucontainer-padding)));
@@ -211,132 +183,16 @@ body {
 .menu-container > .aside-right {
     order: 2;
 }
-.checkbox-menu:checked ~ .menu-container {
+.checkbox-menu:checked ~ .singleAside-wrapper {
     left: 0;
 }
-/* 设置单侧目录 */
-.singleAside-wrapper {
-    /* 默认不显示 */
-    order: 1;
-    flex: 0 0 auto;
-    position: sticky;
-    top: var(--navcontainer-height);
-    height: calc(100vh - var(--navcontainer-height));
-    display: none;
-}
-.label-aside {
-    order: 2;
-    width: var(--labelaside-width);
-    background-color: var(--labelaside-backgroundcolor);
-    border-radius: 0 calc(2 / 3 * var(--labelaside-width)) calc(2 / 3 * var(--labelaside-width)) 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.label-aside::before {
-    content: '«';
-}
-.checkbox-aside:checked ~ .label-aside::before {
-    content: '»';
-}
-.aside-container {
-    order: 1;
-    width: var(--singleaside-width);
-    display: flex;
-    flex-direction: column;
-    gap: var(--singleaside-gap);
-    overflow-y: auto;
-    background-color: var(--singleaside-backgroundcolor);
-    padding: var(--singleaside-padding);
-    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--singleaside-padding));
-    transition: width 200ms ease, visibility 100ms ease;
-}
-.aside-container > .aside-left {
-    order: 2;
-}
-.aside-container > .aside-right {
-    order: 1;
-}
-.checkbox-aside:checked ~ .aside-container {
-    width: 0;
-    visibility: hidden;
-}
+
+
 /* 设置双侧目录 */
 .doubleAside-wrapper {
     display: contents;
 }
-.leftAside-wrapper {
-    order: 1;
-    flex: 0 0 auto;
-    position: sticky;
-    top: var(--navcontainer-height);
-    height: calc(100vh - var(--navcontainer-height));
-    display: flex;
-}
-.label-asideleft {
-    order: 2;
-    width: var(--labelasideleft-width);
-    background-color: var(--labelasideleft-backgroundcolor);
-    border-radius: 0 calc(2 / 3 * var(--labelasideleft-width)) calc(2 / 3 * var(--labelasideleft-width)) 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.label-asideleft::before {
-    content: '«';
-}
-.checkbox-asideleft:checked ~ .label-asideleft::before {
-    content: '»';
-}
-.leftAside-wrapper > .aside-left {
-    order: 1;
-    width: var(--asideleft-width);
-    overflow-y: auto;
-    background-color: var(--asideleft-backgroundcolor);
-    padding: var(--asideleft-padding);
-    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideleft-padding));
-    transition: width 200ms ease, visibility 100ms ease;
-}
-.checkbox-asideleft:checked ~ .aside-left {
-    width: 0;
-    visibility: hidden;
-}
-.rightAside-wrapper {
-    order: 3;
-    flex: 0 0 auto;
-    position: sticky;
-    top: var(--navcontainer-height);
-    height: calc(100vh - var(--navcontainer-height));
-    display: flex;
-}
-.label-asideright {
-    order: 1;
-    width: var(--labelasideright-width);
-    background-color: var(--labelasideright-backgroundcolor);
-    border-radius: calc(2 / 3 * var(--labelasideright-width)) 0 0 calc(2 / 3 * var(--labelasideright-width));
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-.label-asideright::before {
-    content: '»';
-}
-.checkbox-asideright:checked ~ .label-asideright::before {
-    content: '«';
-}
-.rightAside-wrapper > .aside-right {
-    order: 2;
-    width: var(--asideright-width);
-    overflow-y: auto;
-    background-color: var(--asideright-backgroundcolor);
-    padding: var(--asideright-padding);
-    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideright-padding));
-    transition: width 200ms ease, visibility 100ms ease;
-}
-.checkbox-asideright:checked ~ .aside-right {
-    width: 0;
-    visibility: hidden;
-}
+
 /* 设置左右侧边栏为空时内容 */
 .aside-left:empty::before {
     content: '';
@@ -351,6 +207,52 @@ body {
     min-height: 500px;
 }
 
+.label-asideleft::before {
+    content: '«';
+}
+.checkbox-asideleft:checked ~ .label-asideleft::before {
+    content: '»';
+}
+.label-asideright::before {
+    content: '»';
+}
+.checkbox-asideright:checked ~ .label-asideright::before {
+    content: '«';
+}
+.label-asideleft {
+    order: 2;
+    width: var(--labelasideleft-width);
+    background-color: var(--labelasideleft-backgroundcolor);
+    border-radius: 0 calc(2 / 3 * var(--labelasideleft-width)) calc(2 / 3 * var(--labelasideleft-width)) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.label-asideright {
+    order: 1;
+    width: var(--labelasideright-width);
+    background-color: var(--labelasideright-backgroundcolor);
+    border-radius: calc(2 / 3 * var(--labelasideright-width)) 0 0 calc(2 / 3 * var(--labelasideright-width));
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.leftAside-wrapper {
+    order: 1;
+    flex: 0 0 auto;
+    position: sticky;
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
+    display: flex;
+}
+.rightAside-wrapper {
+    order: 3;
+    flex: 0 0 auto;
+    position: sticky;
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
+    display: flex;
+}
 /* 设置内容 */
 .main {
     order: 2;
@@ -363,36 +265,118 @@ body {
     min-height: 1500px;
 }
 
+
+.menu-wrapper {
+    display: contents;
+}
+.singleAside-wrapper {
+    order: 1;
+    flex: 0 0 auto;
+    position: sticky;
+    top: var(--navcontainer-height);
+    height: calc(100vh - var(--navcontainer-height));
+    display: contents;
+}
+.label-aside {
+    display: none;
+}
+.aside-left {
+    order: 1;
+    width: var(--asideleft-width);
+    overflow-y: auto;
+    background-color: var(--asideleft-backgroundcolor);
+    padding: var(--asideleft-padding);
+    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideleft-padding));
+    transition: width 200ms ease, visibility 100ms ease;
+}
+.aside-right {
+    order: 2;
+    width: var(--asideright-width);
+    overflow-y: auto;
+    background-color: var(--asideright-backgroundcolor);
+    padding: var(--asideright-padding);
+    padding-bottom: calc(var(--navcontainer-marginbottom) + var(--asideright-padding));
+    transition: width 200ms ease, visibility 100ms ease;
+}
+@media (min-width: 993px) {
+    .checkbox-asideleft:checked ~ .aside-left {
+        width: 0;
+        visibility: hidden;
+    }
+    .checkbox-asideright:checked ~ .aside-right {
+        width: 0;
+        visibility: hidden;
+    }
+}
+
 /* 最大宽度不超过992px时 */
 @media (max-width: 992px) {
-    /* 隐藏双侧目录 */
-    .doubleAside-wrapper {
+    .leftAside-wrapper, .rightAside-wrapper {
+        display: contents;
+    }
+    .label-asideleft, .label-asideright {
         display: none;
     }
-    /* 显示单侧目录 */
     .singleAside-wrapper {
         display: flex;
+    }
+    .doubleAside-wrapper {
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+        width: 300px;
+        transition: width 200ms ease, visibility 100ms ease;
+    }
+    .label-aside {
+        order: 2;
+        width: var(--labelaside-width);
+        background-color: var(--labelaside-backgroundcolor);
+        border-radius: 0 calc(2 / 3 * var(--labelaside-width)) calc(2 / 3 * var(--labelaside-width)) 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .label-aside::before {
+        content: '«';
+    }
+    .checkbox-aside:checked ~ .label-aside::before {
+        content: '»';
+    }
+    .checkbox-aside:checked ~ .doubleAside-wrapper {
+        width: 0;
+        visibility: hidden;
     }
 }
 /* 最大宽度不超过768px时 */
 @media (max-width: 768px) {
-    /* 隐藏单侧目录 */
-    .singleAside-wrapper {
+    .nav-container > .nav-left {
         display: none;
     }
-    /* 显示弹出式目录 */
-    .menu-wrapper {
+    .nav-container > .nav-center {
+        display: none;
+    }
+    .doubleAside-wrapper {
         display: contents;
     }
-    /* 由于左上角增加了弹出式菜单图标，故导航栏增大左侧内边距 */
-    .nav-container {
-        padding-left: calc(var(--navcontainer-height) + 2 * var(--navcontainer-gap));
+    .singleAside-wrapper {
+        position: fixed;
+        top: 0;
+        left: calc(-1 * var(--menucontainer-width));
+        transition: left 400ms ease;
+        flex-direction: column;
+        gap: var(--menucontainer-gap) 0 ;
+        width: var(--menucontainer-width);
+        height: 100vh;
+        overflow-x: hidden;
+        padding: var(--menucontainer-padding);
+        padding-top: calc(var(--navcontainer-height) + var(--menucontainer-padding));
+        background-color: var(--menucontainer-backgroundcolor);
+        box-shadow: 0 0 var(--menucontainer-boxshadow-gauss) var(--menucontainer-boxshadow-color);
     }
-    /* 隐藏右侧导航栏 */
-    .nav-container > .nav-left{
+    .label-aside {
         display: none;
     }
-    .nav-container > .nav-center{
-        display: none;
+    .aside-left, .aside-right {
+        width: 100%;
     }
 }

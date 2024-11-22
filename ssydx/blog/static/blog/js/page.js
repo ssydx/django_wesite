@@ -1,7 +1,7 @@
 document.addEventListener(
     'DOMContentLoaded',
     function() {
-        const toc_links = document.querySelectorAll('main > h2');
+        const toc_links = document.querySelectorAll('.main > h2');
         const tocs = document.querySelectorAll('.aside-right');
         tocs.forEach(toc => {
             var id=0;
@@ -10,7 +10,7 @@ document.addEventListener(
                 toc_link.id = id;
                 var link = document.createElement('a');
                 link.innerHTML = toc_link.innerHTML;
-                link.href = '#' + id;
+                link.href = this.location.href + '#' + id;
                 toc.appendChild(link);
             })
         })
