@@ -1,36 +1,17 @@
 {% extends 'blog/base.html' %}
 
 
-{% block aside_left1 %}
-<div class="aside-left">
-        {% for article in articles %}
-            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        {% endfor %}
-</div>
-{% endblock aside_left1 %}
+{% block aside_left %}
+    {% for article in articles %}
+        <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
+    {% endfor %}
+{% endblock aside_left %}
 
-{% block aside_left2 %}
-<div class="aside-left">
-        {% for article in articles %}
-            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        {% endfor %}
-</div>
-{% endblock aside_left2 %}
-
-{% block aside_left3 %}
-<div class="aside-left">
-        {% for article in articles %}
-            <a href="{{ article.get_absolute_url }}">{{ article.title }}</a>
-        {% endfor %}
-</div>
-{% endblock aside_left3 %}
 
 {% block main %}
-<div class="main">
-        {% with article=articles|first %}
-            <h1>{{article.title}}</h1>
-            <p>{{article.desc}}</p>
-            {{ article.content|safe }}
-        {% endwith %}
-</div>
+    {% with article=articles|first %}
+        <h1>{{article.title}}</h1>
+        <p>{{article.desc}}</p>
+        {{ article.content|safe }}
+    {% endwith %}
 {% endblock main %}

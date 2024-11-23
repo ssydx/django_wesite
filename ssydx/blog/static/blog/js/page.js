@@ -1,43 +1,68 @@
+// 本章导航
+function inpagenav() {
+    return new Promise((resolve, reject) => {
+        const toc_links = document.querySelectorAll('.main > h2');
+        const toc_containers = document.querySelectorAll('.aside-right');
+        toc_containers.forEach(toc_container => {
+            let id = 0;
+            toc_links.forEach(toc_link => {
+                id += 1;
+                toc_link.id = 'section-' + id;
+                const link = document.createElement('a');
+                link.innerHTML = toc_link.innerHTML;
+                link.href = window.location.pathname + '#section-' + id;
+                toc_container.appendChild(link);
+            });
+        })
+        resolve(document);
+    })
+}
+// 章节导航
+function crosspagenav() {
+    return new Promise((resolve, reject) => {
+        const aside_left = document.querySelector('.leftAside-wrapper > .aside-left');
+        document.querySelector('.aside-container > .aside-left').innerHTML = aside_left.innerHTML;
+        document.querySelector('.menu-container > .aside-left').innerHTML = aside_left.innerHTML;
+        resolve(document);
+    })
+}
+
+// const nav_left = document.querySelector('.nav-left');
+// var preNode;
+// function nav_click() {
+//     if (preNode != null) {
+//         preNode.style.borderBottomColor = '';
+//         preNode.style.borderBottomWidth = '';
+//         preNode.style.borderBottomStyle = '';
+//         preNode.style.fontWeight = '';
+//     }
+//     this.style.borderBottomColor = 'black';
+//     this.style.borderBottomWidth = '0.25em';
+//     this.style.borderBottomStyle = 'solid';
+//     this.style.fontWeight = '300';
+//     preNode = this;
+// }
+// nav_left.querySelectorAll('a').forEach(element => {
+//     element.addEventListener('click', nav_click)
+// })
+
 document.addEventListener(
     'DOMContentLoaded',
     function() {
-        const toc_links = document.querySelectorAll('.main > h2');
-        const tocs = document.querySelectorAll('.aside-right');
-        tocs.forEach(toc => {
-            var id=0;
-            toc_links.forEach(toc_link => {
-                id += 1;
-                toc_link.id = id;
-                var link = document.createElement('a');
-                link.innerHTML = toc_link.innerHTML;
-                link.href = this.location.href + '#' + id;
-                toc.appendChild(link);
-            })
-        })
-        const nav_left = document.querySelector('.nav-left');
-        var preNode;
-        function nav_click() {
-            if (preNode != null) {
-                preNode.style.borderBottomColor = '';
-                preNode.style.borderBottomWidth = '';
-                preNode.style.borderBottomStyle = '';
-                preNode.style.fontWeight = '';
+        inpagenav().then(doc => {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetElement = doc.querySelector(hash);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
             }
-            this.style.borderBottomColor = 'black';
-            this.style.borderBottomWidth = '0.25em';
-            this.style.borderBottomStyle = 'solid';
-            this.style.fontWeight = '300';
-            preNode = this;
-        }
-        nav_left.querySelectorAll('a').forEach(element => {
-            element.addEventListener('click', nav_click)
+        });
+        crosspagenav().then(doc => {
+            const left_navs = doc.querySelectorAll(`a[href="${window.location.pathname}"]`);
+            left_navs.forEach(left_nav => {
+                left_nav.style.fontWeight = 900;
+                left_nav.scrollIntoView({ behavior: 'smooth' });
+            });
         })
-        const hash = window.location.hash;
-        if (hash) {
-            const targetElement = document.querySelector(hash);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    }
-)
+})

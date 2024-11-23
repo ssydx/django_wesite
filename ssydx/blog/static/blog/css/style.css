@@ -56,7 +56,7 @@ body {
 .nav-container > *:not(:first-child) {
     display: flex;
 }
-.nav-home {
+.nav-container > .nav-home {
     flex: 0 0 auto;
     height: var(--nav-h);
 }
@@ -74,6 +74,12 @@ body {
     flex: 1 0 auto;
     justify-content: flex-end;
     gap: var(--navright-gy) var(--navright-gx);
+}
+.nav-container > .nav-home:empty {
+    background-color: black;
+    height: var(--h-4);
+    width: var(--h-4);
+    flex: 0 1 auto;
 }
 .nav-container > .nav-left:empty {
     background-color: aqua;

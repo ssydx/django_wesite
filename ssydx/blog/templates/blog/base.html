@@ -1,125 +1,91 @@
-{% extends 'origin.html' %}
+{% extends 'blog.html' %}
 
-
-{% comment %}
-    继承模板，之后对必要的部分进行重写
-{% endcomment %}
-
-
-{% block title %}
-    {# 重载文档标题 #}
-    <title>SSYDX</title>
-{% endblock title %}
-
-
-{% block base %}
-    {% load static %}
-    <base href="{% static 'blog/' %}" target="_self">
-{% endblock base %}
-
-
-{% block link-icon %}
-    <link rel="icon" href="icons/cywl.png">
-{% endblock link-icon %}
-
-
-{% block style %}
-{% endblock style %}
 
 
 {% block link-stylesheet %}
-    <link rel="stylesheet" href="css/style.css">
+    {{ block.super }}
     <link rel="stylesheet" href="css/page.css">
 {% endblock link-stylesheet %}
 
 
 {% block head-script %}
-    <script src="js/temp.js"></script>
+    {{ block.super }}
     <script src="js/page.js"></script>
 {% endblock head-script %}
 
 
-{% block body %}
-    {% block nav-container %}<div class="nav-container">
-        {% block nav-home %}
-            <a class="nav-home" href="{% url 'index' %}" title="回到首页">
-                <img class="home-icon" src="icons/home-icon.svg" alt="首页">
-            </a>
-        {% endblock nav-home %}
-        {% block nav-left %}<div class="nav-left">
-            <div class="path">
-                <a href="#">此路径有五个中文字符一二三四</a>
-                <a href="#">此路径有一个中文字符</a>
-                <a href="#">此路径有一个中文字符</a>
-            </div>
-        </div>{% endblock nav-left %}
-        {% block nav-center %}<div class="nav-center">
-            <span class="dividingline"></span>
-        </div>{% endblock nav-center %}
-        {% block nav-right1 %}<div class="nav-right">
-                <form class="form-search" action="/pages/search.html" method="get" target="_blank">
-                    <input class="searchbox" type="search" name="q" placeholder="    ">
-                    <input class="submitbutton" type="submit" value="提交">
-                </form>
-                <form class="form-theme">
-                    <label class="themelabel" for="themelist">主题</label>
-                    <select class="selectlist" name="theme" id="themelist">
-                        <option value="auto">自动</option>
-                        <option value="daylight">白天</option>
-                        <option value="moonlight">夜晚</option>
-                    </select>
-                </form>
-        </div>{% endblock nav-right1 %}
-    </div>{% endblock nav-container %}
+{% block nav-home %}
+    <a href="{% url 'index' %}" title="回到首页">
+        <img class="home-icon" src="icons/home-icon.svg" alt="首页">
+    </a>
+{% endblock nav-home %}
 
 
-    {% block main-wrapper %}<div class="main-wrapper">
-        <div class="toc-container">
-            <div class="menu-wrapper">
-                <input id="menuCheckbox" class="checkbox-menu" type="checkbox" style="display: none;">
-                <label class="label-menu" for="menuCheckbox" title="菜单"><span></span></label>
-                <div class="menu-container">
-                    {% block nav-right2 %}<div class="nav-right">
-                        <form class="form-search" action="/pages/search.html" method="get" target="_blank">
-                            <input class="searchbox" type="search" name="q" placeholder="    ">
-                            <input class="submitbutton" type="submit" value="提交">
-                        </form>
-                        <form class="form-theme">
-                            <label class="themelabel" for="themelist">主题</label>
-                            <select class="selectlist" name="theme" id="themelist">
-                                <option value="auto">自动</option>
-                                <option value="daylight">白天</option>
-                                <option value="moonlight">夜晚</option>
-                            </select>
-                        </form>
-                    </div>{% endblock nav-right2 %}
-                    {% block aside_left1 %}<div class="aside-left"></div>{% endblock %}
-                    {% block aside_right %}<div class="aside-right"></div>{% endblock %}
-                </div>
-            </div>
-            <div class="singleAside-wrapper">
-                <input id="asideCheckbox" class="checkbox-aside" type="checkbox" style="display: none;">
-                <label class="label-aside" for="asideCheckbox" title="展开/收起"></label>
-                <div class="aside-container">
-                    {% block aside_left2 %}<div class="aside-left"></div>{% endblock %}
-                    <div class="aside-right"></div>
-                </div>
-            </div>
-            <div class="doubleAside-wrapper">
-                <div class="leftAside-wrapper">
-                    <input id="asideleftCheckbox" class="checkbox-asideleft" type="checkbox" style="display: none;">
-                    <label class="label-asideleft" for="asideleftCheckbox" title="展开/收起"></label>
-                    {% block aside_left3 %}<div class="aside-left"></div>{% endblock %}
-                </div>
-                <div class="rightAside-wrapper">
-                    <input id="asiderightCheckbox" class="checkbox-asideright" type="checkbox" style="display: none;">
-                    <label class="label-asideright" for="asiderightCheckbox"  title="展开/收起"></label>
-                    <div class="aside-right"></div>
-                </div>
-            </div>
-        </div>
-        {% block main %}<div class="main"></div>{% endblock main %}
-    </div>{% endblock main-wrapper %}
-{% endblock body %}
+{% block nav-left %}
+    <div class="path">
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+    </div>
+{% endblock nav-left %}
 
+
+{% block nav-center %}
+    <span class="dividingline"></span>
+{% endblock nav-center %}
+
+
+{% block nav-right %}
+    <form class="form-search" action="/pages/search.html" method="get" target="_blank">
+        <input class="searchbox" type="search" name="q" placeholder="    ">
+        <input class="submitbutton" type="submit" value="提交">
+    </form>
+    <form class="form-theme">
+        <label class="themelabel" for="themelist">主题</label>
+        <select class="selectlist" name="theme" id="themelist">
+            <option value="auto">自动</option>
+            <option value="daylight">白天</option>
+            <option value="moonlight">夜晚</option>
+        </select>
+    </form>
+{% endblock nav-right %}
+
+
+{% block aside_left %}
+    <a href="{% url 'index' %}">首页1</a>
+    <a href="{% url 'index' %}">首页2</a>
+    <a href="{% url 'index' %}">首页3</a>
+    <a href="{% url 'index' %}">首页4</a>
+    <a href="{% url 'index' %}">首页5</a>
+    <a href="{% url 'index' %}">首页6</a>
+    <a href="{% url 'index' %}">首页7</a>
+    <a href="{% url 'index' %}">首页8</a>
+    <a href="{% url 'index' %}">首页9</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+{% endblock aside_left %}
+
+
+{% block main %}
+    {% with '11111111111111111111111'|make_list as list %}
+        {% for ele in list %}
+            <h2>{% lorem 2 w random %}</h2>
+            {% lorem 2 p random %}
+        {% endfor %}
+    {% endwith %}
+{% endblock main %}
 

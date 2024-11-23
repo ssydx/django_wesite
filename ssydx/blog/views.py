@@ -41,13 +41,18 @@ class ArticleView(generic.DetailView):
     context_object_name = 'article'
 
 
-def test1(request):
+def origin(request):
     return render(
         request,
         'origin.html',
 )
-def test2(request):
+def blog(request):
     return render(
         request,
-        'test.html',
+        'blog.html',
+)
+def base(request):
+    return render(
+        request,
+        'blog/base.html',
 )

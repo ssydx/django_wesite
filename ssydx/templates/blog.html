@@ -1,39 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网站</title>
+{% extends 'origin.html' %}
+
+
+{% comment %}
+    继承模板，之后对必要的部分进行重写
+{% endcomment %}
+
+
+{% block title %}
+    {# 重载文档标题 #}
+    SSYDX
+{% endblock title %}
+
+
+{% block base %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
-    <script src="{% static 'blog/js/temp.js' %}"></script>
-    {% block style %}{% endblock %}
-    {% block js %}{% endblock %}
-</head>
-<body>
-    <div class="nav-wrapper">
-        <div class="placeholder-nav"> </div>
-        <div class="nav-container">
-            <div class="nav-left">{% block nav_left %}{% include 'blog/components/nav_left.html' %}{% endblock %}</div>
-            <div class="nav-right">{% include 'blog/components/nav_right.html' %}</div>
-        </div>
+    <base href="{% static 'blog/' %}" target="_self">
+{% endblock base %}
+
+
+{% block link-icon %}
+    <link rel="icon" href="icons/cywl.png">
+{% endblock link-icon %}
+
+
+{% block style %}
+{% endblock style %}
+
+
+{% block link-stylesheet %}
+    <link rel="stylesheet" href="css/style.css">
+{% endblock link-stylesheet %}
+
+
+{% block head-script %}
+    <script src="js/temp.js"></script>
+{% endblock head-script %}
+
+
+{% block body %}
+    <div class="nav-container">
+        <div class="nav-home">{% block nav-home %}{% endblock nav-home %}</div>
+        <div class="nav-left">{% block nav-left %}{% endblock nav-left %}</div>
+        <div class="nav-center">{% block nav-center %}{% endblock nav-center %}</div>
+        <div class="nav-right">{% block nav-right %}{% endblock nav-right %}</div>
     </div>
+
     <div class="main-wrapper">
         <div class="toc-container">
             <div class="menu-wrapper">
                 <input id="menuCheckbox" class="checkbox-menu" type="checkbox" style="display: none;">
                 <label class="label-menu" for="menuCheckbox" title="菜单"><span></span></label>
                 <div class="menu-container">
-                    <div class="nav-right">{% include 'blog/components/nav_right.html' %}</div>
-                    <div class="aside-left">{% block aside_left1 %}{% endblock %}</div>
-                    <div class="aside-right">{% block aside_right %}{% endblock %}</div>
+                    <div class="aside-left"></div>
+                    <div class="aside-right"></div>
                 </div>
             </div>
             <div class="singleAside-wrapper">
                 <input id="asideCheckbox" class="checkbox-aside" type="checkbox" style="display: none;">
                 <label class="label-aside" for="asideCheckbox" title="展开/收起"></label>
                 <div class="aside-container">
-                    <div class="aside-left">{% block aside_left2 %}{% endblock %}</div>
+                    <div class="aside-left"></div>
                     <div class="aside-right"></div>
                 </div>
             </div>
@@ -41,16 +67,17 @@
                 <div class="leftAside-wrapper">
                     <input id="asideleftCheckbox" class="checkbox-asideleft" type="checkbox" style="display: none;">
                     <label class="label-asideleft" for="asideleftCheckbox" title="展开/收起"></label>
-                    <div class="aside-left">{% block aside_left3 %}{% endblock %}</div>
+                    <div class="aside-left">{% block aside_left %}{% endblock aside_left %}</div>
                 </div>
                 <div class="rightAside-wrapper">
                     <input id="asiderightCheckbox" class="checkbox-asideright" type="checkbox" style="display: none;">
                     <label class="label-asideright" for="asiderightCheckbox"  title="展开/收起"></label>
                     <div class="aside-right"></div>
                 </div>
-            </div>          
+            </div>
         </div>
-        <div class="main">{% block main %}{% endblock %}</div>
+        <div class="main">{% block main %}{% endblock main %}</div>
     </div>
-</body>
-</html>
+{% endblock body %}
+
+

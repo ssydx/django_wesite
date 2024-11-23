@@ -14,8 +14,11 @@ urlpatterns += [
     path('article/<int:pk>', views.ArticleView.as_view(), name='article')
 ]
 urlpatterns += [
-    path('test1/', views.test1, name='test1'),
+    path('origin/', views.origin, name='origin'),
 ]
 urlpatterns += [
-    path('test2/', views.test2, name='test2'),
+    path('blog/', views.blog, name='blog'),
+]
+urlpatterns += [
+    path('base/', views.base, name='base'),
 ]
