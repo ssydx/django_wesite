@@ -5,8 +5,22 @@
     <div style="text-align: center; font-size: 3rem;">首页</div>
 {% endblock nav-container %}
 
-{% block main-wrapper %}
-    <div class="main">
-        <a href="{% url 'articles' %}">文章</a>
-    </div>
-{% endblock main-wrapper %}
+{% block main %}
+    <a href="{% url 'articles' %}">文章</a>
+    <p>{{ request }}</p>
+    <p>标头{{ request.scheme }}</p>
+    <p>{{ request.body }}</p>
+    <p>{{ request.path }}</p>
+    <p>{{ request.path_info }}</p>
+    <p>{{ request.method }}</p>
+    <p>{{ request.encoding }}</p>
+    <p>{{ request.content_type }}</p>
+    <p>{{ request.GET }}</p>
+    <p>{{ request.POST }}</p>
+    <p>{{ request.get_full_path }}</p>
+    <p>{{ request.resolver_match }}</p>
+    <p>{{ request.urlconf }}</p>
+    <p>{{ request.get_full_path_info }}</p>
+    <p>{{ request.build_absolute_uri }}</p>
+    <p>{{ request.user }}</p>
+{% endblock %}

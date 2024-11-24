@@ -14,6 +14,11 @@ urlpatterns += [
     path('article/<int:pk>', views.ArticleView.as_view(), name='article')
 ]
 urlpatterns += [
+    path('genre/<int:pk>', views.GenreView.as_view(), name='genre')
+]
+
+
+urlpatterns += [
     path('origin/', views.origin, name='origin'),
 ]
 urlpatterns += [

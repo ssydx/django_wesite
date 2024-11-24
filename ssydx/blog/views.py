@@ -1,8 +1,11 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from blog.models import *
 from django.views import generic
 from django.apps import apps
 # Create your views here.
+
 
 def index(request):
     app_label = 'blog'
@@ -29,16 +32,27 @@ def index(request):
         },
     )
 
+
 class ArticlesView(generic.ListView):
     model = ArticleModel
     template_name = 'blog/articles.html'
     context_object_name = 'articles'
+    def get_queryset(self):
+        return super().get_queryset().order_by('genre')
 class ArticleView(generic.DetailView):
     model = ArticleModel
-    articles = ArticleModel.objects.all()
+    articles = ArticleModel.objects.order_by('genre')
     extra_context = {'articles': articles,}
     template_name = 'blog/article.html'
     context_object_name = 'article'
+class GenreView(generic.DetailView):
+    model = GenreModel
+    articles = ArticleModel.objects.order_by('genre')
+    extra_context = {'articles': articles,}
+    template_name = 'blog/article.html'
+    context_object_name = 'article'
+
+
 
 
 def origin(request):

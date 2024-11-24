@@ -62,7 +62,13 @@ document.addEventListener(
             const left_navs = doc.querySelectorAll(`a[href="${window.location.pathname}"]`);
             left_navs.forEach(left_nav => {
                 left_nav.style.fontWeight = 900;
-                left_nav.scrollIntoView({ behavior: 'smooth' });
             });
+            const aside_lefts = doc.querySelectorAll('.aside-left');
+            aside_lefts.forEach(aside_left =>{
+                const containerRect = aside_left.getBoundingClientRect();
+                const rect = aside_left.querySelector(`a[href="${window.location.pathname}"]`).getBoundingClientRect();
+                const middlePosition = (containerRect.height / 2) - (rect.height / 2);
+                aside_left.scrollTop = rect.top - middlePosition;
+            })
         })
 })

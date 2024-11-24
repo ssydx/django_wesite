@@ -32,11 +32,45 @@ class AuthorModel(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('authordetail', kwargs={'pk': self.id})
+        return reverse('author', kwargs={'pk': self.id})
 
+class GenreModel(models.Model):
+    name = models.CharField(
+        max_length=20,
+        verbose_name='类别',
+        help_text='请输入文章类别',
+        default='HTML',
+        db_column='类别',
+        db_comment='输入文章类别',
+        unique=True,
+    )
+    desc = models.CharField(
+        max_length=200,
+        verbose_name='类别描述',
+        help_text='请输入类别描述',
+        default='层叠样式表——或 CSS——是你在学完 HTML 之后应该学习的第一门技术。HTML 用于为你的内容定义结构和语义，CSS 用于为内容提供样式和对内容进行布局。例如，你可以使用 CSS 更改内容的字体、颜色、大小和间距，将内容分成多列，或添加动画和其它装饰特性。',
+        db_column='类别描述',
+        db_comment='输入文章类别描述',
+    )
+    content= models.TextField(
+        verbose_name='类别文档',
+        help_text='请输入类别文档',
+        default='层叠样式表——或 CSS——是你在学完 HTML 之后应该学习的第一门技术。HTML 用于为你的内容定义结构和语义，CSS 用于为内容提供样式和对内容进行布局。例如，你可以使用 CSS 更改内容的字体、颜色、大小和间距，将内容分成多列，或添加动画和其它装饰特性。',
+        db_column='类别文档',
+        db_comment='输入文章类别文档',
+    )
+    class Meta:
+        db_table='类型表'
+        db_table_comment='类型信息表'
+        verbose_name='类型'
+        verbose_name_plural='类型列表'
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        return reverse('genre', kwargs={'pk': self.id})
 
 class ArticleModel(models.Model):
-    title = models.CharField(
+    name = models.CharField(
         max_length=20,
         unique=True,
         verbose_name='标题',
@@ -64,6 +98,13 @@ class ArticleModel(models.Model):
         AuthorModel,
         on_delete=models.CASCADE,
         related_name='articles',
+        default=1,
+    )
+    genre = models.ForeignKey(
+        GenreModel,
+        on_delete=models.CASCADE,
+        related_name='aritcles',
+        default=1,
     )
     create_datetime = models.DateTimeField(
         auto_now_add=True,
@@ -85,6 +126,6 @@ class ArticleModel(models.Model):
         verbose_name='文章'
         verbose_name_plural='文章列表'
     def __str__(self):
-        return self.title
+        return self.name
     def get_absolute_url(self):
         return reverse('article', kwargs={'pk': self.id})

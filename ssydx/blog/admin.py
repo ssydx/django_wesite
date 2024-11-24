@@ -5,14 +5,16 @@ from blog.models import *
 @admin.register(ArticleModel)
 class ArticleAdmin(admin.ModelAdmin):
     list_display = [
-        'title',
+        'name',
         'author',
+        'genre',
     ]
     list_filter = [
         'author',
+        'genre',
     ]
     search_fields = [
-        'title',
+        'name',
     ]
     date_hierarchy = 'create_datetime'
     list_per_page = 20
@@ -20,7 +22,7 @@ class ArticleAdmin(admin.ModelAdmin):
         (
             '基础信息',
             {
-                'fields': [('title','author',),'desc','content'],
+                'fields': [('name','author','genre',),'desc','content'],
                 'description': '这里列出文章的基本信息',
             }
         ),
@@ -41,3 +43,7 @@ class ArticleAdmin(admin.ModelAdmin):
 @admin.register(AuthorModel)
 class AuthorAdmin(admin.ModelAdmin):
     radio_fields = {'gender': admin.HORIZONTAL,}
+
+@admin.register(GenreModel)
+class GenreAdmin(admin.ModelAdmin):
+    pass
