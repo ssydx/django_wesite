@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    SSYDX-INDEX
+{% endblock title %}
+
+{% block style %}
+    <style>
+        .nav-container {
+            justify-content: center;
+        }
+        .nav-container > div {
+            font-size: var(--nav-h);
+            line-height: var(--nav-h);
+        }
+        .main-wrapper {
+            flex-direction: column;
+        }
+        
+    </style>
+{% endblock style %}
+
+{% block head-script %}
+{% endblock head-script %}
+
+
+{% block nav-container %}
+    <div>首页</div>
+{% endblock nav-container %}
+
+
+{% block main-wrapper %}
+    <a href="{% url 'program:articles' %}">编程</a>
+    <a href="{% url 'novel:index' %}">小说</a>
+{% endblock main-wrapper %}

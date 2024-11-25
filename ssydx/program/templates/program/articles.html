@@ -1,0 +1,33 @@
+{% extends 'program/base.html' %}
+
+{% block title %}
+    SSYDX-PROGRAM-ARTICLES
+{% endblock title %}
+
+{% block nav-left %}
+    <div class="path">
+        <a href="{% url 'program:articles' %}">文章</a>
+    </div>
+{% endblock nav-left %}
+
+
+{% block aside_left %}
+    {% regroup articles by genre as article_list %}
+    {% for genre_group in article_list %}
+        <a href="{{ genre_group.grouper.get_absolute_url }}">
+            <h2>{{ genre_group.grouper }}</h2>
+        </a>
+        {% for article in genre_group.list %}
+            <a href="{{ article.get_absolute_url }}" style="text-indent: 2rem;">{{ article.name }}</a>
+        {% endfor %}
+    {% endfor %}
+{% endblock aside_left %}
+
+
+{% block main %}
+    {% with article=articles|first %}
+        <h1>{{article.genre.name}}</h1>
+        <p>{{article.genre.desc}}</p>
+        {{ article.genre.content|safe }}
+    {% endwith %}
+{% endblock main %}

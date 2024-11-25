@@ -1,0 +1,84 @@
+{% extends 'main.html' %}
+
+{% block title %}
+    SSYDX-NOVEL-BASE
+{% endblock title %}
+
+{% block link-stylesheet %}
+    {{ block.super }}
+    <link rel="stylesheet" href="css/page.css">
+{% endblock link-stylesheet %}
+
+
+{% block head-script %}
+    {{ block.super }}
+    <script src="js/page.js"></script>
+{% endblock head-script %}
+
+
+{% block nav-home %}
+    <a href="{% url 'program:index' %}" title="回到首页" class="home-link">
+        <img class="home-icon" src="icons/home-icon.svg" alt="首页">
+    </a>
+{% endblock nav-home %}
+
+
+{% block nav-left %}
+    <div class="path">
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+        <a href="">{% lorem 3 w random %}</a>
+    </div>
+{% endblock nav-left %}
+
+
+{% block nav-center %}
+    <span class="dividingline"></span>
+{% endblock nav-center %}
+
+
+{% block nav-right %}
+    <form class="form-search" action="/pages/search.html" method="get" target="_blank">
+        <input class="searchbox" type="search" name="q" placeholder="    ">
+        <input class="submitbutton" type="submit" value="提交">
+    </form>
+    <form class="form-theme">
+        <label class="themelabel" for="themelist">主题</label>
+        <select class="selectlist" name="theme" id="themelist">
+            <option value="auto">自动</option>
+            <option value="daylight">白天</option>
+            <option value="moonlight">夜晚</option>
+        </select>
+    </form>
+{% endblock nav-right %}
+
+
+{% block aside_left %}
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+    <a href="">首页1</a>
+{% endblock aside_left %}
+
+
+{% block main %}
+    {% with '11111111111111111111111'|make_list as list %}
+        {% for ele in list %}
+            <h2>{% lorem 2 w random %}</h2>
+            {% lorem 2 p random %}
+        {% endfor %}
+    {% endwith %}
+{% endblock main %}
+
