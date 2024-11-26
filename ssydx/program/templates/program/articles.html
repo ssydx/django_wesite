@@ -18,9 +18,10 @@
             <h2>{{ genre_group.grouper }}</h2>
         </a>
         {% for article in genre_group.list %}
-            <a href="{{ article.get_absolute_url }}" style="text-indent: 2rem;">{{ article.name }}</a>
+            <a class="{% cycle 'odd' 'even' %}" href="{{ article.get_absolute_url }}" style="text-indent: 2rem;">{{ article.name }}</a>
         {% endfor %}
     {% endfor %}
+    {{ request.path }}
 {% endblock aside_left %}
 
 
