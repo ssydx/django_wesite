@@ -1,0 +1,7 @@
+{% extends 'novel/base.html' %}
+
+{% block main %}
+    {% for author in authors %}
+        <p><a href="{% url 'novel:test' pk=author.id %}">{{ author.name }}</a></p>
+    {% endfor %}
+{% endblock main %}

@@ -1,0 +1,11 @@
+{% extends 'novel/base.html' %}
+
+{% block main %}
+    {% for author in authors %}
+        {{ author.name }}
+        {{ author.gender }}
+        {{ author.get_gender_display }}
+        {{ author.age }}
+    {% endfor %}
+    {{ objects }}
+{% endblock main %}

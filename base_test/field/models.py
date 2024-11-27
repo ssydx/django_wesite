@@ -66,4 +66,56 @@ class prod1(models.Model):
     choice = models.CharField(max_length=1, choices=seq)
 
 
+class AbstractModel(models.Model):
+    name = models.CharField(max_length=20,)
+    create_datetime = models.DateField(
+        verbose_name='创建时间',
+        auto_now_add=True,
+        editable=False,
+    )
+    update_datetime = models.DateField(
+        verbose_name='修改时间',
+        auto_now=True,
+        editable=False,
+    )
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        pass
+    class Meta:
+        abstract=True
+        ordering=['name']
+
+
+class M1(AbstractModel):
+    home_group = models.CharField(max_length=5)
+
+
+class InhreritModel(models.Model):
+    name = models.CharField(max_length=20,)
+
+
+class I1(InhreritModel):
+    home_group = models.CharField(max_length=5)
+
+class ProxyModel(I1):
+    class Meta:
+        proxy=True
+        ordering=['?']
+    def __str__(self):
+        return self.name + self.home_group
+    
+
+
+
+class HandField(models.Field):
+    description = "A hand of cards (bridge style)"
+
+    def __init__(self, *args, **kwargs):
+        kwargs["max_length"] = 104
+        super().__init__(*args, **kwargs)
+
+class temp(models.Model):
+    n = HandField()
+
 

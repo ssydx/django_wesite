@@ -10,3 +10,12 @@ urlpatterns = [
 urlpatterns += [
     path('index/', views.index, name='index'),
 ]
+urlpatterns += [
+    path('authors/', views.AuthorsView.as_view(), name='authors'),
+]
+urlpatterns += [
+    path('tests/', views.tests, name='tests'),
+]
+urlpatterns += [
+    path('test/<int:pk>', views.test, name='test'),
+]
