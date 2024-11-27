@@ -44,7 +44,7 @@ class AuthorModel(models.Model):
     def __str__(self):
         return self.name
     def get_absolute_url(self):
-        return reverse('test',kwargs={'pk': self.id,})
+        pass
 
 class GenreModel(models.Model):
     genre = models.CharField(
@@ -132,4 +132,24 @@ class ArticleModel(models.Model):
         return ', '.join([genre.genre for genre in self.genre.all()])
 
 
-
+class GenericModel(models.Model):
+    name = models.CharField(
+        max_length=10,
+    )
+    create_datetime = models.DateField(
+        verbose_name='创建时间',
+        auto_now_add=True,
+        editable=False,
+    )
+    update_datetime = models.DateField(
+        verbose_name='修改时间',
+        auto_now=True,
+        editable=False,
+    )
+    field = models.CharField()
+    def __str__(self):
+        return self.name
+    def get_absolute_url(self):
+        pass
+    class Meta:
+        abstract=True
