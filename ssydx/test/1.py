@@ -21,10 +21,14 @@ class myPeo(Peo):
         self.sex = sex
     def getAgeAddTen(self):
         return self.age + 20
+    def __str__(self):
+        return 'mypeo'
 p2 = myPeo('张三', 20, '男')
+
 print(p2.sex)
 print(p2.getAgeAddTen())
 print(p2.getName)
-print(p2)
 print(p2.__class__)
 print(p2.score)
+print(myPeo)
+print(p2)

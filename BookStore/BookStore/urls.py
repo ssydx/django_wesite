@@ -1,5 +1,5 @@
 """
-URL configuration for ssydx project.
+URL configuration for BookStore project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.2/topics/http/urls/
@@ -16,25 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-# from django.views.generic import RedirectView
-# urlpatterns = [
-#     path('', RedirectView.as_view(url='program/'))
-# ]
+from index.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('test/', test_html, name='test'),
 ]
-urlpatterns += [
-    path('', include('program.urls')),
-]
-
-urlpatterns += [
-    path('novel/', include('novel.urls', namespace='novel')),
-]
-
-from django.conf import settings
-from django.urls import include
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns

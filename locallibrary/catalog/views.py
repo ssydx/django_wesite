@@ -49,7 +49,7 @@ class AuthorListView(generic.ListView):
     template_name = 'catalog/authorlist.html'
     # 分页，每页项目数
     paginate_by = 10
-# 混合视图
+# 详情视图
 class BookDetailView(generic.DetailView):
     model = Book
     # 默认名为modelname，即此处可不显式指定

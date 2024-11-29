@@ -3,4 +3,7 @@
 {% block main %}
     {{ author.name }}
     {{ author.get_gender_display }}
+    {% for field in fields %}
+        <p>{{ field}}</p>
+    {% endfor %}
 {% endblock main %}
