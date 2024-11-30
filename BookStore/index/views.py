@@ -16,3 +16,7 @@ class Website:
     def Web_name(self):
         return 'Hello，C语言中文网!'
         #Web_name.alters_data=True #不让Website()方法被模板调用
+from index.models import *
+def BookName(request):
+    books=Book.objects.raw("select * from index_book") #书写sql语句
+    return render(request,"index/allbook.html",locals())

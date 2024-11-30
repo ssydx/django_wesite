@@ -32,3 +32,28 @@ print(p2.__class__)
 print(p2.score)
 print(myPeo)
 print(p2)
+
+class class1:
+    def __init__(self, name: str, age: int) -> None:
+        self.name=name
+        self.age=age
+    sex = '男'
+    def __str__(self):
+        return self.name
+    def getdict1(self):
+        return self.__dict__
+    def getdict2(self):
+        return vars(self)
+
+print(class1)
+c1 = class1('zhangsan', 36)
+print(c1)
+print(c1.getdict1())
+print(c1.getdict2())
+
+def getdic():
+    name = 'zhangsan'
+    age = 23
+    sex = 'male'
+    return locals()
+print(getdic())
