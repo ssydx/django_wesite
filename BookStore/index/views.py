@@ -1,6 +1,20 @@
 from django.shortcuts import render
 
 # Create your views here.
+from django.http import HttpResponse
+from django.template import loader
+def loaderView(request):
+    t=loader.get_template('index/test1.html')
+    html = t.render({'name': 'zhangsan',})
+    return HttpResponse(html)
+def renderView(request):
+    return render(
+        request,
+        'index/test2.html',
+        context={
+            'name': 'lisi',
+        }
+    )
 
 def test_html(request):
     a={} #创建空字典，模板必须以字典的形式进行传参

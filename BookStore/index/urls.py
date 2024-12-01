@@ -11,3 +11,9 @@ urlpatterns += [
 urlpatterns += [
     path('allbook/', BookName, name='allbook'),
 ]
+urlpatterns += [
+    path('loaderView/', loaderView, name='loaderView'),
+]
+urlpatterns += [
+    path('renderView/', renderView, name='renderView'),
+] 
