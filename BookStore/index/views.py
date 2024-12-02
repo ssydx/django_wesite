@@ -7,6 +7,7 @@ def loaderView(request):
     t=loader.get_template('index/test1.html')
     html = t.render({'name': 'zhangsan',})
     return HttpResponse(html)
+
 def renderView(request):
     return render(
         request,
@@ -24,13 +25,16 @@ def test_html(request):
     a['test_hello']=test_hello
     a['class_obj']=Website()
     return render(request,'index/test.html',a)
+
 def test_hello():
     return '欢迎来到C语言中文网'
+
 class Website:
     def Web_name(self):
         return 'Hello，C语言中文网!'
         #Web_name.alters_data=True #不让Website()方法被模板调用
 from index.models import *
+
 def BookName(request):
     books=Book.objects.raw("select * from index_book") #书写sql语句
     return render(request,"index/allbook.html",locals())
