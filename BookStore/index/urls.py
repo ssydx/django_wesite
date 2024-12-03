@@ -5,6 +5,7 @@ urlpatterns = [
 ]
 from index.views import *
 from django.views.generic import RedirectView
+from index.forms import *
 urlpatterns += [
     path('', test_html, name='test_html'),
 ]
@@ -16,4 +17,10 @@ urlpatterns += [
 ]
 urlpatterns += [
     path('renderView/', renderView, name='renderView'),
-] 
+]
+urlpatterns += [
+    path('logView/', LogView.as_view(), name='logView')
+]
+urlpatterns += [
+    path('login/', login, name='loginView')
+]

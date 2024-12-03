@@ -9,11 +9,16 @@ def loaderView(request):
     return HttpResponse(html)
 
 def renderView(request):
+    cnt = request.session.get('cnt', 0)
+    cnt += 1
+    request.session['cnt'] = cnt
+    print(cnt)
     return render(
         request,
         'index/test2.html',
         context={
             'name': 'lisi',
+            'cnt': cnt,
         }
     )
 
@@ -38,3 +43,9 @@ from index.models import *
 def BookName(request):
     books=Book.objects.raw("select * from index_book") #书写sql语句
     return render(request,"index/allbook.html",locals())
+
+
+from django.views.generic import View
+class LogView(View):
+    def get(self, request):
+        return HttpResponse('登录成功！')

@@ -32,7 +32,3 @@ urlpatterns += [
 urlpatterns += [
     path('authorFormView/', views.authorFormView, name='authorFormView'),
 ]
-from django.conf.urls import url
-urlpatterns += [
-    url(r'^tt$/', views.urlView),
-]
