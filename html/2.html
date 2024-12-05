@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style>
+       /* 填写样式 */
+    </style>
+</head>
+
+<body>
+    <h1><b>1</b>23</h1>
+    <!-- 填写标签 -->
+     <button onclick="_reverse(2233)">123</button>
+     <p></p>
+    <script type="text/javascript">
+        // 填写JavaScript
+        function parse2Int(num) {
+            let ret = [];
+            num.toString().split('').forEach(elem => {
+                if (isDigit(elem)) {
+                    ret.push(elem);
+                } else {
+                    break;
+                }
+            })
+            return ret.join('')-0;
+        }
+    </script>
+</body>
+
+</html>

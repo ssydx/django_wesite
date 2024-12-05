@@ -24,3 +24,13 @@ urlpatterns += [
 urlpatterns += [
     path('login/', login, name='loginView')
 ]
+urlpatterns += [
+    path('sendemail/', send_email, name='send_email')
+]
+urlpatterns += [
+    path('upload/', upload, name='upload')
+]
+
+urlpatterns += [
+    path('csv/', test_csv, name='csv')
+]

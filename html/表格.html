@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格相关标签</title>
+    <style>
+        table {
+            width: 100%;
+            text-align: left;
+            border-collapse: collapse;
+            font-family: serif;
+        }
+        caption {
+            text-align: left;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        thead {
+            border-top: 0.15rem solid black;
+            border-bottom: 0.1rem solid black;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #EDEDED;
+        }
+        tbody tr:nth-child(even) {
+            background-color: white;
+        }
+        tbody tr:hover {
+            background-color: slategrey;
+        }
+        tfoot tr {
+            font-weight: bold;
+        }
+        tfoot {
+            border-bottom: 0.15rem solid black;
+        }
+        .col1 {
+            background-color: rgba(255, 0, 0, 0.2);
+        }
+        .col2 {
+            background-color: rgba(0, 128, 0, 0.2);
+        }
+        .col3 {
+            background-color: rgba(0, 0, 255, 0.2);
+        }
+        th, td {
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption><b>表1.</b>学生数学成绩表</caption>
+        <colgroup>
+            <col span="2" class="col1">
+            <col span="1" class="col2">
+            <col class="col3">
+        </colgroup>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>分数</th>
+                <th>等级</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>23</td>
+                <td>86</td>
+                <td>良好</td>
+            </tr>
+            <tr>
+                <td>李四</td>
+                <td>女</td>
+                <td>22</td>
+                <td>89</td>
+                <td>良好</td>
+            </tr>
+            <tr>
+                <td>王五</td>
+                <td>男</td>
+                <td>24</td>
+                <td>78</td>
+                <td>中等</td>
+            </tr>
+            <tr>
+                <td>赵六</td>
+                <td>男</td>
+                <td>22</td>
+                <td>92</td>
+                <td>优秀</td>
+            </tr>
+            <tr>
+                <td>钱七</td>
+                <td>女</td>
+                <td>23</td>
+                <td>96</td>
+                <td>优秀</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>总计</td>
+                <td></td>
+                <td></td>
+                <td>253</td>
+                <td></td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
