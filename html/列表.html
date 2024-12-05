@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格相关标签</title>
+    <style>
+        body > ul {
+            list-style: square;
+        }
+        body > ul > ul {
+            list-style: disc inside;
+        }
+        body > ul > ul:last-child {
+            list-style: disc outside;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>橘子</li>
+        <li>西瓜</li>
+        <li>香蕉</li>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <li>苹果</li>
+        <ul>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </ul>
+    <ol start="2" type="I">
+        <li>orange</li>
+        <li>watermelon</li>
+        <ol reversed type="A">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ol>
+        <li>banana</li>
+        <ol type="1">
+            <li>A</li>
+            <li>B</li>
+            <li>C</li>
+            <li value="1">D</li>
+            <li>E</li>
+            <li>F</li>
+        </ol>
+        <li>apple</li>
+    </ol>
+    <dl>
+        <dt>橘子</dt>
+        <dd>orange</dd>
+        <dt>西瓜</dt>
+        <dd>watermelon</dd>
+        <dd>melon</dd>
+    </dl>
+</body>
+</html>

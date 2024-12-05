@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,8 @@
     <style>
         table {
             width: 100%;
-            text-align: left;
             border-collapse: collapse;
-            font-family: serif;
+            font-family: Times,serif;
         }
         caption {
             text-align: left;
@@ -19,18 +18,21 @@
         thead {
             border-top: 0.15rem solid black;
             border-bottom: 0.1rem solid black;
+            text-align: left;
         }
-        tbody tr:nth-child(odd) {
+        tbody tr:nth-child(odd) td:not([rowspan]) {
             background-color: #EDEDED;
         }
-        tbody tr:nth-child(even) {
+        tbody tr:nth-child(even) td:not([rowspan]) {
             background-color: white;
-        }
-        tbody tr:hover {
-            background-color: slategrey;
         }
         tfoot tr {
             font-weight: bold;
+        }
+        /* 必须同时排除，否则仅设置rowspan的元素会应用该悬停样式 */
+        /* 但此处仍有缺陷，即在rowspan元素上悬停会对所在行（除该元素外）应用样式 */
+        tbody tr:hover td:not([rowspan]) {
+            background-color: slategrey;
         }
         tfoot {
             border-bottom: 0.15rem solid black;
@@ -51,14 +53,15 @@
 </head>
 <body>
     <table>
-        <caption><b>表1.</b>学生数学成绩表</caption>
+        <caption>表1.学生数学成绩表</caption>
         <colgroup>
-            <col span="2" class="col1">
-            <col span="1" class="col2">
-            <col class="col3">
+            <col class="col1">
+            <col span="3" class="col2">
+            <col span="1" class="col3">
         </colgroup>
         <thead>
             <tr>
+                <th>班级</th>
                 <th>姓名</th>
                 <th>性别</th>
                 <th>年龄</th>
@@ -68,6 +71,7 @@
         </thead>
         <tbody>
             <tr>
+                <td rowspan="3">A班</td>
                 <td>张三</td>
                 <td>男</td>
                 <td>23</td>
@@ -89,6 +93,7 @@
                 <td>中等</td>
             </tr>
             <tr>
+                <td rowspan="2">B班</td>
                 <td>赵六</td>
                 <td>男</td>
                 <td>22</td>
@@ -105,11 +110,8 @@
         </tbody>
         <tfoot>
             <tr>
-                <td>总计</td>
-                <td></td>
-                <td></td>
-                <td>253</td>
-                <td></td>
+                <td colspan="4">总计</td>
+                <td colspan="2">441</td>
             </tr>
         </tfoot>
     </table>
