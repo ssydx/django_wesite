@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>一级标题</h1>
+    <input type="button" value="调用函数" onclick="get_type('.span1','abc')"><span class="span1"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_type('.span2', 12)"><span class="span2"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_type('.span3', true)"><span class="span3"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_type('.span4', function func() { return true;})"><span class="span4"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_type('.span5', {'name':'zhangsan','age':23,})"><span class="span5"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_type('.span6', null)"><span class="span6"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_instance('.span7', [1,2,3], Array)"><span class="span7"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_instance('.span8', new Number(1), Number)"><span class="span8"></span>
+
+    <script>
+        function get_type(span, value) {
+            document.querySelector(span).innerHTML = typeof value;
+        }
+        function get_instance(span, inst, obj) {
+            document.querySelector(span).innerHTML = inst instanceof obj;
+        }
+    </script>
+</body>
+</html>

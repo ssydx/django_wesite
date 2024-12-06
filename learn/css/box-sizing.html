@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .content-box {
+            box-sizing: content-box;
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            border: 10px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        .border-box {
+            box-sizing: border-box;
+            height: 100px;
+            width: 100px;
+            background-color: aqua;
+            border: 10px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        .sizing {
+            max-width: 500px;
+            min-width: 300px;
+            max-height: 500px;
+            min-height: 300px;
+            background-color: aqua;
+        }
+        .border1 {
+            height: 400px;
+            width: 400px;
+            background-color: aquamarine;
+            border-width: 10px;
+            border-style: groove;
+            border-color: aqua;
+            border-radius: 50px;
+            border-image: url('/locallibrary/catalog/static/images/hatsune_miku.png');
+        }
+        .border2 {
+            height: 400px;
+            width: 400px;
+            background-color: aquamarine;
+            border-width: 10px;
+            border-style: double;
+            border-color: aqua;
+            border-radius: 50px;
+            box-shadow: 5px 5px 5px red;
+        }
+    </style>
+</head>
+<body>
+    <div class="content-box"></div>
+    <div class="border-box"></div>
+    <div class="sizing"></div>
+    <div class="border1"></div>
+    <div class="border2"></div>
+</body>
+</html>

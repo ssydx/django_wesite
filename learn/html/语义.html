@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语义相关标签</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        h1 {
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+        }
+        section {
+            display: flex;
+        }
+        section > aside {
+            min-width: 30%;
+            border-right: 0.1rem solid black;
+            margin: 0.5rem;
+        }
+        aside > h3 {
+            text-align: center;
+        }
+        article {
+            margin: 0.5rem;
+        }
+        a {
+            display: block;
+        }
+        details {
+            margin: 0.5rem 0;
+        }
+        footer {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>一级标题</h1>
+    </header>
+    <nav>
+        <a href="">页面1</a>
+        <a href="">页面2</a>
+        <a href="">页面3</a>
+        <search>
+            <form action="">
+                <input type="search" placeholder="请键入内容">
+                <input type="submit" value="确定">
+            </form>
+        </search>
+    </nav>
+    <main>
+        <section>
+            <aside>
+                <h3>目录</h3>
+                <details open>
+                    <summary>第一节</summary>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                </details>
+                <details>
+                    <summary>第二节</summary>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                </details>
+                <details>
+                    <summary>第三节</summary>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                    <a href="">这是一个链接</a>
+                </details>
+            </aside>
+            <article>
+                <hgroup>
+                    <h2>二级标题</h2>
+                    <p>这是二级标题的描述。</p>
+                </hgroup>
+                <hr>
+                <h3>三级标题</h3>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <h3>三级标题</h3>
+                <h4>四级标题</h4>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <h4>四级标题</h4>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <h4>四级标题</h4>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+                <p>这是一个段落。</p>
+            </article>
+        </section>
+        <footer>
+            <hr>
+            <span>姓名:ssydx</span>
+            <br>
+            <span>地址:安大略省</span>
+            <br>
+            <span>ssydx@qq.com</span>
+        </footer>
+    </main>
+</body>
+</html>

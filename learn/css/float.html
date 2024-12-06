@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动框模型</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 避免框塌陷 */
+        .container {
+            overflow: hidden;
+            display: inline-block;
+            border: 1px solid black;
+        }
+        .container::after {
+            content: "";
+            /* 为什么非得是table */
+            display: table;
+            clear: both;
+        }
+        .left {
+            width: 200px;
+            height: 100px;
+            background-color: aqua;
+            float: left;
+        }
+        .right {
+            width: 300px;
+            height: 200px;
+            background-color: aquamarine;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left"><br><br></div>
+        <div class="right"><br><br><br></div>
+    </div>
+</body>
+</html>

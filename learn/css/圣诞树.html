@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浮动框模型</title>
+    <style>
+            .topbranch {
+                width: 0px;
+                height: 0px;
+                float: left;
+                border-bottom: 100px solid green;
+                border-top: 100px solid transparent;
+                border-left:100px solid transparent;
+                border-right:100px solid transparent;
+                margin-left: 100px;
+            }
+            .middleBranch {
+                width: 0px;
+                height: 0px;
+                border-top: 200px solid transparent;
+                border-bottom: 200px solid green;
+                border-left:200px solid transparent;
+                border-right:200px solid transparent;
+            }
+            .base {
+                float: left;
+                height: 200px;
+                width: 70px;
+                background-color: gray;
+                margin-left: 165px;
+            }
+    </style>
+</head>
+<body>
+    <section class="topbranch"></section>
+    <section class="middleBranch"></section>
+    <section class="base"></section>
+</body>
+</html>
