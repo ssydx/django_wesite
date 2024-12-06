@@ -134,8 +134,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.qq.com' # 腾讯QQ邮箱 SMTP 服务器地址
 EMAIL_PORT = 587 # SMTP服务的端口号
-EMAIL_HOST_USER = 'ssydx@qq.com' #你的qq邮箱，邮件发送者的邮箱
-EMAIL_HOST_PASSWORD = 'mscbyfcgnluiebca' #你申请的授权码（略）
+EMAIL_HOST_USER = 'xxx@qq.com' #你的qq邮箱，邮件发送者的邮箱
+EMAIL_HOST_PASSWORD = '' #你申请的授权码（略）
 EMAIL_USE_TLS = True #与SMTP服务器通信时,是否启用安全模式
 import os
 MEDIA_ROOT = os.path.join(BASE_DIR,'static/files')
