@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>一级标题</h1>
+    <input type="button" value="调用函数" onclick="get_class1('.span1')"><span class="span1"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="get_class2('.span2')"><span class="span2"></span>
+    <br>
+
+    <script>
+        class Stu {
+            constructor(name,age,gender) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+            }
+            get_age() {
+                return this.age + 10;
+            }
+        }
+        let Tch = {
+            name: 'zhangsan',
+            age: 20,
+            gender: 'MALE',
+            get_age: function() {
+                return this.age + 10;
+            }
+        }
+        function get_class1() {
+            document.querySelector(arguments[0]).innerHTML = new Stu('ZHANGSAN',20,'MALE').get_age();
+        }
+        function get_class2() {
+            document.querySelector(arguments[0]).innerHTML = Tch.get_age();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>一级标题</h1>
+    <input type="button" value="调用函数" onclick="check1('.span1','ab1c')"><span class="span1"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="check2('.span2','ab1c')"><span class="span2"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="check3('.span3','ab1c')"><span class="span3"></span>
+    <br>
+    <input type="button" value="调用函数" onclick="check4('.span4','ab1c')"><span class="span4"></span>
+    <br>
+
+    <script>
+        function check1(container, str) {
+            let pattern = /[0-9]/;
+            document.querySelector(container).innerHTML = pattern.test(str);
+        }
+        function check2(container, str) {
+            let tag = false;
+            for (char in str) {
+                if (parseInt(char)) {
+                    tag = true;
+                    break;
+                }
+            }
+            document.querySelector(container).innerHTML = tag;
+        }
+        function check3(container, str) {
+            document.querySelector(container).innerHTML = Array.from(str).some((ele) => {
+                return !isNaN(ele);
+            })
+        }
+        function check4(container, str) {
+            document.querySelector(container).innerHTML = str.match(/\d/) ? true : false;
+        }
+    </script>
+</body>
+</html>
