@@ -4,16 +4,50 @@
         <meta charset="UTF-8">
     </head>
     <body>
+        <select name="" id="">
+            <option value="0">请选择价格范围</option>
+            <option value="1">&lt100</option>
+            <option value="2">100~500</option>
+            <option value="3">&gt500</option>
+        </select>
+        <ul>
+            <li>牛客logo马克杯</li>
+            <li>无盖星空杯</li>
+            <li>老式茶杯</li>
+            <li>欧式印花杯</li>
+        </ul>
 
         <script>
-            const _getParams = (url) => {
-                // 补全代码
-                const dict = {};
-                ls = url.match(/([^?&=]+)=([^&=]+)/g);
-                console.log(ls);
-                
+            var cups = [
+                { type: 1, price: 100, color: 'black', sales: 60, name: '牛客logo马克杯' },
+                { type: 2, price: 40, color: 'blue', sales: 100, name: '无盖星空杯' },
+                { type: 4, price: 60, color: 'green', sales: 200, name: '老式茶杯' },
+                { type: 3, price: 50, color: 'green', sales: 600, name: '欧式印花杯' }
+            ]
+            var select = document.querySelector('select');
+            var ul = document.querySelector('ul');
+            // 补全代码
+            function cup_list(val) {
+                return cups.filter((elem) => {
+                    if (val == '0') {
+                        return true;
+                    } else if (val == '1') {
+                        return elem.price < 100;
+                    } else if (val == '2') {
+                        return elem.price >= 100 && elem.price < 500;
+                    } else {
+                        return elem.price >= 500;
+                    }
+            })
             }
-            _getParams('https://nowcoder.com/online?id=1&salas=1000');
+            select.onchange = function() {
+                ul.innerHTML = '';
+                cup_list(select.value).forEach(elem => {
+                    const li = document.createElement('li');
+                    li.innerHTML = elem.name;
+                    ul.appendChild(li);
+                })
+            }
         </script>
     </body>
 </html>
