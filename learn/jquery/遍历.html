@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #p5 {
+            border: 1px solid black;
+        }
+    </style>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $('#button1').click(() => {
+                    console.log($('.p'));
+                    console.log($('.p')[0]);
+                    console.log($('.p').parent());
+                    console.log($('.p').parents());
+                    console.log($('.p').parentsUntil('body'));
+                })
+                $('#button2').click(() => {
+                    console.log($('.head'));
+                    console.log($('.head').children());
+                    console.log($('.head').find('span'));
+                })
+                $('#button3').click(() => {
+                    console.log($('.body'));
+                    console.log($('.body').siblings('div'));
+                    console.log($('.body').prev());
+                    console.log($('.body').next());
+                })
+                $('#button4').click(() => {
+                    console.log($('div'));
+                    console.log($('div').first());
+                    console.log($('div').last());
+                    console.log($('div').eq(2));
+                    console.log($('div').filter('[class]'));
+                    console.log($('div').not('[class]'));
+                })
+        })
+    </script>
+</head>
+<body>
+    <button id="button1">按钮</button>
+    <button id="button2">按钮</button>
+    <button id="button3">按钮</button>
+    <button id="button4">按钮</button>
+    <button id="button5">按钮</button>
+    <div>
+        '123'
+        <p id="p1">这是文本</p>
+        <div class="head">
+            文本
+            <p>这是文本1<span>块文本</span></p>
+            <p class="p">这是文本2<span>块文本</span></p>
+            <p>这是文本3<span>块文本</span></p>
+            文本
+        </div>
+        <div class="body">
+            文本
+            <p>这是文本1</p>
+            <p>这是文本2</p>
+            <p class="p">这是文本3</p>
+            文本
+        </div>
+        <div class="foot">
+            文本
+            <p>这是文本1</p>
+            <p>这是文本2</p>
+            <p>这是文本3</p>
+            文本
+        </div>
+        <p id="p2">这是文本</p>
+    </div>
+</body>
+</html>
