@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $('#button1').click(() => {
+                    $('#p1').text(function(index,old) {
+                        return '新值：' + old + index;
+                    })
+                })
+                $('#button2').click(() => {
+                    $('a').attr({
+                        'href':'789',
+                        'title':'link',
+                    })
+                })
+                $('#button3').click(() => {
+                    $('#p3').attr('title', (index,old) => {
+                        return 'paragraph'
+                    })
+                })
+                $('#button4').click(() => {
+                    $('#p4').removeAttr('class');
+                })
+                
+        })
+    </script>
+</head>
+<body>
+    <button id="button1">按钮</button>
+    <p id="p1">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button2">按钮</button>
+    <a href="123" target="_self">456</a>
+    <hr>
+    <button id="button3">按钮</button>
+    <p id="p3">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button4">按钮</button>
+    <p id="p4" class="abc">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button5">按钮</button>
+    <input type="text" name="text" id="text1">
+    <p id="p5">一段文字</p>
+    <hr>
+</body>
+</html>

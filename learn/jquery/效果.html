@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $('#button1').mousedown(
+                    function() {
+                        $('#p1').hide(3000);
+                }).mouseup(() => {
+                    $('#p1').show(3000);
+                })
+                $('#button2').click(() => {
+                    $('#p2').toggle(3000);
+                })
+                $('#button3').mousedown(
+                    function() {
+                        $('#p3').fadeOut(3000);
+                }).mouseup(() => {
+                    $('#p3').fadeIn(3000);
+                })
+                $('#button4').click(() => {
+                    $('#p4').fadeToggle(3000);
+                })
+                $('#button5').click(() => {
+                    $('#p5').fadeTo(3000,0.2);
+                })
+                $('#button6').mousedown(
+                    function() {
+                        $('#p6').slideUp(3000);
+                }).mouseup(() => {
+                    $('#p6').slideDown(3000);
+                })
+                $('#button7').click(() => {
+                    $('#p7').slideToggle(3000);
+                })
+                
+        })
+    </script>
+</head>
+<body>
+    <button id="button1">按钮</button>
+    <p id="p1">一段文字</p>
+    <hr>
+    <button id="button2">按钮</button>
+    <p id="p2">一段文字</p>
+    <hr>
+    <button id="button3">按钮</button>
+    <p id="p3">一段文字</p>
+    <hr>
+    <button id="button4">按钮</button>
+    <p id="p4">一段文字</p>
+    <hr>
+    <button id="button5">按钮</button>
+    <p id="p5">一段文字</p>
+    <hr>
+    <button id="button6">按钮</button>
+    <p id="p6">一段文字</p>
+    <hr>
+    <button id="button7">按钮</button>
+    <p id="p7">一段文字</p>
+    <hr>
+</body>
+</html>

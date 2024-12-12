@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                $('#button1').click(() => {
+                    $('#p1').text('插入文本');
+                })
+                $('#button2').click(() => {
+                    $('#p2').html('插入文本');
+                })
+                $('#button3').click(() => {
+                    console.log($('#p3').text());
+                })
+                $('#button4').click(() => {
+                    console.log($('#p4').html());
+                })
+                $('#button5').click(() => {
+                    console.log($('#text1').val());
+                    $('#text1').val('文本');
+                })
+                $('#button6').click(() => {
+                    $('#p6').text($('a').attr('href') + $('a').attr('target'));
+                    $('a').attr('href', '789');
+                })
+                
+        })
+    </script>
+</head>
+<body>
+    <button id="button1">按钮</button>
+    <p id="p1">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button2">按钮</button>
+    <p id="p2">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button3">按钮</button>
+    <p id="p3">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button4">按钮</button>
+    <p id="p4">一段文字<span>一段文字</span></p>
+    <hr>
+    <button id="button5">按钮</button>
+    <input type="text" name="text" id="text1">
+    <p id="p5">一段文字</p>
+    <hr>
+    <button id="button6">按钮</button>
+    <a href="123" target="_self">456</a>
+    <p id="p6">一段文字</p>
+    <hr>
+    <button id="button7">按钮</button>
+    <p id="p7">一段文字</p>
+    <hr>
+</body>
+</html>

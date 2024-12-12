@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                // 单击
+                $('#button1').click(
+                    function() {
+                        $('#p1').hide();
+                })
+                // 双击
+                $('#button2').dblclick(
+                    function() {
+                        $('#p2').hide();
+                })
+                // 焦点
+                $('#button3').focus(
+                    function() {
+                        $('#p3').hide();
+                }).blur(
+                    function() {
+                        $('#p3').show();
+                })
+                // 焦点，递归
+                $('#button4').focusin(
+                    function() {
+                        $('#p4').hide();
+                }).focusout(
+                    function() {
+                        $('#p4').show();
+                })
+                // 悬停
+                $('#button5').hover(
+                    function() {
+                        $('#p5').hide();
+                    },
+                    function() {
+                        $('#p5').show();
+                    }
+                )
+                // 悬停
+                $('#button6').mouseenter(
+                    function() {
+                        $('#p6').hide();
+                }).mouseleave(
+                    function() {
+                        $('#p6').show();
+                })
+                // 悬停，递归
+                $('#button7').mouseover(
+                    function() {
+                        $('#p7').hide();
+                }).mouseout(
+                    function() {
+                        $('#p7').show();
+                })
+                // 单击
+                $('#button8').mousedown(
+                    function() {
+                        $('#p8').hide();
+                }).mouseup(
+                    function() {
+                        $('#p8').show();
+                })
+                // 按键
+                $('#input1').keydown(
+                    function() {
+                        $('#p9').css('color','red');
+                        $('#p10').append(event.which);
+                    }
+                ).keyup(
+                    function() {
+                        $('#p9').css('color','blue');
+                    }
+                )
+        })
+    </script>
+</head>
+<body>
+    <button id="button1">按钮</button>
+    <p id="p1">一段文字</p>
+    <hr>
+    <button id="button2">按钮</button>
+    <p id="p2">一段文字</p>
+    <hr>
+    <button id="button3">按钮</button>
+    <p id="p3">一段文字</p>
+    <hr>
+    <button id="button4">按钮</button>
+    <p id="p4">一段文字</p>
+    <hr>
+    <button id="button5">按钮</button>
+    <p id="p5">一段文字</p>
+    <hr>
+    <button id="button6">按钮</button>
+    <p id="p6">一段文字</p>
+    <hr>
+    <button id="button7">按钮</button>
+    <p id="p7">一段文字</p>
+    <hr>
+    <button id="button8">按钮</button>
+    <p id="p8">一段文字</p>
+    <hr>
+    <input type="text" id="input1">
+    <p id="p9">一段文字</p>
+    <p id="p10"></p>
+    <hr>
+    <p id="p11">一段文字一段文字</p>
+    <p id="p12">一段文字一段文字</p>
+    <hr>
+</body>
+</html>

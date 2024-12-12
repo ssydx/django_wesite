@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/jquery/jquery.js"></script>
+    <script>
+        $(document).ready(
+            function() {
+                // 元素选择器
+                $('.button1').click(
+                    function() {
+                        $('p').hide();
+                });
+                // 类型选择器
+                $('.button2').click(
+                    function() {
+                        $('.span2').hide();
+                });
+                // ID选择器
+                $('.button3').click(
+                    function() {
+                        $('#span2').hide();
+                });
+                // 属性选择器
+                $('.button4').click(
+                    function() {
+                        $('[checked]').hide();
+                        $('[data-class="span2"]').hide();
+                });
+                // 全部选择器
+                $('.button5').click(
+                    function() {
+                        $('*').show();
+                });
+                // 当前元素
+                $('.button6').click(
+                    function() {
+                        $(this).hide();
+                });
+        })
+    </script>
+</head>
+<body>
+    <button class="button1">隐藏按钮</button>
+    <p class="p1">一段文字</p>
+    <p class="p2">一段文字</p>
+    <p>一段文字</p>
+    <hr>
+    <button class="button2">按钮</button><br>
+    <span class="span1">一段文字</span><br>
+    <span class="span1">一段文字</span><br>
+    <span class="span2">一段文字</span><br>
+    <span class="span2">一段文字</span><br>
+    <span class="span3">一段文字</span>
+    <div class="span2">一段文字</div>
+    <hr>
+    <button class="button3">按钮</button><br>
+    <span id="span1">一段文字</span><br>
+    <span id="span2">一段文字</span><br>
+    <div id="span3">一段文字</div>
+    <hr>
+    <button class="button4">按钮</button><br>
+    <input type="checkbox" name="ckbx1" id="ckbx1" checked>
+    <input type="checkbox" name="ckbx2" id="ckbx2"><br>
+    <span data-class="span1">一段文字</span><br>
+    <span data-class="span2">一段文字</span><br>
+    <span data-class="span3">一段文字</span><br>
+    <div>一段文字</div>
+    <hr>
+    <button class="button5">按钮</button><br>
+    <hr>
+    <button class="button6">按钮</button><br>
+    <hr>
+</body>
+</html>
