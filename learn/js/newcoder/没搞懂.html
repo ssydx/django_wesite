@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+  <ul id="myList">
+    <li id="item1">项目 1</li>
+    <li id="item3">项目 3</li>
+    <li id="item2">项目 2</li>
+    <li id="item4">项目 4</li>
+  </ul>
+
+  <script>
+    function sortAndReturnTextContent() {
+      console.log(document.querySelector('#myList'));
+      const items = document.getElementById('myList').children;
+      console.log(items);
+      console.log(document.querySelector('#myList'));
+      // 在此补全代码
+      const itemsArr = Array.from(items).sort((a,b) => {
+        return a.id > b.id ? 1:-1;
+      })
+      console.log(itemsArr);
+      console.log(document.querySelector('#myList'));
+      const newArr = itemsArr.map(elem => {
+        return elem.outerHTML;
+      })
+      console.log(newArr);
+      console.log(document.querySelector('#myList'));
+      const container = document.createDocumentFragment();
+      itemsArr.forEach(elem => {
+        console.log(elem);
+        
+      })
+      console.log(container);
+      console.log(document.querySelector('#myList'));
+      document.getElementById('myList').appendChild(container);
+    }
+    sortAndReturnTextContent()
+  </script>
+
+
+
+</body>
+
+</html>

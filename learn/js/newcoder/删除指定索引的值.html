@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _delete1 = (array,index) => {
+                // 补全代码
+                const newArr = Array.from(array);
+                newArr.splice(index,1);
+                return newArr;
+            }
+            const _delete2 = (array,index) => {
+                // 补全代码
+                return array.filter((val,idx) => idx != index);
+            }
+            function call() {
+                let arr = [2,3,45,6,23,1,87,67,56]
+                const val1 = _delete1(arr,6);
+                const val2 = _delete2(arr,6);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' + val2;
+            }
+        </script>
+    </body>
+</html>

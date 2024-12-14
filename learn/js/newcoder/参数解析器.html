@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _getParams1 = (str) => {
+                // 补全代码
+                const m = str.slice(str.indexOf('?')+1).split('&').join('=').split('=');
+                const dict = {};
+                m.forEach((elem,index) => {
+                    if ((index+1) % 2 == 1) {
+                        dict[elem] = m[index+1];
+                    }
+                })
+                return dict;
+            }
+            const _getParams2 = (str) => {
+                // 补全代码
+                res = {};
+                str.replace(/([^?=&]+)=([^=&]+)/g, (_,$1,$2) => res[$1]=$2);
+                return res;
+            }
+            const _getParams3 = (str) => {
+                // 补全代码
+                let arr = str.match(/(\w+)=(\w+)/gi);
+                console.log(arr);
+                let obj = {};
+                arr.map(item => {
+                    let [key, value] = item.split("=");
+                    obj[key] = value;
+                })
+                return obj;
+            }
+            function call() {
+                let str = 'https://nowcoder.com/online?id=1&salas=1000';
+                const val1 = _getParams1(str);
+                const val2 = _getParams2(str);
+                const val3 = _getParams3(str);
+                console.log(val1);
+                console.log(val2);
+                console.log(val3);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' + val2;
+            }
+        </script>
+    </body>
+</html>

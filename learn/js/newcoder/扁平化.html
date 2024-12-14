@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _flatten1 = arr => {
+                // 补全代码
+                return arr.join(',').split(',').map(elem => {return Number(elem);});
+            }
+            const _flatten2 = arr => {
+                // 补全代码
+                let res = [];
+                function isone(array) {
+                    array.forEach(element => {
+                        if (element instanceof Array) {
+                            isone(element);
+                        } else {
+                            res.push(element);
+                        }
+                    });
+                };
+                isone(arr);
+                return res;
+            }
+            function call() {
+                let str = [1,[2,[3,[4]]]];
+                const val1 = _flatten1(str);
+                const val2 = _flatten2(str);
+                const val3 = _flatten3(str);
+                console.log(val1);
+                console.log(val2);
+                console.log(val3);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' ;
+            }
+        </script>
+    </body>
+</html>

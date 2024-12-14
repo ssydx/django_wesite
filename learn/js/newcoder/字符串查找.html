@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _getExFilename1 = (filename) => {
+                // 补全代码
+                return filename.slice(filename.lastIndexOf('.'));
+            }
+            const _getExFilename2 = (filename) => {
+                return '.'.concat(filename.split('.').at(-1));
+            }
+            const _getExFilename3 = (filename) => {
+                return '.' + filename.split('.').pop();
+            }
+            function call() {
+                const arg = '1.2.3.txt';
+                const val1 = _getExFilename1(arg);
+                const val2 = _getExFilename2(arg);
+                const val3 = _getExFilename3(arg);
+                document.querySelector('#val').innerHTML = val1 + '    ' + val2 + '    ' + val3;
+            }
+        </script>
+    </body>
+</html>

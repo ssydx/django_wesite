@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="my_str('abc123一二三')">执行</button>
+    <div></div>
+    <script>
+        function my_str(str) {
+            let arrStr = [];
+            let i = 0;
+            arrStr[i++] = str;
+            arrStr[i++] = str.length;
+            arrStr[i++] = str.at(0);
+            arrStr[i++] = str.charAt(0);
+            arrStr[i++] = str.charCodeAt(0);
+            arrStr[i++] = str[0];
+            arrStr[i++] = str.slice(0,1);
+            arrStr[i++] = str.slice(0,1-str.length);
+            arrStr[i++] = str.slice(str.length,1-str.length);
+            arrStr[i++] = str.slice(str.length,1);
+            arrStr[i++] = str.substring(0,1);
+            arrStr[i++] = str.substring(1,0);
+            arrStr[i++] = str.substr(0,1);
+            arrStr[i++] = str.substr(-str.length,1);
+            arrStr.forEach(elem => {
+                const p = document.createElement('p');
+                p.innerHTML = elem;
+                document.querySelector('div').appendChild(p);
+            })
+        }
+    </script>
+</body>
+</html>

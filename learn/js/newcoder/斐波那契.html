@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _isFibonacci1 = array => {
+                // 补全代码
+                if (array.length < 3) {
+                    return false;
+                } else {
+                    for (i=2;i<array.length;i++) {
+                        if (array[i-2] + array[i-1] != array[i]) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            }
+            function call() {
+                let str = [0,1,1,2];
+                const val1 = _isFibonacci1(str);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' ;
+            }
+        </script>
+    </body>
+</html>

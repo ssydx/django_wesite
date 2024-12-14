@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            const _getUniqueNums1 = (start,end,n) => {
+                // 补全代码
+                let starttime = Date.now();
+                const arr = [];
+                for(i=0;i<n;i++) {
+                    const rand = Math.trunc(Math.random() * (end - start)) + start;
+                    if (!arr.includes(rand)) {
+                        arr.push(rand);
+                        continue;
+                    }
+                    i--;
+                }
+                let endtime = Date.now();
+                return (endtime - starttime) + '<br/>' + arr;
+            }
+            const _getUniqueNums2 = (start,end,n) => {
+                // 补全代码
+                let starttime = Date.now();
+                let fullarr = [];
+                for (let i = start; i <= end; i++) {
+                    fullarr.push(i);
+                }
+                let arr = [];
+                while (arr.length < n) {
+                    var index = Math.floor(Math.random() * fullarr.length);
+                    arr.push(fullarr[index]);
+                    fullarr.splice(index,1);
+                }
+                let endtime = Date.now();
+                return (endtime - starttime) + '<br/>' + arr;
+            }
+            function call() {
+                const val1 = _getUniqueNums1(10,100000,90000);
+                const val2 = _getUniqueNums2(10,100000,90000);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' + val2;
+            }
+        </script>
+    </body>
+</html>

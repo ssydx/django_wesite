@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-5">
+    <div class="dropdown dropend">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">下拉菜单</button>
+        <div class="dropdown-menu">
+          <li><h5 class="dropdown-header">下拉标题 1</h5></li>
+          <li><a class="dropdown-item active" href="#">链接 1</a></li>
+          <li><a class="dropdown-item" href="#">链接 2</a></li>
+          <li><a class="dropdown-item" href="#">链接 3</a></li>
+          <li><hr class="dropdown-divider"></hr></li>
+          <li><h5 class="dropdown-header">下拉标题 1</h5></li>
+          <li><a class="dropdown-item disabled" href="#">链接 1</a></li>
+          <li><a class="dropdown-item" href="#">链接 2</a></li>
+          <li><a class="dropdown-item-text" href="#">链接 3</a></li>
+          <li><span class="dropdown-item-text">文本</span></li>
+        </div>
+    </div>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary">苹果</button>
+      <button type="button" class="btn btn-primary">三星</button>
+      <div class="btn-group dropup">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">索尼</button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">平板电脑</a></li>
+          <li><a class="dropdown-item" href="#">智能手机</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

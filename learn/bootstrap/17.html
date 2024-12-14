@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-5">
+    <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">可折叠</button>
+    <div id="demo" class="collapse show">
+    Lorem ipsum dolor text....
+    </div>
+    <div id="accordion">
+      <div class="card">
+        <div class="card-header">
+          <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+            可折叠组项目 #1
+          </a>
+        </div>
+        <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+          <div class="card-body">
+            Lorem ipsum..
+          </div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
+            可折叠组项目 #2
+          </a>
+        </div>
+        <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            Lorem ipsum..
+          </div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-header">
+          <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+            可折叠组项目 #3
+          </a>
+        </div>
+        <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+          <div class="card-body">
+            Lorem ipsum..
+          </div>
+        </div>
+      </div>
+    
+    </div>
+</body>
+</html>

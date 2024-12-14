@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <button onclick="call()">执行</button>
+        <p id="val"></p>
+        <script>
+            function _comma1(num) {
+                // 补全代码
+                return Array.from((num.toString()+',').repeat(num).split(',',num),val => parseInt(val));
+            }
+            function _comma2(num) {
+                // 补全代码
+                return new Array(num).fill(num);
+            }
+            function _comma3(num) {
+                // 注意
+                return Array.from({length:num},()=>num);
+            }
+            function call() {
+                const arg = 10;
+                const val1 = _comma1(arg);
+                const val2 = _comma2(arg);
+                const val3 = _comma3(arg);
+                document.querySelector('#val').innerHTML = val1 + '<hr/>' + val2 + '<hr/>' + val3;
+            }
+        </script>
+    </body>
+</html>
