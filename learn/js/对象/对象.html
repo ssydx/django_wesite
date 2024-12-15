@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Peo1 = {
+            name:'zhangsan',
+            age:26,
+            gender:'nan',
+            greet: function() {
+                return this.name + '，你好！';
+            }
+        }
+        Peo1.nation = 'china';
+        Peo1.saybye = function() {
+            return this.name + '，再见！';
+        }
+        const Peo2 = new Object();
+        Peo2.name = 'lisi';
+        Peo2.age = 23;
+        Peo2.gender = 'nv';
+        Peo2.greet = function() {
+            return this.name + '，你好！';
+        }
+        Peo2.nation = 'japan';
+        Peo2.saybye = function() {
+            return this.name + '，再见！';
+        }
+        document.write(Peo1.name + '<br>');
+        document.write(Peo1['name'] + '<br>');
+        document.write(Peo1.nation + '<br>');
+        document.write(Peo1.greet() + '<br>');
+        document.write(Peo2.name + '<br>');
+        document.write(Peo2['name'] + '<br>');
+        document.write(Peo2.nation + '<br>');
+        document.write(Peo2.greet() + '<br>');
+        delete Peo1.nation;
+        delete Peo2.nation;
+        document.write(Peo1.nation + '<br>');
+        document.write(Peo2.nation + '<br>');
+        document.write(Peo1.saybye() + '<br>');
+        document.write(Peo2.saybye() + '<br>');
+        document.write(Peo1.saybye + '<br>');
+        document.write(Peo2.saybye + '<br>');
+        let text = "";
+        for (let x in Peo1) {
+            text += Peo1[x] + "<hr>";
+        };
+        document.write(text + '<br>');
+        const keyArr = Object.keys(Peo1);
+        document.write(keyArr + '<br>');
+        const valArr = Object.values(Peo1);
+        document.write(valArr + '<br>');
+        const entArr = Object.entries(Peo1);
+        document.write(entArr + '<br>');
+        const jsonArr = JSON.stringify(Peo1);
+        document.write(jsonArr + '<br>');
+
+
+        console.log(Peo1);
+        console.log(keyArr);
+        console.log(valArr);
+        console.log(entArr);
+        console.log(jsonArr);
+
+        function Stu(name, age, gender) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.nation = 'china';
+        }
+        let s1 = new Stu('zs', 24, 'nan');
+        let a1 = new Array();
+        console.log(Object.getPrototypeOf(s1));
+        console.log(Object.getPrototypeOf(a1));
+        console.log(Stu.prototype);
+        console.log(Array.prototype);
+        console.log(s1);
+        console.log(a1);
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class myClass1 {
+            constructor(name) {
+                this.name = name;
+            }
+            getting() {
+                return this.name + '，你好！';
+            }
+            get getting1() {
+                return this.name + '，你好！';
+            }
+        }
+        class myClass2 extends Array {
+            
+        }
+        class myClass3 extends myClass1 {
+            constructor(name,age) {
+                super(name);
+                this.age = age;
+            }
+            setting(age) {
+                this.age = age;
+            }
+            set setting1(age) {
+                this.age = age;
+            }
+            static hello1() {
+                return "Hello!";
+            }
+            static hello2(self) {
+                return "Hello!" + self.name;
+            }
+        }
+        const c3 = new myClass3('zs',25);
+        document.write(c3.getting());
+        document.write(c3.getting1);
+        document.write(myClass3.hello1());
+        document.write(myClass3.hello2(c3));
+        
+    </script>
+</body>
+</html>

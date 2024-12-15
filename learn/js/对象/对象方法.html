@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const Peo1 = {
+            name:'zhangsan',
+            age:26,
+            gender:'nan',
+            greet: function() {
+                return this.name + '，你好！';
+            }
+        }
+        const Peo2 = {name: "Anne",age: 60};
+        Object.assign(Peo2,Peo1);
+        document.write(Object.entries(Peo1) + '<br>');
+        document.write(Object.entries(Peo2) + '<br>');
+        const fruits = [
+            ["apples", 300],
+            ["pears", 900],
+            ["bananas", 500]
+        ];
+        document.write(fruits + '<br>');
+        document.write(Object.fromEntries(fruits) + '<br>');
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.values(Peo1) + '<br>');
+        for (const item in Peo1) {
+            document.write(item + '<br>');
+        }
+        console.log(Peo1);
+        Object.defineProperty(Peo1, 'nation', {value: 'china'});
+        console.log(Peo1);
+        Peo1.name = 'lisi';
+        console.log(Peo1);
+        document.write(Object.getOwnPropertyNames(Peo1) + '<br>');
+        document.write(Object.keys(Peo1) + '<br>');
+        Object.defineProperty(
+            Peo1, 
+            'getting', 
+            {
+                get:function() { return this.name + ' ' + this.age; },
+                enumerable:true,
+            }
+        )
+        document.write(Object.entries(Peo1) + '<br>');
+        Peo1.color = 'blue';
+        console.log(Peo1);
+        Object.preventExtensions(Peo1);
+        Peo1.age = 18;
+        // 失效
+        Peo1.url = 'www.baidu.com';
+        console.log(Object.isExtensible(Peo1));
+        console.log(Peo1);
+        
+
+
+    </script>
+</body>
+</html>

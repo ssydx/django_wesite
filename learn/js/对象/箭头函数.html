@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="b1">按钮</button>
+    <button id="b2">按钮</button>
+    <button id="b3">按钮</button>
+    <button id="b4">按钮</button>
+    <!-- 下面两个都是window -->
+    <button id="b5" onclick="func3()">按钮</button>
+    <button id="b6" onclick="func4()">按钮</button>
+    <button id="b7">按钮</button>
+    <button id="b8">按钮</button>
+    <div id="d"></div>
+    <script>
+        document.getElementById('b1').addEventListener('click',() => document.getElementById('d').innerHTML = '<p>' + this + '</p>');
+        document.getElementById('b2').addEventListener('click',
+            function() { 
+                document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+            }
+        );
+        func1 = () => document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        func2 = function() {
+            document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        }
+        document.getElementById('b3').addEventListener('click',func1);
+        document.getElementById('b4').addEventListener('click',func2);
+        func3 = () => document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        func4 = function() {
+            document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        };
+        document.getElementById('b7').onclick = () => document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        document.getElementById('b8').onclick = function() { 
+            document.getElementById('d').innerHTML = '<p>' + this + '</p>';
+        };
+    </script>
+</body>
+</html>

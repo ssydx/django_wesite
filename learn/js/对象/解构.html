@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+        };
+        let {firstName, lastName} = person;
+        document.write(firstName + '<br>');
+        document.write(lastName + '<br>');
+        let {lastName : name} = person;
+        document.write(name + '<br>');
+        const arr = ['AaA','cAA','eAA',123,212];
+        let [A,,,B] = arr;
+        document.write(A + '<br>');
+        document.write(B + '<br>');
+        let str = 'mynameiszhangsan';
+        let [X,,,,,Z] = str;
+        document.write(X + '<br>');
+        document.write(Z + '<br>');
+        let {[3]: val1, [1]: val2} = arr;
+        document.write(val1 + '<br>');
+        document.write(val2 + '<br>');
+        let [a,b,...c] = arr;
+        document.write(a + '<br>');
+        document.write(b + '<br>');
+        document.write(c + '<br>');
+        console.log(c);
+        const fruits = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+        for (let [key,value] of fruits) {
+            document.write(key + ':' + value + ',');
+        }
+        document.write('<br>');
+        let v1 = 30;
+        let v2 = 20;
+        [v1,v2] = [v2,v1];
+        document.write(v1);
+        document.write(v2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const val1 = 10;
+        {
+            const val1 = 20;
+        }
+        document.write(val1);
+        val2 = 10;
+        document.write(val2);
+        document.write(window.val2);
+        var val3 = 30;
+        document.write(val3);
+        var val3 = 40;
+        document.write(val3);
+        document.write(window.val3);
+        val4 = 100;
+        document.write(val4);
+        var val4;
+        document.write(val4);
+        document.write(window.val4);
+    </script>
+</body>
+</html>

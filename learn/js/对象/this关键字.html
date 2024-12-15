@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write(this + '<br>');
+        function myfunc1() {
+            document.write(this + '<br>');
+        }
+        myfunc1();
+        function myfunc2() {
+            'use strict'
+            document.write(this + '<br>');
+        }
+        myfunc2();
+        const peo = {
+            name:'zhangsan',
+            age:26,
+            get: function() {
+                document.write(this + '<br>');
+            }
+        }
+        peo.get();
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const str = 'My name is zhangsan!';
+        for (const chr of str) {
+            document.write(chr + ' ');
+        }
+        document.write('<br>');
+        const arr = ['a','b','c',3,'!'];
+        for (const elem of arr) {
+            document.write(elem + ' ');
+        }
+        document.write('<br>');
+        const elem = new Set(['a','b','c',3,'!']);
+        for (const elem of arr) {
+            document.write(elem + ' ');
+        }
+        document.write('<br>');
+        const dict = new Map([
+            ["apples", 500],
+            ["bananas", 300],
+            ["oranges", 200]
+        ]);
+        for (const elem of dict) {
+            document.write(elem + ' ');
+        }
+        document.write('<br>');
+
+        function myNumbers1() {
+            let n = 0;
+            return {
+                next: function() {
+                    n += 10;
+                    return {value:n, done:false};
+                }
+            };
+        }
+        const num = myNumbers1();
+        console.log(num);
+        document.write(num.next().value);
+        document.write(num.next().value);
+        document.write(num.next().value);
+        document.write(num.next().value);
+        document.write(num.next().value);
+        document.write('<br>');
+
+        const myNumbers2 = {};
+        myNumbers2[Symbol.iterator] = function() {
+            let n = 0;
+            done = false;
+            return {
+                next() {
+                    n += 10;
+                    if (n == 40) {done = true}
+                    return {value:n, done:done};
+                }
+            };
+        }
+        console.log(myNumbers2);
+        for (const num of myNumbers2) {
+            document.write(num);
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func1() {
+            document.write('hello world1!');
+            return 'hello world1!';
+        }
+
+        func2 = function() {
+            document.write('hello world2!');
+            return 'hello world2!';
+        }
+
+        const x = func1();
+        document.write(x);
+
+        function func3(x, y=10,...args) {
+            return x + y;
+        }
+        document.write(func3(30));
+
+    </script>
+</body>
+</html>
