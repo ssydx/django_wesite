@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+         
+        <script type="text/javascript">
+            let count = 0
+            const _proxy = object => {
+                let proxy = new Proxy(object, {
+                    get: function(target, propKey) {
+                        if(propKey in target) {
+                            count ++
+                        } else {
+                            count --
+                        }
+                    }
+                })
+                return proxy
+            }
+
+            const obj = {
+                name:'zhangsan',
+                age:18,
+                gender:'male',
+            }
+            const handler = {
+                // 截取属性
+                get: function(obj, prop, rec) {
+                    if (prop == 'gender') {
+                        return 'female';
+                    }
+                    return obj[prop];
+                },
+                set: function(obj,prop,value,rec) {
+                    if (prop == 'age' && !Number.isInteger(value)) {
+                        return false;
+                    } else {
+                        obj[prop] = value;
+                        return true;
+                    }
+                }
+            }
+            const p = new Proxy(obj, handler);
+
+            document.write(p.name,p.age,p.gender);
+            p.age = 19.3;
+            console.log(obj);
+            console.log(p);
+
+        </script>
+    </body>
+</html>

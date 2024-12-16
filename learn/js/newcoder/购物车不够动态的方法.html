@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<table>
+            <thead>
+                <caption>
+                    商品
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>炸鸡</td>
+                    <td>28元</td>
+                    <td><button id="zjtaiduola">-</button></td>
+                    <td><span id="zjsl">0</span></td>
+                    <td><button id="zjtaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>可乐</td>
+                    <td>5元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>汉堡</td>
+                    <td>10元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>总价：</td>
+                    <td><span id="total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script type="text/javascript">
+            let dom_zjtaiduola = document.querySelector('#zjtaiduola')
+            let dom_zjsl = document.querySelector('#zjsl')
+            let dom_zjtaishaola = document.querySelector('#zjtaishaola')
+            let dom_kltaiduola = document.querySelector('#kltaiduola')
+            let dom_klsl = document.querySelector('#klsl')
+            let dom_kltaishaola = document.querySelector('#kltaishaola')
+            let dom_total = document.querySelector('#total')
+
+            function calSum(){
+            let val_zjsl = parseInt(dom_zjsl.innerText);
+            let val_klsl = parseInt(dom_klsl.innerText);
+            dom_total.innerText = val_zjsl*28 + val_klsl*5;
+            }
+
+            dom_zjtaiduola.onclick = function(){
+            let val = parseInt(dom_zjsl.innerText)
+            if(val > 0){
+                dom_zjsl.innerText =  val - 1;
+                calSum()
+            }
+            }
+            dom_zjtaishaola.onclick = function(){
+            dom_zjsl.innerText = parseInt(dom_zjsl.innerText) + 1;
+            calSum()
+            }
+            dom_kltaiduola.onclick = function(){
+            let val = parseInt(dom_klsl.innerText)
+            if(val > 0){
+                dom_klsl.innerText =  val - 1;
+                calSum()
+            }
+            }
+            dom_kltaishaola.onclick = function(){
+            dom_klsl.innerText = parseInt(dom_klsl.innerText) + 1;
+            calSum()
+            }
+
+        </script>
+    </body>
+</html>

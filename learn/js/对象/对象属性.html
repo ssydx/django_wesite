@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 数据属性
+        {
+        const Peo1 = {
+            name:'zhangsan',
+            age:26,
+            gender:'nan',
+            greet: function() {
+                return this.name + '，你好！';
+            }
+        }
+        console.log(Peo1);
+        Object.defineProperty(
+            Peo1, 
+            'dataattr1', 
+            {
+                value:'datavalue1',
+            }
+        )
+        console.log(Peo1);
+        // 修改属性
+        document.write(Peo1['dataattr1'] + '<br>');
+        Peo1.dataattr1 = 'da1';
+        document.write(Peo1.dataattr1 + '<br>');
+        // 枚举属性
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.getOwnPropertyNames(Peo1) + '<br>');
+        // 删除属性
+        delete Peo1.dataattr1;
+        document.write(Peo1.dataattr1 + '<br>');
+        document.write('<hr>');
+        Object.defineProperty(
+            Peo1, 
+            'dataattr2', 
+            {
+                value:'datavalue2',
+                writable:true,
+            }
+        )
+        console.log(Peo1);
+        // 修改属性
+        document.write(Peo1['dataattr2'] + '<br>');
+        Peo1.dataattr2 = 'da2';
+        document.write(Peo1.dataattr2 + '<br>');
+        // 枚举属性
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.getOwnPropertyNames(Peo1) + '<br>');
+        // 删除属性
+        delete Peo1.dataattr2;
+        document.write(Peo1.dataattr2 + '<br>');
+        document.write('<hr>');
+        Object.defineProperty(
+            Peo1, 
+            'dataattr3', 
+            {
+                value:'datavalue3',
+                writable:true,
+                enumerable:true,
+            }
+        )
+        console.log(Peo1);
+        // 修改属性
+        document.write(Peo1['dataattr3'] + '<br>');
+        Peo1.dataattr3 = 'da3';
+        document.write(Peo1.dataattr3 + '<br>');
+        // 枚举属性
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.getOwnPropertyNames(Peo1) + '<br>');
+        // 删除属性
+        delete Peo1.dataattr3;
+        document.write(Peo1.dataattr3 + '<br>');
+        document.write('<hr>');
+        Object.defineProperty(
+            Peo1, 
+            'dataattr4', 
+            {
+                value:'datavalue4',
+                writable:true,
+                enumerable:true,
+                configurable:true,
+            }
+        )
+        console.log(Peo1);
+        document.write(Peo1['dataattr4'] + '<br>');
+        Peo1.dataattr4 = 'da4';
+        document.write(Peo1.dataattr4 + '<br>');
+        // 枚举属性
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.getOwnPropertyNames(Peo1) + '<br>');
+        // 删除属性
+        delete Peo1.dataattr4;
+        document.write(Peo1.dataattr4 + '<br>');
+        document.write('<hr>');
+        console.log(Object.getOwnPropertyDescriptor(Peo1,'name'));
+        console.log(Object.getOwnPropertyDescriptors(Peo1));
+        }
+        // 访问器属性1，存在递归问题
+        {
+        const Peo2 = {
+            name:'zhangsan',
+            age:26,
+            gender:'nan',
+            greet: function() {
+                return this.name + '，你好！';
+            }
+        }
+        console.log(Peo2);
+        Object.defineProperty(
+            Peo2,
+            '_visitattr1',
+            {
+                value: undefined,
+                writable: true,
+                configurable: true,
+                enumerable: false
+            }
+        )
+        console.log(Peo2);
+        Object.defineProperty(
+            Peo2, 
+            'visitattr1', 
+            {
+                get:function() {
+                    // 无法直接获取指定属性，会造成递归调用
+                    if (this._visitattr1) {
+                        return this._visitattr1;
+                    }
+                    return '未定义';
+                },
+                set:function(value) {
+                    // 无法直接设置指定属性，会造成递归调用
+                    this._visitattr1 = value;
+                },
+                enumerable:true,
+                configurable:true
+            }
+        )
+        console.log(Peo2);
+        document.write(Peo2['visitattr1'] + '<br>');
+        Peo2.visitattr1 = 'da1';
+        document.write(Peo2.visitattr1 + '<br>');
+        document.write('<hr>');
+        console.log(Object.getOwnPropertyDescriptor(Peo2,'name'));
+        console.log(Object.getOwnPropertyDescriptors(Peo2));
+        }
+        // 访问器属性2，利用闭包处理递归问题
+        {
+        const Peo3 = (
+            function() {
+                const Peo = {
+                    name:'zhangsan',
+                    age:26,
+                    gender:'nan',
+                    greet: function() {
+                        return this.name + '，你好！';
+                    }
+                }
+                let _visitattr1;
+                Object.defineProperty(
+                    Peo, 
+                    'visitattr1',
+                    {
+                        get:function() {
+                            if (_visitattr1) {
+                                return _visitattr1;
+                            }
+                            return '未定义';
+                        },
+                        set:function(value) {
+                            _visitattr1 = value;
+                        },
+                        enumerable:true,
+                        configurable:true                        
+                    }
+                );
+                return Peo;
+            }
+        )();
+        console.log(Peo3);
+        document.write(Peo3['visitattr1'] + '<br>');
+        Peo3.visitattr1 = 'da1';
+        document.write(Peo3.visitattr1 + '<br>');
+        document.write('<hr>');
+        console.log(Object.getOwnPropertyDescriptor(Peo3,'name'));
+        console.log(Object.getOwnPropertyDescriptors(Peo3));
+        }
+
+
+    </script>
+</body>
+</html>

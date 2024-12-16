@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	<table>
+            <thead>
+                <caption>
+                    商品
+                </caption>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>炸鸡</td>
+                    <td>28元</td>
+                    <td><button id="zjtaiduola">-</button></td>
+                    <td><span id="zjsl">0</span></td>
+                    <td><button id="zjtaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>可乐</td>
+                    <td>5元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>汉堡</td>
+                    <td>10元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>总价：</td>
+                    <td><span id="total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script type="text/javascript">
+            // 补全代码
+            document.querySelectorAll('button').forEach(function(elem) {
+                elem.onclick = function() {
+                    if (this.innerHTML == '-') {
+                        const value = this.parentElement.nextElementSibling.firstElementChild;
+                        if (parseInt(value.innerHTML) != 0) {
+                            value.innerHTML = parseInt(value.innerHTML) - 1;
+                            const total = document.querySelector('#total');
+                            total.innerHTML = (parseInt(total.innerHTML) - parseInt(this.parentElement.parentElement.querySelector(':nth-child(2)').innerHTML)).toString();
+                        }
+                    } else {
+                        const value = this.parentElement.previousElementSibling.firstElementChild;
+                        value.innerHTML = parseInt(value.innerHTML) + 1;
+                        const total = document.querySelector('#total');
+                        total.innerHTML = (parseInt(total.innerHTML) + parseInt(this.parentElement.parentElement.querySelector(':nth-child(2)').innerHTML)).toString();
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
