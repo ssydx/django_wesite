@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class myCls {
+            // 实例属性方法
+            constructor(val) {
+                this.attr1 = val;
+                this.method1 = function() {
+                    console.log('hello world!');
+                }
+            }
+            // 实例属性，不建议这么操作
+            // attr = 'attr';
+            // 原型方法
+            method2() {
+                console.log('hello world!');
+            }
+            // 静态属性方法
+            static attr3 = 'attr3';
+            static method3() {
+                console.log('hello world!');
+            }
+        };
+        // 原型属性
+        myCls.prototype.attr2 = 'attr2';
+
+        class mySubCls extends myCls {
+            constructor(val,subval) {
+                // 继承父类的实例属性方法
+                super(val);
+                this.subattr1 = subval;
+                this.submethod1 = function() {
+                    console.log('hello world!');
+                }
+            }
+            submethod2() {
+                console.log('hello world!');
+            }
+            static subattr3 = 'subattr3';
+            static submethod3() {
+                console.log('hello world!');
+            }
+        };
+        mySubCls.prototype.subattr2 = 'subattr2';
+
+        // 自动继承父类的原型、静态的属性、方法
+        let cls = new myCls('attr1');
+        let subcls = new mySubCls('attr1', 'subattr1');
+        console.log(cls);
+        console.log(cls.attr1);
+        console.log(cls.attr2);
+        console.log(myCls.attr3);
+        console.log(subcls);
+        console.log(subcls.attr1);
+        console.log(subcls.attr2);
+        console.log(mySubCls.attr3);
+        console.log(subcls.subattr1);
+        console.log(subcls.subattr2);
+        console.log(mySubCls.subattr3);
+
+
+
+    </script>
+</body>
+</html>

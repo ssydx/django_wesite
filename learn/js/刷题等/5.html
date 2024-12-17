@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+    </head>
+    <body>
+    	
+        <script type="text/javascript">
+            let data = [
+                {name: 'nowcoder1'},
+                {name: 'nowcoder2'}
+            ]
+            
+            const _api = string => {
+                // 补全代码
+                if (string == 'get?') {
+                    return data;
+                } else if (string.startsWith('update?')) {
+                    oldvalue = string.match(/name=(?<old>.+)&/)[1];
+                    newvalue = string.match(/to=(?<new>.+)/)[1];
+                    data.forEach(elem => {
+                        if (elem.name == oldvalue) {
+                            elem.name = newvalue;
+                        }
+                    })
+                    return data;
+                }
+            }
+        </script>
+    </body>
+</html>

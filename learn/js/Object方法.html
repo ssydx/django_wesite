@@ -55,6 +55,25 @@
         Peo1.url = 'www.baidu.com';
         console.log(Object.isExtensible(Peo1));
         console.log(Peo1);
+        o = Object.create(Object.prototype, {
+            // foo 是一个常规数据属性
+            foo: {
+                writable: true,
+                configurable: true,
+                value: "hello",
+            },
+            // bar 是一个访问器属性
+            bar: {
+                configurable: false,
+                get() {
+                return 10;
+                },
+                set(value) {
+                console.log("Setting `o.bar` to", value);
+                },
+            },
+        });
+        console.log(o);
         
 
 

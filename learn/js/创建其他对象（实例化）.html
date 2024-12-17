@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 数字
+        let num1 = 10;
+        let num2 = new Number(10);
+        let num3 = 10.1;
+        let num4 = new Number(10.1);
+        document.write(num1 + '<br>');
+        document.write(num2 + '<br>');
+        document.write(num3 + '<br>');
+        document.write(num4 + '<br>');
+        document.write('<hr>');
+        // 字符串
+        let str1 = 'a';
+        let str2 = new String('a');
+        let str3 = 'abc';
+        let str4 = new String('abc');
+        document.write(str1 + '<br>');
+        document.write(str2 + '<br>');
+        document.write(str3 + '<br>');
+        document.write(str4 + '<br>');
+        document.write('<hr>');
+        // 数组
+        let arr1 = ['a'];
+        let arr2 = new Array('a');
+        let arr3 = ['a',10,20,'c'];
+        let arr4 = new Array('a',10,20,'c');
+        document.write(arr1 + '<br>');
+        document.write(arr2 + '<br>');
+        document.write(arr3 + '<br>');
+        document.write(arr4 + '<br>');
+        // 特殊(创建长度为10但每个元素都为undefined)
+        let arr5 = new Array(10);
+        document.write(arr5 + '<br>');
+        document.write('<hr>');
+        // 日期
+        // 当前时间
+        let dt1 = new Date();
+        // 自1970来的毫秒数
+        let dt2 = new Date(1569498458945);
+        // 年月
+        let dt3 = new Date(2024,0);
+        // 年月日
+        let dt4 = new Date(2024,5,23);
+        // 年月日时
+        let dt5 = new Date(2024,5,23,12);
+        // 年月日时分
+        let dt6 = new Date(2024,5,23,10,30);
+        // 年月日时分秒
+        let dt7 = new Date(2024,5,23,13,12,44);
+        // 年月日时分秒毫秒
+        let dt8 = new Date(2024,5,23,13,12,34,800);
+        document.write(dt1 + '<br>');
+        document.write(dt2 + '<br>');
+        document.write(dt3 + '<br>');
+        document.write(dt4 + '<br>');
+        document.write(dt5 + '<br>');
+        document.write(dt6 + '<br>');
+        document.write(dt7 + '<br>');
+        document.write(dt8 + '<br>');
+        // 特殊(一些字符串可以被识别)
+        let dt9 = new Date('2024-12-01');
+        document.write(dt9 + '<br>');
+        let dt10 = new Date('2024-12-01 12:30:30');
+        document.write(dt10 + '<br>');
+        let dt11 = new Date('2024/12/01');
+        document.write(dt11 + '<br>');
+        let dt12 = new Date('2024/12/01 12:30:30');
+        document.write(dt12 + '<br>');
+        document.write('<hr>');
+        // 正则表达式
+        let reg1 = /ab+c/;
+        let reg2 = new RegExp(/ab+c/);
+        let reg3 = new RegExp('ab+c');
+        let reg4 = /ab*c/gi;
+        let reg5 = new RegExp('ab*c','gi');
+        document.write(reg1 + '<br>');
+        document.write(reg2 + '<br>');
+        document.write(reg3 + '<br>');
+        document.write(reg4 + '<br>');
+        document.write(reg5 + '<br>');
+        document.write('<hr>');
+        // 布尔
+        let bool1 = true;
+        let bool2 = new Boolean(true);
+        let bool3 = false;
+        let bool4 = new Boolean(false);
+        document.write(bool1 + '<br>');
+        document.write(bool2 + '<br>');
+        document.write(bool3 + '<br>');
+        document.write(bool4 + '<br>');
+        document.write('<hr>');
+        // 函数
+        let func1 = function() {
+            return 'hello world!';
+        }
+        let func2 = new Function("return 'hello world';");
+        let func3 = function(x) {
+            return x;
+        }
+        let func4 = new Function('x',"return x;");
+        let func5 = function(x,y) {
+            return x + y;
+        }
+        let func6 = new Function('x','y',"return x + y;");
+        function func7(a,b=10,...args) {
+            return [b,a,...args];
+        }
+        document.write(func1() + '<br>');
+        document.write(func2() + '<br>');
+        document.write(func1 + '<br>');
+        document.write(func2 + '<br>');
+        document.write(func3('abc') + '<br>');
+        document.write(func4('abc') + '<br>');
+        document.write(func3 + '<br>');
+        document.write(func4 + '<br>');
+        document.write(func5(10,20) + '<br>');
+        document.write(func6(10,20) + '<br>');
+        document.write(func5 + '<br>');
+        document.write(func6 + '<br>');
+        document.write(func7(1,2,3,4,5,6) + '<br>');
+    </script>
+</body>
+</html>

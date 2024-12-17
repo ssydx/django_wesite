@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建对象实例1
+        const Peo1 = {
+            name:'zhangsan',
+            age:26,
+            gender:'nan',
+            greet: function() {
+                return this.name + '，你好！';
+            }
+        }
+        // 创建对象实例2
+        const Peo2 = new Object();
+        Peo2.name = 'lisi';
+        Peo2.age = 23;
+        Peo2.gender = 'nv';
+        Peo2.greet = function() {
+            return this.name + '，你好！';
+        }
+        // 设置属性
+        Peo1.nation = 'china';
+        Peo1.saybye = function() {
+            return this.name + '，再见！';
+        }
+        Peo2.nation = 'japan';
+        Peo2.saybye = function() {
+            return this.name + '，再见！';
+        }
+        // 获取属性
+        document.write(Peo1.name + '<br>');
+        document.write(Peo1['name'] + '<br>');
+        document.write(Peo1.nation + '<br>');
+        document.write(Peo1['nation'] + '<br>');
+        document.write(Peo1.greet() + '<br>');
+        document.write(Peo1.greet + '<br>');
+        document.write(Peo1.saybye() + '<br>');
+        document.write(Peo1['saybye'] + '<br>');
+        document.write(Peo1 + '<br>');
+        document.write(Object.keys(Peo1) + '<br>');
+        document.write(Object.values(Peo1) + '<br>');
+        document.write(Object.entries(Peo1) + '<br>');
+        document.write('<hr>');
+        document.write(Peo2.name + '<br>');
+        document.write(Peo2['name'] + '<br>');
+        document.write(Peo2.nation + '<br>');
+        document.write(Peo2['nation'] + '<br>');
+        document.write(Peo2.greet() + '<br>');
+        document.write(Peo2.greet + '<br>');
+        document.write(Peo2.saybye() + '<br>');
+        document.write(Peo2['saybye'] + '<br>');
+        document.write(Peo2 + '<br>');
+        document.write(Object.keys(Peo2) + '<br>');
+        document.write(Object.values(Peo2) + '<br>');
+        document.write(Object.entries(Peo2) + '<br>');
+        document.write('<hr>');
+        
+
+        // 删除属性
+        delete Peo1.nation;
+        delete Peo2.nation;
+        delete Peo1.saybye;
+        delete Peo2.saybye;
+        let text1 = "";
+        for (let x in Peo1) {
+            text1 += Peo1[x] + "<br>";
+        };
+        let text2 = "";
+        for (let x in Peo2) {
+            text2 += Peo2[x] + "<br>";
+        };
+        document.write(text1);
+        document.write(text2);
+        document.write(JSON.stringify(Peo1) + '<br>');
+        document.write(JSON.stringify(Peo2) + '<br>');
+        document.write('<hr>');
+        
+
+
+
+    </script>
+</body>
+</html>

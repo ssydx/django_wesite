@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function myObj(val) {
+            // 实例属性和方法
+            // 实例访问，独立，通过实例修改
+            this.attr1 = val;
+            this.method1 = function() {
+                console.log('hello world!');
+            }
+        };
+        // 原型属性和方法
+        // 实例访问，共享，不可通过实例修改，只能通过原型修改
+        myObj.prototype.attr2 = 'attr2';
+        myObj.prototype.method2 = function() {
+            console.log('hello world!');
+        };
+        // 静态属性和方法
+        // 类访问，共享
+        myObj.attr3 = 'attr3';
+        myObj.method3 = function() {
+            console.log('hello world!');
+        }
+
+        function mySubObj(val,subval) {
+            // 继承父对象的实例属性方法
+            myObj.call(this, val);
+            this.subattr1 = subval;
+            this.submethod1 = function() {
+                console.log('subhello world!');
+            }
+        };
+        // 继承父对象的原型属性方法
+        mySubObj.prototype = Object.create(myObj.prototype);
+        mySubObj.prototype.constructor = mySubObj;
+        mySubObj.prototype.subattr2 = 'subattr2';
+        mySubObj.prototype.submethod2 = function() {
+            console.log('subhello world!');
+        };
+        mySubObj.subattr3 = 'subattr3';
+        mySubObj.submethod3 = function() {
+            console.log('subhello world!');
+        }
+
+        
+        let obj = new myObj('attr1');
+        let subobj = new mySubObj('attr1','subattr1');
+        console.log(obj);
+        console.log(obj.attr1);
+        console.log(obj.attr2);
+        console.log(myObj.attr3);
+        console.log(subobj);
+        console.log(subobj.attr1);
+        console.log(subobj.attr2);
+        console.log(mySubObj.attr3); // 静态属性方法无法继承
+        console.log(subobj.subattr1);
+        console.log(subobj.subattr2);
+        console.log(mySubObj.subattr3);
+
+
+
+    </script>
+</body>
+</html>

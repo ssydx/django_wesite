@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function func1(x, y=10,...args) {
+            let total = args.reduce(function(total,val){
+                return total + val;
+            },0)
+            return x + y + total;
+        }
+        document.write(func1(30) + '<br>');
+        document.write(func1(30,30) + '<br>');
+        document.write(func1(30,30,10,20) + '<br>');
+
+    </script>
+</body>
+</html>

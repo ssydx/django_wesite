@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 目前未发现原型属性相比静态属性的优点
+        // 实例方法的特殊用途：访问内部变量
+        class Cls {
+            constructor(name) {
+                this.name = name;
+                const val = 'ssydx';
+                this.myget2 = function() {
+                    return this.name + val;
+                }
+            }
+            myget1() {
+                return this.name + val;
+            }
+        }
+        let cls = new Cls('zs');
+        // document.write(cls.myget1());
+        document.write(cls.myget2());
+        function Obj(name) {
+            this.name = name;
+            const val = 'ssydx';
+            this.myget2 = function() {
+                    return this.name + val;
+            }
+        }
+        Obj.prototype.myget1 = function() {
+                return this.name + val;
+        }
+        let obj = new Obj('zs');
+        // document.write(obj.myget1());
+        document.write(obj.myget2());
+    </script>
+</body>
+</html>
