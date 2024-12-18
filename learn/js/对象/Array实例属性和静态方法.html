@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr1 = [1,2,3,'a','b'];
+        const arr2 = new Array(1,2,3,'a','b');
+        const arr3 = [10];
+        const arr4 = new Array(10);
+        document.write(arr1 + '<br>');
+        document.write(arr2 + '<br>');
+        document.write(arr3 + '<br>');
+        document.write(arr4 + '<br>');
+        // 静态方法
+        document.write(Array.isArray(arr1) + '<br>');
+        document.write(Array.isArray(arr2) + '<br>');
+        document.write(Array.of(10) + '<br>');
+        document.write(Array(10) + '<br>');
+        const str = 'abcde';
+        document.write(Array.from(str) + '<br>');
+        document.write(Array.from(str,function(elem,idx) {
+            document.write(this + Date.now() + '<br>');
+            return idx > 2?elem='lg2':elem;
+        }) + '<br>');
+        document.write(Array.from(str,function(elem,idx) {
+            document.write(this + Date.now() + '<br>');
+            return idx < 2?elem='lg2':elem;
+        },'this') + '<br>');
+
+        function delayedValue(v) {
+            return new Promise(
+                (resolve) => setTimeout(
+                    () => resolve(v), 
+                    100
+                )
+            );
+        }
+
+        Array.fromAsync(
+            [delayedValue(1), delayedValue(2), delayedValue(3)],
+            (element) => delayedValue(element * 2),
+        ).then((array) => console.log(array));
+
+        // 实例属性
+        document.write(arr4.length + '<br>');
+
+
+    </script>
+</body>
+</html>

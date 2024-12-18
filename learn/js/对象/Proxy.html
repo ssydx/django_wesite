@@ -6,6 +6,7 @@
     <body>
          
         <script type="text/javascript">
+            // 代理1
             let count = 0
             const _proxy = object => {
                 let proxy = new Proxy(object, {
@@ -19,7 +20,20 @@
                 })
                 return proxy
             }
-
+            const srcobj = {
+                name:'ssydx',
+                age:26,
+            }
+            const newobj = _proxy(srcobj);
+            document.write(count + '<br>');
+            newobj.name;
+            newobj.name;
+            newobj.age;
+            document.write(count + '<br>');
+            newobj.age1;
+            document.write(count + '<br>');
+            document.write('<hr>');
+            // 代理2
             const obj = {
                 name:'zhangsan',
                 age:18,
@@ -43,11 +57,11 @@
                 }
             }
             const p = new Proxy(obj, handler);
-
-            document.write(p.name,p.age,p.gender);
+            document.write(p.name,p.age,p.gender  + '<br>');
             p.age = 19.3;
-            console.log(obj);
-            console.log(p);
+            document.write(p.name,p.age,p.gender  + '<br>');
+            p.age = 20;
+            document.write(p.name,p.age,p.gender  + '<br>');
 
         </script>
     </body>

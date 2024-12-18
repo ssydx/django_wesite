@@ -60,7 +60,6 @@
         document.write(Object.values(Peo2) + '<br>');
         document.write(Object.entries(Peo2) + '<br>');
         document.write('<hr>');
-        
 
         // 删除属性
         delete Peo1.nation;
@@ -81,6 +80,69 @@
         document.write(JSON.stringify(Peo2) + '<br>');
         document.write('<hr>');
         
+
+        
+        const obj1 = {
+            name:'zhangsan',
+            age:26,
+            greet:function() {
+                return this.name + ' ' + this.age;
+            },
+            get getname() {
+                return this.name.toUpperCase();
+            },
+            set setage(age) {
+                this.age = age;
+            }
+        }
+        document.write(obj1 + '<br>');
+        document.write(obj1.name + '<br>');
+        document.write(obj1['age'] + '<br>');
+        document.write(obj1.greet + '<br>');
+        document.write(obj1.greet() + '<br>');
+        document.write(obj1.getname + '<br>');
+        obj1.setage = 18;
+        document.write(obj1.age + '<br>');
+        document.write('<hr>');
+        console.log(obj1);
+
+        const obj2 = new Object();
+        obj2.name = 'zhangsan';
+        obj2.age = 26;
+        obj2.greet = function() {
+            return this.name + ' ' + this.age;
+        }
+        Object.defineProperties(obj2,{
+            getname: {
+                get:function() {
+                    return this.name.toUpperCase();
+                },
+                configurable:true,
+                enumerable:true,
+            },
+            setage: {
+                set: function(age) {
+                    this.age = age;
+                },
+                configurable:true,
+                enumerable:true,
+            }
+        })
+        document.write(obj2 + '<br>');
+        document.write(obj2.name + '<br>');
+        document.write(obj2['age'] + '<br>');
+        document.write(obj2.greet + '<br>');
+        document.write(obj2.greet() + '<br>');
+        document.write(obj2.getname + '<br>');
+        obj2.setage = 18;
+        document.write(obj2.age + '<br>');
+        document.write('<hr>');
+        console.log(obj2);
+        
+        const obj3 =new Object('123');
+        console.log('123');
+        console.log(obj3);
+        console.log(new String('123'));
 
 
 

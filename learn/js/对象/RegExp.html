@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const reg1 = /([^?]+)=([^&$#]+)/gi;
+        const reg2 = new RegExp('www','gi');
+        const str = 'https://www.baidu.com?name=ssydx&age=30&gender=male#id1';
+        console.log(reg1.exec(str));
+        console.log(reg2.test(str));
+        console.log(reg1.flags);
+        console.log(reg1.global);
+        console.log(reg1.multiline);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const num1 = 333;
+        const num2 = 333.333;
+        const num3 = new Number(333);
+        const num4 = new Number(333.333);
+        document.write(num1 + '<br>');
+        document.write(num2 + '<br>');
+        document.write(num3 + '<br>');
+        document.write(num4 + '<br>');
+        // 实例方法
+        document.write(typeof num4.toString() + '<br>');
+        document.write(typeof num4.valueOf() + '<br>');
+        document.write(num4.toExponential() + '<br>');
+        document.write(num4.toExponential(2) + '<br>');
+        document.write(num4.toPrecision() + '<br>');
+        document.write(num4.toPrecision(2) + '<br>');
+        document.write(num4.toFixed() + '<br>');
+        // 静态属性
+        document.write(Number.EPSILON + '<br>');
+        document.write(Number.NaN + '<br>');
+        document.write(Number.MAX_VALUE + '<br>');
+        document.write(Number.MIN_VALUE + '<br>');
+        document.write(Number.MAX_SAFE_INTEGER + '<br>');
+        document.write(Number.MIN_SAFE_INTEGER + '<br>');
+        document.write(Number.NEGATIVE_INFINITY + '<br>');
+        document.write(Number.POSITIVE_INFINITY + '<br>');
+        // 静态方法
+        document.write(Number.isFinite(num1) + '<br>');
+        document.write(Number.isInteger(num2) + '<br>');
+        document.write(Number.isSafeInteger(num1) + '<br>');
+        document.write(Number.isNaN(NaN) + '<br>');
+        document.write(Number.parseInt('123.4AS') + '<br>');
+        document.write(Number.parseFloat('123.4AS') + '<br>');
+        console.log(num1);
+        console.log(num2);
+        console.log(num3);
+        console.log(num4);
+        console.log(typeof num4.toString());
+        console.log(typeof num4.valueOf());
+    </script>
+</body>
+</html>

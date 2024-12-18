@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class cls1 {
+            name = 'zs';
+            age = 23;
+        }
+        c1 = new cls1();
+        console.log(c1);
+        class cls2 {
+            name = 'zs';
+            age = 23;
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        c2 = new cls2('ls',18);
+        console.log(c2);
+        class cls3 {
+            name = 'zs';
+            age = 23;
+            static name = 'ww';
+            static age = 60;
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        c3 = new cls3('ls',18);
+        console.log(c3);
+        class cls4 {
+            #name = 'qq';
+            #age = 80;
+            name = 'zs';
+            age = 23;
+            static name = 'ww';
+            static age = 60;
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        c4 = new cls4('ls',18);
+        console.log(c4);
+        class cls5 extends cls4 {
+            constructor(name,age,gender) {
+                super(name,age);
+                this.gender = gender;
+            }
+        }
+        c5 = new cls5('ls',18,'man');
+        console.log(c5);
+    </script>
+</body>
+</html>

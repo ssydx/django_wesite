@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。</li>
+        <li>2在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。</li>
+        <li>3在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。</li>
+        <li>4在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。1在下面这个例子中，pendingResolved Promise 对象在创建时就已经被解决，因为它已经“锁定”以匹配内部 Promise 对象的最终状态，后续在 executor 函数中调用 resolveOuter 或 rejectOuter 或抛出错误对其最终状态没有影响。</li>
+    </ul>
+    <script>
+        function func() {
+            const lis = document.querySelectorAll('ul li');
+            let id = 0;
+            lis.forEach(function(elem) {
+                id++;
+                elem.id = 'section' + id;
+                const p = document.createElement('p');
+                p.innerHTML = '追加内容';
+                elem.appendChild(p);
+            })
+            throw new Error('A');
+            return document;
+        }
+        function syncfunc() {
+            return new Promise(function(res,err) {
+                try {
+                    const result = func();
+                    res(result);
+                } catch(error) {
+                    err(error);
+                }
+            })
+        }
+        syncfunc().then(
+            function(res) {
+                console.log(res);
+            },
+            function(err) {
+                console.log(err);
+                throw new Error('B');
+            }
+        ).catch(function(err) {
+            console.log(err);
+        })
+
+        Promise.try(func).then(
+            function(res) {
+                console.log(res);
+            },
+            function(err) {
+                console.log(err);
+                throw new Error('B');
+            }
+        ).catch(function(err) {
+            console.log(err);
+        })
+
+    </script>
+</body>
+</html>

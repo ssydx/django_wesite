@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const dt1 = new Date(2024,10,1,12,30,31,800);
+        // 静态方法
+        const dt2 = Date.now();
+        const dt3 = Date.parse('2024-12-12');
+        const dt4 = Date.UTC(2024,10,1,12,30,31,800);
+        document.write(new Date(dt1) + '<br>');
+        document.write(dt1 + '<br>');
+        document.write(new Date(dt3) + '<br>');
+        document.write(new Date(dt4) + '<br>');
+        // 实例方法
+        document.write(dt1.getFullYear() + '<br>');
+        document.write(dt1.getMonth()+1 + '<br>');
+        document.write(dt1.getDate() + '<br>');
+        document.write(dt1.getHours() + '<br>');
+        document.write(dt1.getMinutes() + '<br>');
+        document.write(dt1.getSeconds() + '<br>');
+        document.write(dt1.getMilliseconds() + '<br>');
+        document.write(dt1.getDay() + '<br>');
+        dt1.setFullYear(2023,1,1);
+        document.write(dt1 + '<br>');
+        dt1.setMonth(3,3);
+        document.write(dt1 + '<br>');
+        dt1.setDate(10);
+        document.write(dt1 + '<br>');
+        dt1.setHours(1,1,1,1);
+        document.write(dt1 + '<br>');
+        dt1.setMinutes(3,3,3);
+        document.write(dt1 + '<br>');
+        dt1.setSeconds(30,30);
+        document.write(dt1 + '<br>');
+        dt1.setMilliseconds(1200);
+        document.write(dt1 + '<br>');
+        document.write(new Date(dt1.getTime()) + '<br>');
+        document.write(dt1.getTimezoneOffset() + '<br>');
+
+        document.write(dt1.toDateString() + '<br>');
+        document.write(dt1.toTimeString() + '<br>');
+        document.write(dt1.toString() + '<br>');
+        document.write(dt1.toLocaleDateString() + '<br>');
+        document.write(dt1.toLocaleTimeString() + '<br>');
+        document.write(dt1.toLocaleString() + '<br>');
+
+        document.write(dt1.toJSON() + '<br>');
+    </script>
+</body>
+</html>
