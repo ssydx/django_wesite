@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>测试文档</title>
+        <base href="/learn/js/DOM/">
+        <link rel="icon" href="home-icon.svg">
+        <!-- <script src="节点属性.js" defer></script> -->
+        <!-- <script src="元素属性.js" defer></script> -->
+        <!-- <script src="节点查询.js" defer></script> -->
+        <!-- <script src="节点遍历.js" defer></script> -->
+        <!-- <script src="元素遍历.js" defer></script> -->
+        <!-- <script src="位置设置.js" defer></script> -->
+        <!-- <script src="元素其他属性.js" defer></script> -->
+        <!-- <script src="文档其他属性.js" defer></script> -->
+        <!-- <script src="深入样式.js" defer></script> -->
+        <!-- <script src="元素其他方法.js" defer></script> -->
+        <script src="文档其他方法.js" defer></script>
+        <style>
+            table {
+                padding: 20px 10px;
+                margin: 40px 30px;
+                height: 400px;
+                width: 300px;
+                border-top: 3px seagreen solid;
+                border-left: 5px blue dotted;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>测试文档</h1>
+        <form action="#">
+            <input type="search" name="searchbox1" id="searchbox1" class="searchbox1">
+            <input type="search" name="searchbox1" id="searchbox2" class="searchbox1">
+            <input type="search" name="searchbox2" id="searchbox3" class="searchbox1">
+            <input type="search" name="searchbox2" id="searchbox4" class="searchbox2">
+        </form>
+    	<table class="tc tc1" id="tb1" style="background-color: aqua;" title="表格" lang="zh-CN" tabindex="1" accesskey="k" data-data1="data1" data-data2="data2"> 
+            <!-- 这是注释节点 -->
+            <caption class="c">
+                购物车
+            </caption>
+            <thead>
+                <tr>
+                    <th>商品</th>
+                    <th>价格</th>
+                    <th>增加</th>
+                    <th>数量</th>
+                    <th>减少</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="c1">炸鸡</td>
+                    <td>28元</td>
+                    <td><button id="zjtaiduola">-</button></td>
+                    <td><span id="zjsl">0</span></td>
+                    <td><button id="zjtaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td class="c1">可乐</td>
+                    <td>5元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td class="c1">汉堡</td>
+                    <td>10元</td>
+                    <td><button id="kltaiduola">-</button></td>
+                    <td><span id="klsl">0</span></td>
+                    <td><button id="kltaishaola">+</button></td>
+                </tr>
+                <tr>
+                    <td>总价：</td>
+                    <td><span id="total">0</span></td>
+                </tr>
+            </tbody>
+        </table>
+        <img src="cywl.png" alt="初音" height="100" tabindex="2">
+        <a href="cywl.png" target="_blank">初音 未来</a>
+        <span>这是内联块</span>
+        <span>这是内联块</span>
+    </body>
+</html>

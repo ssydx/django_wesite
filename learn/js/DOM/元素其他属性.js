@@ -1,0 +1,10 @@
+const tb = document.getElementById('tb1');
+console.log(tb);
+console.log(tb.ownerDocument);
+console.log(tb.textContent);
+console.log(tb.innerHTML);
+console.log(tb.innerText);
+console.log(tb.outerHTML);
+console.log(tb.outerText);
+console.log(tb.childElementCount);
+console.log(tb.namespaceURI);
