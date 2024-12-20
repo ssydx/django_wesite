@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        xml1 = new XMLHttpRequest();
+        xml1.open('POST','./测试1.php',true);
+        xml1.onload = function() {
+            console.log(this.response);
+        }
+        xml1.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xml1.send('name=ssydx&age=26');
+
+        xml2 = new XMLHttpRequest();
+        xml2.open('GET','./测试2.php?name=zhangsan&age=18',true);
+        xml2.onload = function() {
+            console.log(this.response);
+        }
+        xml2.send();
+    </script>
+</body>
+</html>

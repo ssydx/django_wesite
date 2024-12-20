@@ -1,0 +1,23 @@
+<input id="id1" type="number" min="100" max="300" step="100" required>
+
+<p id="demo"></p>
+
+<script>
+    document.getElementById("id1").onchange = function() {
+        console.log(this.validity);
+        if (this.validity.rangeOverflow) {
+            this.setCustomValidity('ssydx over');
+        } else if (this.validity.rangeUnderflow) {
+            this.setCustomValidity('ssydx under')
+        } else if (this.validity.stepMismatch) {
+            this.setCustomValidity('ssydx step');
+        } else if (this.validity.valueMissing) {
+            this.setCustomValidity('ssydx value');
+        } else {
+            this.setCustomValidity('ssydx');
+        }
+        console.log(this.validationMessage);
+        console.log(this.validity.customError);
+    };
+    
+</script>
