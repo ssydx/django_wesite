@@ -12,6 +12,7 @@ console.log(tb.hasAttributes());
 console.log(tb.getAttribute('class'));
 console.log(tb.getAttributeNode('class'));
 console.log(tb.getAttributeNode('class'));
+// 设置属性异步？？？
 tb.setAttribute('class','tc1 tc2');
 console.log(tb.getAttributeNode('class'));
 const attr = document.createAttribute('class');
