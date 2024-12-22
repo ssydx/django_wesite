@@ -17,3 +17,5 @@ document.querySelector('#text1').oninput = function(evt) {
     console.log(evt);
     console.log(evt.data);
 }
+
+document.querySelector('h1')
