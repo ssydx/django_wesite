@@ -11,17 +11,15 @@
     <div class="card">
         <div class="card-body">内容</div>
     </div>
-    <div class="card">
-        <div class="card-header">内容</div>
+    <div class="card bg-primary text-danger">
+        <div class="card-header">头部</div>
         <div class="card-body">内容</div>
-        <div class="card-footer">内容</div>
-    </div>
-    <div class="card bg-primary text-white">
-      <div class="card-body">Primary card</div>
+        <div class="card-footer">脚部</div>
     </div>
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">卡片标题</h4>
+        <p class="card-title">卡片标题</p>
+        <p class="card-subtitle">卡片标题</p>
         <p>一些示例文本。一些示例文本。</p>
         <a href="#" class="card-link">卡片链接</a>
         <a href="#" class="card-link">另一个链接</a>
@@ -36,21 +34,60 @@
         <a href="#" class="btn btn-primary">查看个人资料</a>
       </div>
     </div>
-    <div class="card" style="width:300px">
-
-      <div class="card-body">
-        <h4 class="card-title">John Doe</h4>
-        <p class="card-text">一些示例文本。</p>
-        <a href="#" class="btn btn-primary">查看个人资料</a>
+    <div class="card">
+      <div class="card-header" id="myCardHeader">
+        <ul class="nav nav-tabs card-header-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="tab" href="#home">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#profile">个人资料</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="tab" href="#messages">消息</a>
+          </li>
+        </ul>
       </div>
-      <img class="card-img-bottom" src="/locallibrary/catalog/static/images/hatsune_miku.png" alt="卡片图片">
+      <div class="card-body">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p>这是首页内容。</p>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <p>这是个人资料内容。</p>
+          </div>
+          <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+            <p>这是消息内容。</p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="card" style="width:300px">
-      <img class="card-img-top" src="/locallibrary/catalog/static/images/hatsune_miku.png" alt="卡片图片">
-      <div class="card-img-overlay">
-        <h4 class="card-title">John Doe</h4>
-        <p class="card-text">一些示例文本。</p>
-        <a href="#" class="btn btn-primary">查看个人资料</a>
+    <div class="card">
+      <div class="card-header" id="myCardHeader">
+        <ul class="nav nav-pills card-header-pills">
+          <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="pill" href="#home1">首页</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="pill" href="#profile1">个人资料</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="pill" href="#messages1">消息</a>
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home1" role="tabpanel" aria-labelledby="home-tab">
+            <p>这是首页内容。</p>
+          </div>
+          <div class="tab-pane fade" id="profile1" role="tabpanel" aria-labelledby="profile-tab">
+            <p>这是个人资料内容。</p>
+          </div>
+          <div class="tab-pane fade" id="messages1" role="tabpanel" aria-labelledby="messages-tab">
+            <p>这是消息内容。</p>
+          </div>
+        </div>
       </div>
     </div>
 </body>
