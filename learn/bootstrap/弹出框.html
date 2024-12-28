@@ -8,31 +8,15 @@
     <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="container mt-5">
-  <div class="container mt-3">
-    <h3>Toast Example</h3>
-    <p>In this example, we use a button to show the toast message.</p>
-  
-    <button type="button" class="btn btn-primary" id="toastbtn">Show Toast</button>
-    
-    <div class="toast">
-      <div class="toast-header">
-        <strong class="me-auto">Toast Header</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-      </div>
-      <div class="toast-body">
-        <p>Some text inside the toast body</p>
-      </div>
-    </div>
-  </div>
+
+  <button type="button" class="btn btn-primary" data-bs-toggle="popover" data-bs-trigger="focus" title="Popover Header" data-bs-content="Some content inside the popover">Toggle popover</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="popover" data-bs-trigger="hover" title="Popover Header" data-bs-content="Some content inside the popover" data-bs-placement="bottom">Toggle popover</button>
   
   <script>
-  document.getElementById("toastbtn").onclick = function() {
-    var toastElList = [].slice.call(document.querySelectorAll('.toast'))
-    var toastList = toastElList.map(function(toastEl) {
-      return new bootstrap.Toast(toastEl)
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
     })
-    toastList.forEach(toast => toast.show()) 
-  }
-  </script>
+    </script>
 </body>
 </html>

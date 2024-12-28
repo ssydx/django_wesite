@@ -10,20 +10,18 @@
 <body class="container mt-5">
 
   <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Hooray!">将鼠标悬停在我上面！</button>
-  <button type="button" class="btn btn-primary" data-bs-toggle="popover" data-bs-trigger="focus" title="Popover Header" data-bs-content="Some content inside the popover">Toggle popover</button>
-  <button type="button" class="btn btn-primary" data-bs-toggle="popover" data-bs-trigger="hover" title="Popover Header" data-bs-content="Some content inside the popover">Toggle popover</button>
+  <p class="btn btn-danger" data-bs-toggle="tooltip" data-bs-placement="left" title="提示语">悬停</p>
   
+
   <script>
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl)
-    })
-    </script>
-  <script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    var tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    console.log(tooltips)
+    var tooltipTriggerList = [].slice.apply(tooltips)
+    console.log(tooltipTriggerList)
+    var tooltipLs = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl)
     })
+    console.log(tooltipLs)
     </script>
 </body>
 </html>
