@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/bootstrap/bootstrap-5.3.3/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/learn/bootstrap/bootstrap-5.3.3/css/bootstrap.css">
+</head>
+<body data-bs-theme="light">
+        <nav class="navbar navbar-expand-sm fixed-top bg-body shadow">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img src="/learn/bootstrap/other/home-icon.svg" alt="首页" width="24px">
+                </a>
+                <div class="form-check form-switch form-check-reverse">
+                    <label for="theme" class="form-check-label text-nowrap">模式</label>
+                    <input type="checkbox" name="theme" id="theme" class="form-check-input">
+                </div>
+                <button type="button" class="btn navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-ul">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="nav-ul">
+                    <ul class="navbar-nav navbar-nav-scroll p-1">
+                        <li class="nav-item dropdown">
+                            <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">编程</button>
+                            <ul class="dropdown-menu overflow-y-scroll" style="height: 75vh;">
+                                <li class="dropdown-header">前端</li>
+                                <a href="#" class="dropdown-item">HTML</a>
+                                <a href="#" class="dropdown-item">CSS</a>
+                                <a href="#" class="dropdown-item">JAVASCRIPT</a>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-header">后端</li>
+                                <a href="#" class="dropdown-item">PHP</a>
+                                <a href="#" class="dropdown-item">ASP</a>
+                                <a href="#" class="dropdown-item">JAVA</a>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-header">框架</li>
+                                <a href="#" class="dropdown-item">JQuery</a>
+                                <a href="#" class="dropdown-item">Bootstrap</a>
+                                <a href="#" class="dropdown-item">Vue.js</a>
+                                <a href="#" class="dropdown-item">Django</a>
+                                <a href="#" class="dropdown-item">Node.js</a>
+                            </ul>
+                        </li>
+                        <a href="#" class="nav-link text-nowrap">动漫</a>
+                        <a href="#" class="nav-link text-nowrap">小说</a>
+                        <a href="#" class="nav-link text-nowrap">文学</a>
+                        <a href="#" class="nav-link text-nowrap">音乐</a>
+                        <a href="#" class="nav-link text-nowrap me-2">其他</a>
+                        <li class="nav-item">
+                            <form action="#" class="d-flex gap-1">
+                                <input type="search" name="q" id="search" class="form-control">
+                                <button class="btn btn-outline-primary text-nowrap" type="submit">提交</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="" style="margin-top: 70px;">
+            <button type="button" class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#off-ul">弹出</button>
+            <div class="offcanvas offcanvas-start" id="off-ul">
+                <div class="offcanvas-header">
+                    <div class="offcanvas-title">目录</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <p>1</p>
+                </div>
+            </div>
+            <div>
+                <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            <p>123</p>
+            </div>
+            <input type="checkbox" name="sa" id="sa">
+        </main>
+    
+</body>
+<script>
+    document.getElementById('theme').onclick = function() {
+        if (this.checked) {
+            document.body.setAttribute('data-bs-theme','dark');
+        } else {
+            document.body.setAttribute('data-bs-theme','light');
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Scrollspy Example</title>
+  <script src="/learn/bootstrap/bootstrap-5.3.3/js/bootstrap.bundle.js"></script>
+  <link rel="stylesheet" href="/learn/bootstrap/bootstrap-5.3.3/css/bootstrap.css">
+</head>
+<body>
+  <div class="d-flex">
+    <div class="dropdown me-1">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="10,200">
+        Offset
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+    
+    <div class="dropdown">
+      <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-offset="10,50">编程</button>
+      <ul class="dropdown-menu overflow-y-scroll" style="max-height: 75vh;">
+          <li class="dropdown-header">前端</li>
+          <a href="#" class="dropdown-item">HTML</a>
+          <a href="#" class="dropdown-item">CSS</a>
+          <a href="#" class="dropdown-item">JAVASCRIPT</a>
+          <li class="dropdown-divider"></li>
+          <li class="dropdown-header">后端</li>
+          <a href="#" class="dropdown-item">PHP</a>
+          <a href="#" class="dropdown-item">ASP</a>
+          <a href="#" class="dropdown-item">JAVA</a>
+          <li class="dropdown-divider"></li>
+          <li class="dropdown-header">框架</li>
+          <a href="#" class="dropdown-item">JQuery</a>
+          <a href="#" class="dropdown-item">Bootstrap</a>
+          <a href="#" class="dropdown-item">Vue.js</a>
+          <a href="#" class="dropdown-item">Django</a>
+          <a href="#" class="dropdown-item">Node.js</a>
+      </ul>
+    </div>
+
+
+  </div>
+</body>
+</html>

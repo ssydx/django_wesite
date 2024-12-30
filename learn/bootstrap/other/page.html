@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/learn/bootstrap/bootstrap-5.3.3/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="/learn/bootstrap/bootstrap-5.3.3/css/bootstrap.css">
+</head>
+<body data-bs-theme="light">
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm fixed-top bg-body shadow">
+            <div class="container-fluid">
+                <div class="d-flex align-items-baseline">
+                    <a href="#" class="navbar-brand">
+                        <img src="/learn/bootstrap/other/home-icon.svg" alt="首页" width="24px">
+                    </a>
+                    <div class="form-check form-switch form-check-reverse">
+                        <label for="theme" class="form-check-label text-nowrap">模式</label>
+                        <input type="checkbox" name="theme" id="theme" class="form-check-input">
+                    </div>
+                </div>
+                <button type="button" class="btn navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-ul">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="nav-ul">
+                    <ul class="navbar-nav navbar-nav-scroll">
+                        <li class="nav-item dropdown">
+                            <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">编程</button>
+                            <ul class="dropdown-menu overflow-y-scroll" style="max-height: 75vh; top: 48px;">
+                                <li class="dropdown-header">前端</li>
+                                <a href="#" class="dropdown-item">HTML</a>
+                                <a href="#" class="dropdown-item">CSS</a>
+                                <a href="#" class="dropdown-item">JAVASCRIPT</a>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-header">后端</li>
+                                <a href="#" class="dropdown-item">PHP</a>
+                                <a href="#" class="dropdown-item">ASP</a>
+                                <a href="#" class="dropdown-item">JAVA</a>
+                                <li class="dropdown-divider"></li>
+                                <li class="dropdown-header">框架</li>
+                                <a href="#" class="dropdown-item">JQuery</a>
+                                <a href="#" class="dropdown-item">Bootstrap</a>
+                                <a href="#" class="dropdown-item">Vue.js</a>
+                                <a href="#" class="dropdown-item">Django</a>
+                                <a href="#" class="dropdown-item">Node.js</a>
+                            </ul>
+                        </li>
+                        <a href="#" class="nav-link text-nowrap">动漫</a>
+                        <a href="#" class="nav-link text-nowrap">小说</a>
+                        <a href="#" class="nav-link text-nowrap">文学</a>
+                        <a href="#" class="nav-link text-nowrap">音乐</a>
+                        <a href="#" class="nav-link text-nowrap me-2">其他</a>
+                        <li class="nav-item">
+                            <form action="#" class="d-flex gap-1">
+                                <input type="search" name="q" id="search" class="form-control">
+                                <button class="btn btn-outline-primary text-nowrap" type="submit">提交</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <main class="row">
+            <aside class="col-3 overflow-y-scroll vh-100 shadow" style="position: sticky; top:0;">
+                <h3 class="text-center bg-body border-bottom border-2" style="position: sticky; top:0; padding-top: 70px;">HTML</h3>
+                <div>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                    <p>123</p>
+                </div>
+            </aside>
+            <article class="col-7 mw-100" data-bs-spy="scroll" data-bs-target="navbar" style="padding-top: 70px; text-align: justify;">
+                <section id="section1" style="scroll-margin-top: 70px;">
+                    <h2>示例1</h2>
+                    <p>
+                        从示例1中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                </section>
+                <section id="section2" style="scroll-margin-top: 70px;">
+                    <h2>示例2</h2>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。
+                    </p>
+                    <p>
+                        如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                </section>
+                <section id="section3" style="scroll-margin-top: 70px;">
+                    <h2 >示例3</h2>
+                    <p>
+                        从示例3中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例3中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例3中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。
+                        <img src="/assets/images/设计师吃午餐.png" alt="设计师吃午餐" height="150px" style="float: right; margin: 1em;">
+                        如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                    <p>
+                        从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
+                    </p>
+                </section>
+            </article>
+            <aside class="col-2 overflow-y-scroll vh-100 shadow" style="position: sticky; top:0;">
+                <h3 class="text-center bg-body border-bottom border-2" style="position: sticky; top:0; padding-top: 70px;">HTML</h3>
+                <nav class="navbar">
+                    <div class="container-fluid">
+                        <ul class="navbar-nav nav-underline">
+                            <a class="nav-link" href="#section1">1 </a>
+                            <a class="nav-link" href="#section2">2</a>
+                            <a class="nav-link" href="#section3">3</a>
+                        </ul>
+                    </div>
+                </nav>                
+            </aside>
+        </main>
+    </div>
+</body>
+<script>
+    document.getElementById('theme').onclick = function() {
+        if (this.checked) {
+            document.body.setAttribute('data-bs-theme','dark');
+        } else {
+            document.body.setAttribute('data-bs-theme','light');
+        }
+    }
+</script>
+</html>
