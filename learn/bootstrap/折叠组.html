@@ -8,31 +8,35 @@
     <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
 </head>
 <body class="container mt-5">
-    <div class="accordion accordion-flush" id="acc1">
-        <div class="accordion-item">
-          <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-              第一部分标题
-            </button>
-          </h2>
-          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#acc1">
-            <div class="accordion-body">
-              <strong>这是第一部分的内容。</strong> 它可以在点击标题时展开或折叠。
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-              第二部分标题
-              <div class="accordion-header">heading</div>
-            </button>
-          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#acc1">
-            <div class="accordion-body">
-              <strong>这是第二部分的内容。</strong> 它也可以在点击标题时展开或折叠。
-            </div>
-          </div>
-        </div>
+    <div>
+      <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#demo">可折叠</button>
+      <div id="demo" class="collapse show">
+          <p>123</p>
       </div>
+    </div>
+    <div id="acc1">
+        <div class="card">
+            <div class="card-header">
+              <a class="btn" href="#col1" data-bs-toggle="collapse">item1</a>
+            </div>
+            <div id="col1" class="collapse show" data-bs-parent="#acc1">
+                <div class="card-body">
+                    内容1
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+              <a class="btn" href="#col2" data-bs-toggle="collapse">item2</a>
+            </div>
+            <div id="col2" class="collapse" data-bs-parent="#acc1">
+                <div class="card-body">
+                    内容2
+                </div>
+            </div>
+        </div>
+    </div>
 
+    
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-5">
+    <div class="accordion accordion-flush" id="acc1">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+              第一部分标题
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#acc1">
+            <div class="accordion-body">
+              <strong>这是第一部分的内容。</strong> 它可以在点击标题时展开或折叠。
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+              第二部分标题
+              <div class="accordion-header">heading</div>
+            </button>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#acc1">
+            <div class="accordion-body">
+              <strong>这是第二部分的内容。</strong> 它也可以在点击标题时展开或折叠。
+            </div>
+          </div>
+        </div>
+      </div>
+
+</body>
+</html>

@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="/learn/bootstrap/bootstrap-5.3.3/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="/learn/bootstrap/bootstrap-5.3.3/css/bootstrap.css">
+    <script src="../bootstrap-5.3.3/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../bootstrap-5.3.3/css/bootstrap.css">
 </head>
 <body data-bs-theme="light">
     <div class="container-fluid">
         <nav class="navbar navbar-expand-sm fixed-top bg-body shadow">
             <div class="container-fluid">
                 <div class="d-flex align-items-baseline">
-                    <a href="#" class="navbar-brand">
-                        <img src="/learn/bootstrap/other/home-icon.svg" alt="首页" width="24px">
+                    <a href="./index.html" class="navbar-brand">
+                        <img src="./home-icon.svg" alt="首页" width="24px">
                     </a>
                     <div class="form-check form-switch form-check-reverse">
                         <label for="theme" class="form-check-label text-nowrap">模式</label>
@@ -143,7 +143,7 @@
                     </p>
                     <p>
                         从示例3中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。
-                        <img src="/assets/images/设计师吃午餐.png" alt="设计师吃午餐" height="150px" style="float: right; margin: 1em;">
+                        <img src="./设计师跑步.png" alt="设计师吃午餐" height="150px" style="float: right; margin: 1em;">
                         如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。从示例2中可见，Vector类实现了 __ iter __方法，解释器可以从Vector类对象中重复地取出元素并打印。如果要检查某一个对象是否为可迭代对象，其实可以使用isinstance( )函数，该函数用于判断对象是否为某一类型，但是用这个函数判断不一定准确(原因后面会说到)。
                     </p>
                     <p>
@@ -167,11 +167,17 @@
     </div>
 </body>
 <script>
+    if (localStorage.getItem('data-bs-theme') == 'dark') {
+        document.body.setAttribute('data-bs-theme','dark');
+        document.getElementById('theme').checked = true;
+    }
     document.getElementById('theme').onclick = function() {
         if (this.checked) {
             document.body.setAttribute('data-bs-theme','dark');
+            localStorage.setItem('data-bs-theme','dark');
         } else {
             document.body.setAttribute('data-bs-theme','light');
+            localStorage.setItem('data-bs-theme','light');
         }
     }
 </script>
