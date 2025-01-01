@@ -8,62 +8,72 @@
     <link rel="stylesheet" href="../bootstrap-5.3.3/css/bootstrap.css">
 </head>
 <body data-bs-theme="light">
+    <div></div>
     <div class="container-fluid">
-        <!-- 导航栏 -->
-        <nav class="navbar navbar-expand-sm fixed-top bg-body shadow">
-            <div class="container-fluid">
-                <div class="d-flex align-items-baseline">
-                    <a href="#" class="navbar-brand">
-                        <img src="./home-icon.svg" alt="首页" width="24px">
-                    </a>
-                    <div class="form-check form-switch form-check-reverse">
-                        <label for="theme" class="form-check-label text-nowrap">模式</label>
-                        <input type="checkbox" name="theme" id="theme" class="form-check-input">
+        <div class="fixed-top shadow bg-body">
+            <!-- 导航栏 -->
+            <nav class="navbar navbar-expand-sm">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-baseline">
+                        <a href="#" class="navbar-brand">
+                            <img src="./home-icon.svg" alt="首页" width="24px">
+                        </a>
+                        <div class="form-check form-switch form-check-reverse">
+                            <label for="theme" class="form-check-label text-nowrap">模式</label>
+                            <input type="checkbox" name="theme" id="theme" class="form-check-input">
+                        </div>
+                    </div>
+                    <button type="button" class="btn navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-ul">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse" id="nav-ul">
+                        <ul class="navbar-nav navbar-nav-scroll">
+                            <li class="nav-item dropdown dropend">
+                                <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">编程</button>
+                                <ul class="dropdown-menu overflow-y-scroll" style="max-height: 75vh; top: 90px;">
+                                    <li class="dropdown-header">前端</li>
+                                    <a href="#" class="dropdown-item">HTML</a>
+                                    <a href="#" class="dropdown-item">CSS</a>
+                                    <a href="#" class="dropdown-item">JAVASCRIPT</a>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-header">后端</li>
+                                    <a href="#" class="dropdown-item">PHP</a>
+                                    <a href="#" class="dropdown-item">ASP</a>
+                                    <a href="#" class="dropdown-item">JAVA</a>
+                                    <li class="dropdown-divider"></li>
+                                    <li class="dropdown-header">框架</li>
+                                    <a href="#" class="dropdown-item">JQuery</a>
+                                    <a href="#" class="dropdown-item">Bootstrap</a>
+                                    <a href="#" class="dropdown-item">Vue.js</a>
+                                    <a href="#" class="dropdown-item">Django</a>
+                                    <a href="#" class="dropdown-item">Node.js</a>
+                                </ul>
+                            </li>
+                            <a href="#" class="nav-link text-nowrap">动漫</a>
+                            <a href="#" class="nav-link text-nowrap">小说</a>
+                            <a href="#" class="nav-link text-nowrap">文学</a>
+                            <a href="#" class="nav-link text-nowrap">音乐</a>
+                            <a href="#" class="nav-link text-nowrap me-2">其他</a>
+                            <li class="nav-item">
+                                <form action="#" class="d-flex gap-1">
+                                    <input type="search" name="q" id="search" class="form-control">
+                                    <button class="btn btn-outline-primary text-nowrap" type="submit">提交</button>
+                                </form>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <button type="button" class="btn navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav-ul">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse" id="nav-ul">
-                    <ul class="navbar-nav navbar-nav-scroll">
-                        <li class="nav-item dropdown">
-                            <button type="button" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">编程</button>
-                            <ul class="dropdown-menu overflow-y-scroll" style="max-height: 75vh; top: 48px;">
-                                <li class="dropdown-header">前端</li>
-                                <a href="#" class="dropdown-item">HTML</a>
-                                <a href="#" class="dropdown-item">CSS</a>
-                                <a href="#" class="dropdown-item">JAVASCRIPT</a>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-header">后端</li>
-                                <a href="#" class="dropdown-item">PHP</a>
-                                <a href="#" class="dropdown-item">ASP</a>
-                                <a href="#" class="dropdown-item">JAVA</a>
-                                <li class="dropdown-divider"></li>
-                                <li class="dropdown-header">框架</li>
-                                <a href="#" class="dropdown-item">JQuery</a>
-                                <a href="#" class="dropdown-item">Bootstrap</a>
-                                <a href="#" class="dropdown-item">Vue.js</a>
-                                <a href="#" class="dropdown-item">Django</a>
-                                <a href="#" class="dropdown-item">Node.js</a>
-                            </ul>
-                        </li>
-                        <a href="#" class="nav-link text-nowrap">动漫</a>
-                        <a href="#" class="nav-link text-nowrap">小说</a>
-                        <a href="#" class="nav-link text-nowrap">文学</a>
-                        <a href="#" class="nav-link text-nowrap">音乐</a>
-                        <a href="#" class="nav-link text-nowrap me-2">其他</a>
-                        <li class="nav-item">
-                            <form action="#" class="d-flex gap-1">
-                                <input type="search" name="q" id="search" class="form-control">
-                                <button class="btn btn-outline-primary text-nowrap" type="submit">提交</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+            </nav>
+            <!-- 面包屑 -->
+            <ul class="breadcrumb ms-3">
+                <a class="breadcrumb-item" href="#">编程</a>
+                <a class="breadcrumb-item" href="#">前端</a>
+                <a class="breadcrumb-item" href="#">HTML</a>
+            </ul>
+        </div>
+
         <!-- 主内容 -->
-        <main style="margin-top: 70px;">
+        <main style="margin-top: 110px;">
             <!-- 导航标签 -->
             <ul class="nav nav-tabs nav-fill">
                 <a href="#" class="nav-link active" data-bs-toggle="tab" data-bs-target="#nav-pane1">编程</a>
@@ -76,7 +86,7 @@
             <!-- 导航内容 -->
             <div class="tab-content mt-2">
                 <!-- 编程部分：明信片+导航 -->
-                <div class="tab-pane card active" id="nav-pane1">
+                <div class="tab-pane card fade active show" id="nav-pane1">
                     <!-- 明信片头 实际是导航标签 -->
                     <div class="card-header">
                         <ul class="card-header-pills nav nav-pills nav-justified">
@@ -105,7 +115,7 @@
                     </div>
                 </div>
                 <!-- 动漫部分：幻灯片 -->
-                <div class="tab-pane carousel carousel-dark slide" id="nav-pane2" data-bs-ride='carousel'>
+                <div class="tab-pane fade carousel carousel-dark slide" id="nav-pane2" data-bs-ride='carousel'>
                     <!-- 容器 -->
                     <div class="carousel-inner">
                         <img src="./夕阳-山脉-雾霭.png" alt="夕阳-山脉-雾霭" class="carousel-item d-block w-100">
@@ -138,7 +148,7 @@
                     </div>
                 </div>
                 <!-- 小说部分：明信片+图片 -->
-                <div class="tab-pane card" id="nav-pane3">
+                <div class="tab-pane fade card" id="nav-pane3">
                     <!-- 图片 -->
                     <img src="./设计师跑步.png" alt="设计师跑步" class="card-img-top">
                     <!-- 明信片体 -->
@@ -151,15 +161,42 @@
                         <a href="#" class="btn btn-secondary">按钮</a>
                     </div>
                 </div>
-                <!-- 文学部分：折叠组 -->
-                <div class="tab-pane" id="nav-pane4">
-                    <button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#collapse1">显示相关内容</button>
-                    <div class="collapse show" id="collapse1">
+                <!-- 文学部分：折叠组、警告、徽章、模态框 -->
+                <div class="tab-pane fade" id="nav-pane4">
+                    <!-- 折叠组 -->
+                    <button class="btn btn-info" data-bs-toggle="collapse" data-bs-target="#collapse1">隐藏相关内容</button>
+                    <div class="collapse show my-2" id="collapse1">
                         Voe.js是一个底层小程序框架，它实现了小程序的双线程架构，通过利用“沙箱”隔离Web环境，屏蔽DOM能力，从而确保应用的稳定性和性能。Voe.js的设计灵感来源于Vue.js，不仅借鉴了其响应式系统和组件化思想，还创新性地引入了Web Worker，将计算密集型任务移至后台线程执行，从而避免阻塞主线程，提升用户体验。
+                    </div>
+                    <!-- 警告 -->
+                    <div class="alert alert-danger alert-dismissible">
+                        <div class="alert-heading">警告</div>
+                        <a class="alert-link" href="#">警告链接</a>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    <!-- 徽章 -->
+                    <div class="badge bg-warning rounded-pill">徽章</div>
+                    <!-- 模态框 -->
+                     <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#modal1">模态框</button>
+                    <div class="modal modal-sm modal-static fade" id="modal1">
+                        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-dialog-fullscreen">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <div class="modal-title">头部</div>
+                                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <div class="modal-body">
+                                    未来，随着Web技术的不断进步和前端框架的不断发展，我们期待Voe.js能够持续优化和完善其双线程架构，为前端开发者带来更多惊喜和便利。同时，我们也期待更多的开发者能够加入到Voe.js的社区中来，共同推动前端技术的进步和发展。未来，随着Web技术的不断进步和前端框架的不断发展，我们期待Voe.js能够持续优化和完善其双线程架构，为前端开发者带来更多惊喜和便利。同时，我们也期待更多的开发者能够加入到Voe.js的社区中来，共同推动前端技术的进步和发展。未来，随着Web技术的不断进步和前端框架的不断发展，我们期待Voe.js能够持续优化和完善其双线程架构，为前端开发者带来更多惊喜和便利。同时，我们也期待更多的开发者能够加入到Voe.js的社区中来，共同推动前端技术的进步和发展。
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- 音乐部分：手风琴 -->
-                <div class="tab-pane accordion" id="nav-pane5">
+                <div class="tab-pane fade accordion" id="nav-pane5">
                     <div class="accordion-item">
                         <div class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#acc1">国语</div>
                         <div class="accordion-collapse collapse" id="acc1" data-bs-parent="#nav-pane5">双线程架构的最大优势在于能够显著提升应用的性能。通过将计算密集型任务（如数据处理、DOM更新等）移至后台线程执行，主线程可以专注于处理用户交互和UI渲染，从而避免界面卡顿和延迟。</div>
@@ -185,7 +222,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane" id="nav-pane6"></div>
+                <div class="tab-pane fade" id="nav-pane6"></div>
             </div>
         </main>
     </div>
