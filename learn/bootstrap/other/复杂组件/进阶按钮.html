@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="../../bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="../../bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-5">
+    <!-- 全宽按钮 -->
+    <div class="d-grid row-gap-2">
+        <button type="button" class="btn btn-danger">按钮</button>
+        <button type="button" class="btn btn-info">按钮</button>
+        <button type="button" class="btn btn-warning">按钮</button>
+    </div>
+    <hr>
+    <!-- 多个单选复选框 -->
+    <div class="btn-group">
+        <input type="checkbox" class="btn-check" id="btncheck1" name="check">
+        <label class="btn btn-outline-primary" for="btncheck1">选项</label>
+        <input type="checkbox" class="btn-check" id="btncheck2" name="check">
+        <label class="btn btn-outline-primary" for="btncheck2">选项</label>
+        <input type="radio" class="btn-check" id="btncheck3" name="radio">
+        <label class="btn btn-outline-primary" for="btncheck3">选项</label>
+        <input type="radio" class="btn-check" id="btncheck4" name="radio">
+        <label class="btn btn-outline-primary" for="btncheck4">选项</label>
+    </div>
+    <hr>
+    <!-- 带下拉菜单 -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary">按钮</button>
+        <button type="button" class="btn btn-outline-success">按钮</button>
+        <div class="btn-group dropend">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown">
+              下拉列表
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+              <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+            </ul>
+          </div>
+    </div>
+    <hr>
+    <!-- 警告 -->
+    <div class="alert alert-dismissible bg-danger">
+        <div class="alert-heading">头部</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    <hr>
+    <!-- 模态框 -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">模态框按钮</button>
+    <div class="modal" id="modal1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">标题</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">内容</div>
+                <div class="modal-footer">脚注</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- 侧边框 -->
+    <button type="button" class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#offcanvas1">侧边栏按钮</button>
+    <div class="offcanvas offcanvas-start" id="offcanvas1">
+        <div class="offcanvas-header">
+            <div class="offcanvas-title">标题</div>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">内容</div>
+    </div>
+    <hr>
+    <!-- 下拉列表 -->
+    <div class="dropdown dropup">
+        <button type="button" class="btn btn-outline-dark dropdown-toggle" data-bs-toggle="dropdown">下拉列表</button>
+        <div class="dropdown-menu">
+            <div class="dropdown-item">1</div>
+            <div class="dropdown-item">2</div>
+            <div class="dropdown-item">3</div>
+            <button type="button" class="dropdown-item btn-close" data-bs-dismiss="dropdown"></button>
+        </div>
+    </div>
+    <hr>
+</body>
+</html>
