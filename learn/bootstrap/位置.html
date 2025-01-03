@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="bootstrap-5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap-5.3.3/js/bootstrap.bundle.min.js"></script>
+</head>
+<body class="container mt-3">
+    <!-- 定位至视口 -->
+    <div class="border" style="height: 100px; width: 400px;">
+        <div class="position-absolute start-50 top-50">绝对位置-相对视口</div>
+    </div>
+    <!-- 定位至父元素，tanslate-middle生效，且div宽度为元素自身占据的宽度 -->
+    <div class="border position-relative" style="height: 100px; width: 400px;">
+        <div class="position-absolute start-50 top-50 translate-middle">绝对位置-相对父元素</div>
+    </div>
+    <!-- tanslate-middle生效，但子div宽度为父元素宽度，因此水平居中后回到起始 -->
+    <div class="border" style="height: 100px; width: 400px;">
+        <div class="position-relative start-50 top-50 translate-middle">相对位置-居中成功</div>
+    </div>
+    <!-- tanslate-middle不生效，因为span是内联元素，不具有宽高度 -->
+    <div class="border position-relative" style="height: 100px; width: 400px;">
+        <span class="position-relative start-50 top-50 translate-middle">相对位置-居中失败</span>
+    </div>
+    <!-- tanslate-middle生效，但子div宽度为父元素宽度，因此水平居中后回到起始 -->
+    <div class="border" style="height: 100px; width: 400px;">
+        <div class="position-fixed start-50 top-50 translate-middle">固定位置</div>
+    </div>
+    <!-- tanslate-middle不生效，因为span是内联元素，不具有宽高度 -->
+    <div class="border position-relative" style="height: 100px; width: 400px;">
+        <span class="position-fixed start-50 top-50 translate-middle">固定位置-居中失败</span>
+    </div>
+    <!-- 父元素不可滚动 -->
+    <div class="border" style="height: 100px; width: 400px;">
+        <div class="position-sticky start-50 top-50">粘贴位置-有不可滚动父元素</div>
+        123
+    </div>
+    <!-- 父元素可滚动 -->
+    <div class="position-sticky d-inline-block start-50 top-50 translate-middle">粘贴位置-有可滚动父元素</div>
+    <details open>
+        <summary>占位块</summary>
+        <div style="height: 1000px;"></div>
+    </details>
+
+</body>
+</html>
