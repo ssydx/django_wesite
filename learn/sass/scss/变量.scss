@@ -1,0 +1,32 @@
+// 变量作用域
+// 全局变量
+$global-bg: green;
+div.div1 {
+    // 局部变量
+    $global-bg: blue;
+    // 局部转全局
+    $to-global-text: red !global;
+    background-color: $global-bg;
+    color: $to-global-text;
+}
+p.p1 {
+    background-color: $global-bg;
+    color: $to-global-text;
+}
+// 变量重赋值
+// 直接重赋值
+$bg: yellow;
+$bg: purple;
+div#div1 {
+    background-color: $bg;
+}
+// 存在则不重赋值，否则重赋值
+$def-bg: yellow;
+$def-bg: purple !default;
+div#div2 {
+    background-color: $def-bg;
+}
+$undef-bg: purple !default;
+div#div3 {
+    background-color: $undef-bg;
+}

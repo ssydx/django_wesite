@@ -1,0 +1,9 @@
+.container-num::after {
+  content: 10;
+}
+.container-str::after {
+  content: "wenben";
+}
+.container-arr::after {
+  content: a, b, c;
+}

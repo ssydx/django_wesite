@@ -1,0 +1,77 @@
+.if {
+  font-size: large;
+}
+
+.for .for-1 {
+  font-size: 2rem;
+}
+.for .for-2 {
+  font-size: 4rem;
+}
+.for .for-3 {
+  font-size: 6rem;
+}
+
+.each-red {
+  color: red;
+}
+
+.each-green {
+  color: green;
+}
+
+.each-blue {
+  color: blue;
+}
+
+.bd-1 {
+  border: 0.5px solid black;
+}
+
+.bd-2 {
+  border: 0.75px solid black;
+}
+
+.bd-3 {
+  border: 1px solid black;
+}
+
+.bd-4 {
+  border: 1.5px solid black;
+}
+
+.fs-1 {
+  font-size: 0.5rem;
+}
+
+.fs-2 {
+  font-size: 0.75rem;
+}
+
+.fs-3 {
+  font-size: 1rem;
+}
+
+.fs-4 {
+  font-size: 1.5rem;
+}
+
+.while-10 {
+  color: black;
+}
+
+.while-8 {
+  color: black;
+}
+
+.while-6 {
+  color: black;
+}
+
+.while-4 {
+  color: black;
+}
+
+.while-2 {
+  color: black;
+}

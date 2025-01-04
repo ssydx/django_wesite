@@ -1,0 +1,19 @@
+
+$num: 10;
+$str: 'wenben';
+$clr: red;
+$bool: true;
+$arr: a,b,c;
+$map: (1:a,2:b,3:c);
+$nul: null;
+.container {
+    &-num::after {
+        content: $num;
+    }
+    &-str::after {
+        content: $str;
+    }
+    &-arr::after {
+        content: $arr;
+    }
+}

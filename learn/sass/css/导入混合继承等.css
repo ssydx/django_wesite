@@ -1,0 +1,41 @@
+a.link-text {
+  color: green;
+}
+
+a.link-bg {
+  background-color: red;
+}
+
+a.link {
+  color: green;
+  background-color: red;
+  text-decoration: none;
+}
+
+#father1, #son1, .son2 {
+  color: blue;
+}
+
+#son1, .son2 {
+  font-style: italic;
+}
+
+.son2 {
+  border: 1px solid black;
+}
+
+span#mix1 {
+  color: red;
+}
+
+span#mix2 {
+  color: red;
+  font-size: 32px;
+  background-color: blue;
+}
+
+span#mix3 {
+  color: red;
+  font-size: 24px;
+  background-color: green;
+}

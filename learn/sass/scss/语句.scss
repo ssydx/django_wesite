@@ -1,0 +1,47 @@
+$val: 10;
+
+.if {
+    @if $val > 10 {
+        font-size: larger;
+    } @else if $val > 5 {
+        font-size: large;
+    } @else {
+        font-size: small;
+    }
+}
+
+.for {
+    @for $i from 1 through 3 {
+        .for-#{$i} {
+            font-size: 2rem * $i;
+        }
+    }
+}
+
+
+@each $item in red,green,blue {
+    .each-#{$item} {
+        color: $item;
+    }
+}
+
+
+@each $name, $value in (1, .5),(2,.75),(3,1),(4,1.5) {
+  .bd-#{$name} {
+    border: 1px * $value solid black;
+  }
+}
+
+@each $name, $value in (1:.5,2:.75,3:1,4:1.5) {
+    .fs-#{$name} {
+      font-size: 1rem * $value;
+    }
+}
+
+$con: 10;
+@while $con > 0 {
+    .while-#{$con} {
+        color: black;
+    }
+    $con: $con - 2;
+}

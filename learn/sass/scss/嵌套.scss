@@ -1,0 +1,54 @@
+// 嵌套
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // 属性嵌套
+    flex: {
+        direction: row-reverse;
+        wrap: wrap;
+    }
+    // 标签嵌套
+    li {
+        list-style: none;
+        text-wrap: nowrap;
+        padding: 0.5rem 1rem;
+        // 属性嵌套
+        flex: {
+            basis: 0%;
+            grow: 1;
+            shrink: 1;
+        }
+        // 多重父选择嵌套
+        &:first-child {
+            color: aqua;
+        }
+    }
+    // 父选择嵌套
+    &::before {
+        content: '无序列表';
+    }
+}
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+        &::before {
+            content: 'click';
+        }
+    }
+}
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-item {
+        flex: 1 1 auto;
+        border: 1px solid black;
+        &:not(:last-child) {
+            &::after {
+                content: '/';
+            }
+        }
+    }
+}

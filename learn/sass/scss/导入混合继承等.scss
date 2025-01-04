@@ -1,0 +1,52 @@
+// 导入混合继承
+
+// 导入
+// 编译
+@import '导入用1.scss';
+// 非编译
+@import '导入用2.scss';
+a.link {
+    color: $link-text;
+    background-color: $link-bg;
+    text-decoration: none;
+}
+
+// 继承
+// extend继承
+#father1 {
+    color: blue;
+}
+#son1 {
+    @extend #father1;
+    font-style: italic;
+}
+// 占位符，不会生成选择器
+%father2 {
+    border: 1px solid black;
+}
+.son2 {
+    @extend %father2;
+    // 忽略不存在的父类
+    @extend #son1 !optional;
+    @extend #father3 !optional;
+}
+
+// 无参混合
+@mixin mix1 {
+    color: red;
+}
+span#mix1 {
+    @include mix1;
+}
+// 有参混合
+@mixin mix2($fs,$bg:blue) {
+    @include mix1;
+    font-size: $fs;
+    background-color: $bg;
+}
+span#mix2 {
+    @include mix2(32px);
+}
+span#mix3 {
+    @include mix2(24px,green);
+}
