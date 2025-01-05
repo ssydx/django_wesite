@@ -8,7 +8,8 @@
     @each $color, $value in $theme-colors {
         --#{$prefix}#{$color}: #{$value};
     }
-    @each $color, $value in $blues {
-        --#{$prefix}#{$color}: #{$value};
+    @each $color, $value in $theme-colors-rgb {
+        --#{$prefix}#{$color}-rgb: #{$value};
     }
+    
 }

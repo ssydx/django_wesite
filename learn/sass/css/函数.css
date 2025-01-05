@@ -1,0 +1,43 @@
+.div1 {
+  font-size: 32px;
+}
+
+.div2 {
+  font-size: 16px;
+}
+
+.div3 {
+  font-size: 40px;
+}
+
+.div4 {
+  font-size: 32px;
+}
+
+.div5 {
+  font-size: 68px;
+}
+
+.div6 {
+  font-size: 96px;
+}
+
+.div7 {
+  font-size: 46px;
+}
+
+.div8 {
+  border: 5px solid red;
+}
+
+.div9 {
+  border: 3px, solid, green;
+}
+
+.div10 {
+  border: 10px solid blue;
+}
+
+.div11 {
+  content: "width 12px    style solid    color blue    ";
+}

@@ -1,0 +1,27 @@
+.p1 {
+  content: 2;
+}
+
+.p2 {
+  content: "a", "b", "c";
+}
+
+.p3 {
+  content: 1, 2, 3;
+}
+
+.p4 {
+  content: true;
+}
+
+.p5 {
+  content: "a", "b", "c", "d";
+}
+
+.p6 {
+  content: 1, 2, 10;
+}
+
+.p7 {
+  content: 1, 2;
+}

@@ -1,0 +1,67 @@
+
+.div1 {
+    content: abs(-100px);
+}
+.div2 {
+    content: ceil(-100.33px);
+}
+.div3 {
+    content: floor(-100.33px);
+}
+.div4 {
+    content: round(-100.33px);
+}
+.div5 {
+    content: clamp(0, 120, 100);
+}
+.div6 {
+    content: clamp(0, -10, 100);
+}
+.div7 {
+    content: clamp(0, 10, 100);
+}
+.div8 {
+    content: random();
+}
+.div9 {
+    content: random(1);
+}
+.div10 {
+    content: random(10);
+}
+.div11 {
+    content: max(1,2,3);
+}
+.div12 {
+    content: min(1,2,3);
+}
+.div13 {
+    content: pow(2,3);
+}
+.div14 {
+    content: sqrt(3);
+}
+.div15 {
+    content: log(3);
+}
+.div16 {
+    content: log(3, 10);
+}
+.div17 {
+    content: percentage(0.33333);
+}
+.div18 {
+    content: unit(12px);
+}
+.div19 {
+    content: unitless(12px);
+}
+.div20 {
+    content: comparable(12px, 12);
+}
+.div21 {
+    content: hypot(3, 4);
+}
+.div22 {
+    content: hypot(3, 4, 5);
+}

@@ -1,0 +1,28 @@
+
+.p1 {
+    content: length((1,2,3));
+}
+$ls: (1,2,3);
+$ls: append($ls, 4);
+.p3 {
+    content: $ls;
+}
+.p4 {
+    content: index($list: $ls, $value: 2);
+}
+.p5 {
+    content: nth($list: $ls, $n: 3);
+}
+.p6 {
+    content: set-nth($list: $ls, $n: 2, $value: 'a');
+}
+.p7 {
+    content: join($list1: $ls, $list2: (7,8,9), $separator: 'space');
+}
+$ls1: ('x','y','z');
+.p8 {
+    content: zip($ls, $ls1);
+}
+.p9 {
+    content: zip((1,2,3), (4,5));
+}

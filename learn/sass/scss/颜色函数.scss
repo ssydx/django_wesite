@@ -1,0 +1,84 @@
+
+// 获取
+.p1 {
+    content: red(#12DEF69E);
+}
+.p2 {
+    content: green(#12DEF69E);
+}
+.p3 {
+    content: blue(#12DEF69E);
+}
+.p4 {
+    content: hue(#12DEF69E);
+}
+.p5 {
+    content: saturation(#12DEF69E);
+}
+.p6 {
+    content: lightness(#12DEF69E);
+}
+.p7 {
+    content: alpha(#12DEF69E);
+}
+
+// 修改
+.span1 {
+    content: adjust-hue(#12DEF69E, 30);
+}
+.span2 {
+    content: desaturate(#12DEF69E, 30%);
+}
+.span3 {
+    content: saturate(#12DEF69E, 30%);
+}
+.span4 {
+    content: darken(#12DEF69E, 30%);
+}
+.span5 {
+    content: lighten(#12DEF69E, 30%);
+}
+.span6 {
+    content: opacify(#12DEF69E, 0.3);
+}
+.span7 {
+    content: transparentize(#12DEF69E, 0.3);
+}
+.span8 {
+    content: adjust-color(#12DEF69E, $red: 16);
+}
+
+// 其他
+.other1 {
+    content: scale-color(#12DEF69E,$red:-50%);
+}
+.other2 {
+    content: change-color(#12DEF69E, $red: 16);
+}
+.other3 {
+    content: grayscale(#12DEF69E);
+}
+.other4 {
+    content: complement(#12DEF69E);
+}
+.other5 {
+    content: #12DEF69E;
+}
+.other6 {
+    content: adjust-hue(#12DEF69E, 180);
+}
+.other7 {
+    content: invert(#12DEF69E, 100%);
+}
+.other8 {
+    content: invert(#12DEF69E, 0%);
+}
+.other9 {
+    content: invert(#12DEF69E, 60%);
+}
+.other10 {
+    content: mix(black, #12DEF69E, 50%);
+}
+.other11 {
+    content: mix(black, rgba(18,12,12), 50%);
+}

@@ -1,9 +1,59 @@
-.container-num::after {
-  content: 10;
+.div1 {
+  content: number;
 }
-.container-str::after {
-  content: "wenben";
+
+.div2 {
+  content: number;
 }
-.container-arr::after {
-  content: a, b, c;
+
+.div3 {
+  content: number;
+}
+
+.div4 {
+  content: number;
+}
+
+.div5 {
+  content: string;
+}
+
+.div6 {
+  content: string;
+}
+
+.div7 {
+  content: color;
+}
+
+.div8 {
+  content: color;
+}
+
+.div9 {
+  content: color;
+}
+
+.div10 {
+  content: color;
+}
+
+.div11 {
+  content: color;
+}
+
+.div12 {
+  content: color;
+}
+
+.div13 {
+  content: list;
+}
+
+.div14 {
+  content: list;
+}
+
+.div15 {
+  content: map;
 }

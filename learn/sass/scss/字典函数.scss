@@ -1,0 +1,23 @@
+$map: ('a':1,'b':2,'c':3);
+.p1 {
+    content: map-get($map: $map, $key: 'b');
+}
+.p2 {
+    content: map-keys($map);
+}
+.p3 {
+    content: map-values($map);
+}
+.p4 {
+    content: map-has-key($map,'b');
+}
+.p5 {
+    content: map-keys(map-merge($map, ('d':10,)));
+}
+.p6 {
+    content: map-values(map-merge($map, ('c':10,)));
+}
+.p7 {
+    content: map-values(map-remove($map, 'c'));
+}
+

@@ -1,0 +1,37 @@
+
+.p1 {
+    content: str-index('abc','b');
+}
+.p2 {
+    content: str-index('abc', c);
+}
+.p3-1 {
+    content: abc;
+}
+.p3 {
+    content: quote(abc);
+}
+.p4-1 {
+    content: 'abc';
+}
+.p4 {
+    content: unquote(abc);
+}
+.p5 {
+    content: str-insert(abc,'d',2);
+}
+.p6 {
+    content: str-length(abc);
+}
+.p7 {
+    content: str-slice(abc, 1, 2);
+}
+.p8 {
+    content: to-upper-case(aBc);
+}
+.p9 {
+    content: to-lower-case(aBc);
+}
+.p10 {
+    content: unique-id();
+}

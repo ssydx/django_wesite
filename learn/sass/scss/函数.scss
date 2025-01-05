@@ -1,6 +1,91 @@
 
-$fs: 16px;
-$num: 5;
-@function func1($base, $fs, $num) {
-    
+// 默认参数
+// 无默认参数
+@function func1($val) {
+    @return $val * 2;
 }
+.div1 {
+    font-size: func1(16px);
+}
+// 有默认参数
+@function func2($val: 8px) {
+    @return $val * 2;
+}
+.div2 {
+    font-size: func2();
+}
+
+// 传参方式
+@function func3($val1,$val2) {
+    @return $val1 + $val2 * 2;
+}
+// 位置传参
+.div3 {
+    font-size: func3(8px, 16px);
+}
+// 关键字传参
+.div4 {
+    font-size: func3($val2: 8px, $val1: 16px);
+}
+
+// 不定长参数
+@function func4($vals...) {
+    $_res: 0;
+    @each $val in $vals {
+        $_res: $_res + $val;
+    }
+    @return $_res;
+}
+.div5 {
+    font-size: func4(8px, 12px, 16px, 32px);
+}
+
+// 混合参数
+@function func5($val1: 10px, $val2, $vals...) {
+    $_res: $val2 * 2 + $val1 * 3;
+    @each $val in $vals {
+        $_res: $_res + $val;
+    }
+    @return $_res;
+}
+.div6 {
+    font-size: func5(8px, 12px, 16px, 32px);
+}
+.div7 {
+    font-size: func5($val2: 8px);
+}
+
+// 数字，字符串，颜色
+@function func6($num, $str, $clr) {
+    @return $num $str $clr;
+}
+.div8 {
+    border: func6(5px, solid, red);
+}
+// 无默认列表参数
+@function func7($arr) {
+    @return $arr;
+}
+.div9 {
+    border: func7((3px, solid, green));
+}
+// 有默认列表参数
+@function func8($arr: (10px solid blue)) {
+    @return $arr;
+}
+.div10 {
+    border: func8();
+}
+// 有默认字典参数
+@function func9($map: ("width":12px, "style":solid, "color":blue)) {
+    $_str: "";
+    @each $key, $val in $map {
+        $_str: $_str + #{$key} + " " + #{$val} + "    ";
+    }
+    @return $_str;
+}
+.div11 {
+    content: func9();
+}
+
+

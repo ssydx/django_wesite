@@ -1,19 +1,51 @@
-
-$num: 10;
-$str: 'wenben';
-$clr: red;
-$bool: true;
-$arr: a,b,c;
-$map: (1:a,2:b,3:c);
-$nul: null;
-.container {
-    &-num::after {
-        content: $num;
-    }
-    &-str::after {
-        content: $str;
-    }
-    &-arr::after {
-        content: $arr;
-    }
+// 数值
+.div1 {
+    content: type-of(12px);
 }
+.div2 {
+    content: type-of(12);
+}
+.div3 {
+    content: type-of(1.2);
+}
+.div4 {
+    content: type-of(12px / 3s);
+}
+// 字符串
+.div5 {
+    content: type-of(abc);
+}
+.div6 {
+    content: type-of('abc');
+}
+// 颜色
+.div7 {
+    content: type-of(red);
+}
+.div8 {
+    content: type-of(#121212);
+}
+.div9 {
+    content: type-of(rgb(230,120,128));
+}
+.div10 {
+    content: type-of(rgba(230,120,128,0.5));
+}
+.div11 {
+    content: type-of(hsl(270,70%,23%));
+}
+.div12 {
+    content: type-of(hsla(-300,66%,37%,0.5));
+}
+//数组
+.div13 {
+    content: type-of((1,'2',red));
+}
+.div14 {
+    content: type-of((1 '2' red));
+}
+//字典
+.div15 {
+    content: type-of(('a':1,'b':'abc','c':red));
+}
+

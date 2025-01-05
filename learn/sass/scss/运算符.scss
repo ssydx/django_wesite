@@ -1,5 +1,39 @@
 // 运算符
 
+// 判断
 .p1 {
-    height: 1cm + 16px;
+    content: 'abc' == abc;
+}
+.p2 {
+    content: 16px < 1cm;
+}
+// 数学
+.p3 {
+    content: 16px + 1cm;
+}
+.p4 {
+    content: 16px - 1cm;
+}
+.p5 {
+    content: 16 * 16px;
+}
+.p6 {
+    content: 16 % 5;
+}
+// 逻辑
+.p7 {
+    content: not 'a';
+}
+.p8 {
+    content: false and 'a';
+}
+.p9 {
+    content: null or 'a';
+}
+// 字符串连接
+.p10 {
+    content: 'a' + b;
+}
+.p11 {
+    content: a + b;
 }

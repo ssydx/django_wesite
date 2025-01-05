@@ -70,17 +70,47 @@ $theme-colors: (
   "dark":       $dark,
 ) !default;
 
+
+
+// 备用蓝色数组
 $blues: (
-  'blue-100': mix(white, $blue, 80%),
-  'blue-200': mix(white, $blue, 60%),
-  'blue-300': mix(white, $blue, 40%),
-  'blue-400': mix(white, $blue, 20%),
+  'blue-100': whitemix($blue, 80%),
+  'blue-200': whitemix($blue, 60%),
+  'blue-300': whitemix($blue, 40%),
+  'blue-400': whitemix($blue, 20%),
   'blue-500': $blue,
-  'blue-600': mix(black, $blue, 20%),
-  'blue-700': mix(black, $blue, 40%),
-  'blue-800': mix(black, $blue, 60%),
-  'blue-900': mix(black, $blue, 80%),
+  'blue-600': blackmix($blue, 20%),
+  'blue-700': blackmix($blue, 40%),
+  'blue-800': blackmix($blue, 60%),
+  'blue-900': blackmix($blue, 80%),
 ) !default;
+// 备用红色数组
+$reds: (
+  'red-100': colormix($red, 1, 80%),
+  'red-200': colormix($red, 1, 80%),
+  'red-300': colormix($red, 1, 80%),
+  'red-400': colormix($red, 1, 80%),
+  'red-500': colormix($red, 0, 0%),
+  'red-600': colormix($red, -1, 20%),
+  'red-700': colormix($red, -1, 40%),
+  'red-800': colormix($red, -1, 60%),
+  'red-900': colormix($red, -1, 80%),
+) !default;
+// 备用绿色数组
+$greens: (
+  'green-100': colormix($green, 1, 80%),
+  'green-200': colormix($green, 1, 80%),
+  'green-300': colormix($green, 1, 80%),
+  'green-400': colormix($green, 1, 80%),
+  'green-500': colormix($green, 0, 0%),
+  'green-600': colormix($green, -1, 20%),
+  'green-700': colormix($green, -1, 40%),
+  'green-800': colormix($green, -1, 60%),
+  'green-900': colormix($green, -1, 80%),
+) !default;
+
+
+
 
 $variable-prefix: ssydx- !default;
 $prefix: $variable-prefix !default;
