@@ -1,0 +1,73 @@
+
+$val: 1,2,3;
+@function func1($val1, $val2) {
+    @return $val1 + $val2;
+}
+
+@mixin mix1($val1) {
+    font-size: $val1;
+}
+
+.p1 {
+    content: function-exists($name: func1);
+}
+.p2 {
+    $val-1: 'abc';
+    content: global-variable-exists($name: val);
+}
+.p3 {
+    $val-1: 'abc';
+    content: variable-exists($name: val);
+}
+.p4 {
+    $val-1: 'abc';
+    content: global-variable-exists($name: val-1);
+}
+.p5 {
+    $val-1: 'abc';
+    content: variable-exists($name: val-1);
+}
+.p6 {
+    content: mixin-exists($name: mix1);
+}
+@mixin syntax-colors($args...) {
+    @each $name, $color in keywords($args) {
+        .p7-#{$name} {
+            color: $color;
+        }
+    }
+}    
+@include syntax-colors(
+    $val1: #080,
+    $val2: #800,
+    $val3: #60b,
+);
+
+@function func2($args...) {
+    $rules: ();
+    @each $key, $val in keywords($args) {
+        $rules: append($rules,$key,auto);
+        $rules: append($rules,$val,auto);
+    }
+    @return $rules;
+}
+.p8 {
+    content: func2($val1:123,$val2:'abc');
+}
+
+@function add($val1,$val2) {
+    @return $val1 + $val2;
+}
+@function sub($val1,$val2) {
+    @return $val1 - $val2;
+}
+@function callfunc($func, $args...) {
+    @return call(get-function($func), $args...);
+}
+.p9 {
+    content: callfunc(add, 3,4);
+}
+.p10 {
+    content: callfunc(sub, 3,4);
+}
+
