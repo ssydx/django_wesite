@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 未完成 -->
+</head>
+<body>
+    <script>
+        // let A1 = 1;
+        // let A2 = 2;
+        // let A = A1 + A2;
+        // console.log(A);
+        // A2 = 3;
+        // console.log(A);
+        let A2
+        function update() {
+            A2 = A0 + A1
+        }
+        let activeEffect;
+        function track(target, key) {
+            if (activeEffect) {
+                const effects = getSubscribersForProperty(target, key)
+                effects.add(activeEffect)
+            }
+        }
+        function trigger(target, key) {
+            const effects = getSubscribersForProperty(target, key)
+            effects.forEach((effect) => effect())
+        }
+        function whenDepsChange(update) {
+            const effect = () => {
+                activeEffect = effect
+                update()
+                activeEffect = null
+            }
+            effect()
+        }
+        function reactive(obj) {
+            return new Proxy(obj,{
+                get(target, key) {
+                    track(target, key)
+                    return target[key]
+                },
+                set(target, key, value) {
+                    trigger(target, key)
+                    target[key] = value
+                }
+            })
+        }
+
+        // let B1 = reactive({value:1});
+        // let B2 = reactive({value:2});
+        // let B = reactive({value:B1.value + B2.value});
+        // console.log(B.value);
+        // B1.value = 2;
+        // console.log(B.value);
+    </script>
+</body>
+</html>
