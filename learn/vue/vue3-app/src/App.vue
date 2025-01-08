@@ -89,6 +89,21 @@
     发生了一些错误。
   </comp3>
   <comp4 />
+  <comp5 ssydx="123" />
+  <comp6 ssydx="123" />
+  <!-- 数值或布尔等总应该进行动态绑定，静态值会被视为字符串，而动态被视为表达式 -->
+  <comp7 name="ssydx" :age="12" :note="30" />
+  <comp7 v-bind="obj2" />
+  <comp8 :age="123" />
+  <div :style="{ fontSize: size + 'px' }">123</div>
+  <comp9 @evt1="(n) => { size += n }" />
+  <comp10 :class="varClass3"/>
+  <comp11>
+    <template v-slot:header="headerProps">头部 {{ headerProps.class }}</template>
+    <template #main>主体</template>
+    <template #default>默认</template>
+    <template #[slotname]>脚部</template>
+  </comp11>
   
 </template>
 
@@ -99,6 +114,13 @@ import comp1 from './components/comp1.vue';
 import comp2 from './components/comp2.vue';
 import comp3 from './components/comp3.vue';
 import comp4 from './components/comp4.vue';
+import comp5 from './components/comp5.vue';
+import comp6 from './components/comp6.vue';
+import comp7 from './components/comp7.vue';
+import comp8 from './components/comp8.vue';
+import comp9 from './components/comp9.vue';
+import comp10 from './components/comp10.vue';
+import comp11 from './components/comp11.vue';
 
 export default {
   components: {
@@ -107,6 +129,13 @@ export default {
     comp2,
     comp3,
     comp4,
+    comp5,
+    comp6,
+    comp7,
+    comp8,
+    comp9,
+    comp10,
+    comp11,
 
   },
   data() {
@@ -116,6 +145,7 @@ export default {
       message3: '<h1>123</h1>',
       varId1: 'id1',
       varClass1: 'class1',
+      varClass3: 'class3',
       varObj: {
         id: 'id2',
         class: 'class2',
@@ -168,6 +198,13 @@ export default {
         // this指data()返回的代理对象
         this.model_value1 = event.target.value;
       },
+      obj2: {
+        name: 'ssydx',
+        age: 26,
+        note: 'warning',
+      },
+      size: 16,
+      slotname: 'footer',
     };
   },
   setup() {
@@ -246,5 +283,8 @@ export default {
   #id2.class2 {
     color: rgb(4, 0, 255);
     background-color: rgb(0, 255, 4);
+  }
+  .class3 {
+    border: 1px solid aquamarine;
   }
 </style>
