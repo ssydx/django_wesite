@@ -18,7 +18,8 @@ const sty = ref({
 </script>
 
 <template>
-<h1>v-bind</h1>
+<div>
+    <h1>v-bind</h1>
 <!-- 基础绑定 -->
 <div class="div1">静态属性</div>
 <div :[attr]="val">动态属性</div>
@@ -42,6 +43,7 @@ const sty = ref({
 <!-- 字典的键，有无引号都被视为字符串；值可以为字符串或变量 -->
 <div :style="{color: 'yellow','backgroundColor': styval}">样式的对象赋值</div>
 <!-- 修饰符 -->
+</div>
 
 </template>
 

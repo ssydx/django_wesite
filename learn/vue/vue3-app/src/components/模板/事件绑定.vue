@@ -20,7 +20,8 @@ function print2(evt) {
 </script>
 
 <template>
-<h1>v-on</h1>
+<div>
+    <h1>v-on</h1>
 <button v-on:click="evt1">按钮值为：{{ val1 }}</button>
 <button @click="val1++">按钮值为：{{ val1 }}</button>
 
@@ -33,6 +34,7 @@ function print2(evt) {
 <button @click="console.log($event)">打印3</button>
 <!-- 动态事件类型 -->
 <button @[evt]="console.log($event)">打印4</button>
+</div>
 </template>
 
 <style>
