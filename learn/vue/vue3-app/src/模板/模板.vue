@@ -5,21 +5,23 @@ import vmodel from './表单绑定.vue';
 import vslot from './插槽绑定.vue';
 import vstate from './语句绑定.vue';
 import vother from './其他绑定.vue';
-import speattr from './特殊属性.vue';
+import speattr1 from './特殊属性1.vue';
+import speattr2 from './特殊属性2.vue';
+import comp from './内置组件.vue';
 
 </script>
 
 <template>
-<div class="order1">
+<div class="d-none">
     <vbind></vbind>
 </div>
-<div class="order2">
+<div class="d-none">
     <von></von>
 </div>
-<div class="order3">
+<div class="">
     <vmodel></vmodel>
 </div>
-<div class="order4">
+<div class="d-none">
     <vslot>
         <template v-slot="aaa">
             默认插槽
@@ -45,14 +47,22 @@ import speattr from './特殊属性.vue';
         </template>
     </vslot>
 </div>
-<div class="order5">
+<div class="d-none">
     <vstate></vstate>
 </div>
-<div class="order6">
+<div class="d-none">
     <vother></vother>
 </div>
-<div class="order">
-    <speattr></speattr>
+<div id="flex-row" class="d-none">
+    <div>
+        <speattr1></speattr1>
+    </div>
+    <div>
+        <speattr2></speattr2>
+    </div>
+</div>
+<div class="d-none">
+    <comp></comp>
 </div>
 
 </template>
@@ -62,22 +72,16 @@ body {
     background-color: white;
     color: black;
 }
-.order1 {
-    display: none;
+#flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: space-between;
 }
-.order2 {
-    display: none;
+#flex-row > * {
+    flex: 1 0 auto;
 }
-.order3 {
-    display: none;
-}
-.order4 {
-    display: none;
-}
-.order5 {
-    display: none;
-}
-.order6 {
-    display: none;
+.d-none {
+    display: none !important;
 }
 </style>

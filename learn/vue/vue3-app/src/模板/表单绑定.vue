@@ -13,7 +13,7 @@ const slt = ref('1');
 
 <template>
 <div>
-    <h1>v-model</h1>
+<h1>v-model</h1>
 <!-- 输入框 -->
 <label for="id1">{{ val }}</label>
 <input type="search" id="id1" :value="val" @input="val = $event.target.value">

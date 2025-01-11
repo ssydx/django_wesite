@@ -5,12 +5,12 @@ import { createApp } from 'vue'
 
 // 载入组件
 import App from './App.vue';
-import optional from './components/选项式脚本/选项式.vue';
-import composed from './components/组合式脚本/组合式.vue';
-import temp from './components/模板/模板.vue';
-import NSFC from './components/非单文件组件/1.vue';
-import sty from './components/样式/样式.vue';
-const tag = 5;
+import optional from './选项式脚本/选项式.vue';
+import composed from './组合式脚本/组合式.vue';
+import temp from './模板/模板.vue';
+import NSFC from './非单文件组件/1.vue';
+import sty from './样式/样式.vue';
+const tag = 1;
 let app;
 if (tag == 1) {
     // 创建一个基于指定组件的应用且附带有初始参数
@@ -36,7 +36,9 @@ if (tag == 1) {
 }
 // 挂载到指定容器上
 app.mount('#app');
-    
-    
+
+
+console.log(app.version);
+console.log(app.config);
 
 

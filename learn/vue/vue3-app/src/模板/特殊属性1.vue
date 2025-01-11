@@ -4,14 +4,7 @@ import vbind from './属性绑定.vue';
 import von from './事件绑定.vue';
 import vmodel from './表单绑定.vue';
 import vslot from './插槽绑定.vue';
-const val1 = ref(89);
-const val2 = ref(0);
-const html = ref('<button>按钮</button>')
-const items = ref([
-    {id:1,name:'a'},
-    {id:2,name:'b'},
-    {id:3,name:'c'},
-]);
+// ES6写法，键为组件名称，值为组件定义
 const comps = {
     vbind,
     von,
@@ -24,10 +17,8 @@ const curcomp = ref('vbind');
 <template>
 <h1>特殊属性</h1>
 <button class="tab-pane" v-for="(_,comp) in comps" :key="comp" @click="curcomp = comp">{{ comp }}</button>
+<!-- 虽然is可以使用字符串，但必须是在选项式中进行注册之后 -->
 <component :is="comps[curcomp]" class="tab-content"></component>
-
-
-
 </template>
 
 <style>
