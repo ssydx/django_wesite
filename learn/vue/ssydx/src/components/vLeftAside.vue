@@ -32,7 +32,7 @@ function resetFilterVal() {
             <span v-if="item.isGroup">{{ item.title }}</span>
             <a :href="item.link" v-else>{{ item.title }}</a>
         </li>
-    </TransitionGroup>
+    </TransitionGroup> 
 </aside>
 </template>
 
@@ -40,7 +40,7 @@ function resetFilterVal() {
 aside {
     padding: 1rem;
     padding-top: 0;
-    width: 300px;
+    width: 20rem;
     height: calc(100vh - 48px);
     overflow-y: auto;
     position: fixed;
@@ -54,8 +54,8 @@ div {
     gap: 0 1rem;
     position: sticky;
     top: 0;
-    padding: 1rem 0;
-    margin-top: 2rem;
+    padding: 2rem 0;
+    margin-top: 1rem;
     border-bottom: 1px solid rgb(100, 100, 100);
     background-color: white;
 }
@@ -70,12 +70,6 @@ div > button {
     border-radius: 3px;
     background-color: rgb(199, 199, 199);
 }
-ul {
-    padding: 0;
-}
-li {
-    list-style: none;
-}
 .list-move,
 .list-enter-active,
 .list-leave-active {
@@ -86,14 +80,15 @@ li {
   opacity: 0;
   transform: translateY(50px);
 }
-li > * {
-    display: inline-block;
+ul {
+    padding-top: 1rem;
+}
+li:not(:last-child) {
     margin-bottom: 0.5rem;
 }
 a {
-    text-decoration: none;
     color: rgb(70, 70, 70);
-    text-indent: 1rem;
+    padding-left: 1rem;
 }
 span {
     font-weight: 900;

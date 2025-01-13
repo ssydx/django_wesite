@@ -1,5 +1,6 @@
 <script setup>
 import { defineProps } from 'vue';
+import vDropdown from './vDropdown.vue';
 const navRightData = defineProps({
     navList: {
         type: Object,
@@ -12,32 +13,41 @@ const navRightData = defineProps({
 </script>
 
 <template>
-<ul>
-    <li v-for="navitem in navRightData.navList">
-        <a :href="navitem.link">{{ navitem.title }}</a>
-    </li>
-    <li v-if="navRightData.navOther">{{ navRightData.navOther }}</li>
-</ul>
+<div class="rightNav">
+    <ul>
+        <li v-for="navitem in navRightData.navList">
+            <a v-if="navitem.type === 'link'" :href="navitem.link">{{ navitem.title }}</a>
+            <vDropdown v-else-if="navitem.type === 'dropdown'" :dropdown-name="navitem.title" :dropdown-list="navitem.dropdownList"></vDropdown>
+        </li>
+        <li v-if="navRightData.navOther">{{ navRightData.navOther }}</li>
+
+    </ul>
+</div>
 </template>
 
-<style scoped>
-ul {
-    flex: 1 0 auto;
+<style scoped lang="scss">
+div.rightNav {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-end;
     gap: 0 1rem;
+    > * {
+        flex: 0 0 auto;
+    }
+    > ul {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0 0.5rem;
+        > li {
+            flex: 0 0 auto;
+            > a:hover {
+                font-weight: 900;
+            }
+        }
+    }
 }
-li {
-    list-style: none;
-    flex: 0 0 auto;
-}
-a {
-    text-decoration: none;
-    color: black;
-}
-a:hover {
-    font-weight: 900;
-}
+
 </style>

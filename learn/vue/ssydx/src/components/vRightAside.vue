@@ -1,37 +1,28 @@
 <script setup>
-import { onMounted, ref } from 'vue';
-const hash = ['home1','home2','home3','home4',];
+import { onMounted, ref,defineProps } from 'vue';
+const rightData = defineProps({
+    sections: {
+
+    },
+})
 const actEle = ref('');
 onMounted(() => {
   window.addEventListener('scroll', () => {
-    hash.forEach((item) => {
-        if (window.scrollY + window.innerHeight/2 > document.getElementById(item).offsetTop) {
-            actEle.value = '#' + item;
+    rightData.sections.forEach((item) => {
+        if (window.scrollY + 80 > document.getElementById(item.id).offsetTop) {
+            actEle.value = item.id;
         }
     })
   });
-  // 初始化时检查一次
-
 });
 </script>
 
 <template>
 <aside>
-    <h6>本页目录</h6>
-
+    <h5>本页目录</h5>
     <ul>
-        <span></span>
-        <li>
-            <a href="#home1" :class="{ active: actEle === '#home1'}">1</a>
-        </li>
-        <li>
-            <a href="#home2" :class="{ active: actEle === '#home2'}">2</a>
-        </li>
-        <li>
-            <a href="#home3" :class="{ active: actEle === '#home3'}">3</a>
-        </li>
-        <li>
-            <a href="#home4" :class="{ active: actEle === '#home4'}">4</a>
+        <li v-for="item in sections">
+            <a :href="'#' + item.id" :class="{ active: actEle === item.id}">{{ item.title }}</a>
         </li>
     </ul>
 </aside>
@@ -40,22 +31,15 @@ onMounted(() => {
 <style scoped>
 aside {
     flex: 0 0 auto;
+    margin-top: 1rem;
     padding: 1rem;
     width: 200px;
-    height: calc(100vh - 48px - 1rem);
+    height: calc(100vh - 6rem);
     overflow-y: auto;
     position: sticky;
-    margin-top: 1rem;
-    top: 48px;
-}
-ul {
-    padding: 0;
+    top: 3rem;
 }
 li {
-    list-style: none;
-}
-li > * {
-    display: inline-block;
     margin-bottom: 0.5rem;
 }
 a {

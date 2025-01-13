@@ -5,9 +5,12 @@ import vMain from './components/vMain.vue';
 
 import { ref } from 'vue';
 const navData = ref({
-    navCoreData: {
-        navImg: '/src/assets/home-icon.svg',
-        navList: [
+    navSelfData: {
+        navHeight: 3,
+    },
+    leftNavData: {
+        img: '/src/assets/home-icon.svg',
+        other: [
             {title:'编程',link:'#'},
             {title:'动漫',link:'#'},
             {title:'小说',link:'#'},
@@ -15,9 +18,59 @@ const navData = ref({
             {title:'其他',link:'#'},
         ],
     },
-    navOtherData: {
-        navLeft: '',
-        navRight: '',
+    rightNavData: {
+        list: [
+            {
+                title:'编程', 
+                type:'dropdown', 
+                dropdownList:[
+                    {title:'前端', link: '', type: 'group'},
+                    {title:'HTML', link: '#', type: 'item'},
+                    {title:'CSS', link: '#', type: 'item'},
+                    {title:'JavaScript', link: '#', type: 'item'},
+                    {title:'后端', link: '', type: 'group'},
+                    {title:'PHP', link: '#', type: 'item'},
+                    {title:'ASP', link: '#', type: 'item'},
+                    {title:'JAVA', link: '#', type: 'item'},
+                    {title:'Python', link: '#', type: 'item'},
+                    {title:'框架', link: '', type: 'group'},
+                    {title:'Bootstrap', link: '#', type: 'item'},
+                    {title:'Vue', link: '#', type: 'item'},
+                    {title:'Node.js', link: '#', type: 'item'},
+                    {title:'Django', link: '#', type: 'item'},
+                ],
+            },
+            {
+                title:'动漫',
+                type:'dropdown',
+                dropdownList:[
+                    {title:'漫画', link: '', type: 'group'},
+                    {title:'搞笑', link: '#', type: 'item'},
+                    {title:'热血', link: '#', type: 'item'},
+                    {title:'异世界', link: '#', type: 'item'},
+                    {title:'恋爱', link: '#', type: 'item'},
+                    {title:'动画', link: '', type: 'group'},
+                    {title:'搞笑', link: '#', type: 'item'},
+                    {title:'热血', link: '#', type: 'item'},
+                    {title:'日常', link: '#', type: 'item'},
+                    {title:'恋爱', link: '#', type: 'item'},
+                ]
+            },
+            {
+                title:'小说',
+                type:'dropdown',
+                dropdownList:[
+                    {title:'玄幻', link: '#', type: 'item'},
+                    {title:'都市', link: '#', type: 'item'},
+                    {title:'穿越', link: '#', type: 'item'},
+                    {title:'日常', link: '#', type: 'item'},
+                ]
+            },
+            {title:'文学',type:'link',link:'#'},
+            {title:'其他',type:'link',link:'#'},
+
+        ],
+        other: null,
     },
 });
 const asideLeftData = ref({
@@ -93,14 +146,40 @@ const mainData = ref({
             ]
         },
     ],
-    footer: {id:'-1', author:'ssydx'},
-}
-);
+    footer: {id:'-1', author:'ssydx',address: '中国北京', timeUpdate: '2025/01/01'},
+    article: [
+        {
+            id:'sec1',
+            text: '这避免了子组件意',
+            type:'h2',
+        },
+        {
+            id:'',
+            text: '所有的 props 都遵循着单向绑定原则，props',
+            type:'h3',
+        },
+        {
+            id:'',
+            text: '所有的 props 都遵循着单向绑定原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。',
+            type:'p',
+        },
+        {
+            id:'',
+            text:{href:'http://www.baidu.com',title:'链接'},
+            type:'inline-link',
+        },
+        {
+            id:'',
+            text: '所有的 props 都遵循着单向绑定原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。',
+            type:'p',
+        },
+    ]
+});
 </script>
 
 
 <template>
-    <vNav :nav-core-data="navData.navCoreData" :nav-other-data="navData.navOtherData"></vNav>
+    <vNav :nav-self-data="navData.navSelfData" :left-nav-data="navData.leftNavData" :right-nav-data="navData.rightNavData"></vNav>
     <vLeftAside :aside-list="asideLeftData.asideList"></vLeftAside>
     <vMain :main-data="mainData"></vMain>
     
