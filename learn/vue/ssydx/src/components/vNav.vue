@@ -1,7 +1,7 @@
 <script setup>
 import vLeftNav from './vLeftNav.vue';
 import vRightNav from './vRightNav.vue';
-import { defineProps,computed,ref } from 'vue';
+import { defineProps,ref } from 'vue';
 
 const navData = defineProps({
     navSelfData: {
@@ -37,9 +37,7 @@ const navData = defineProps({
         },
     },
 });
-const height = ref(navData.navSelfData.navHeight + 'rem' );
-
-
+const height = ref(navData.navSelfData.navHeight + 'rem');
 </script>
 
 <template>
@@ -64,18 +62,19 @@ nav.nav {
     background-color: var(--bg-color);
     color: var(--tt-color);
     border-radius: 0 0 0.25rem 0.25rem;
-    box-shadow: 0 0 0.75rem -0.25rem black;
+    box-shadow: 0 0 0.75rem -0.25rem var(--tt-color);
     /* 字体 */
-    font-size: 1rem;
+    font-size: calc(1rem + (v-bind(height) - 3rem) / 4);
     line-height: 1;
     /* 布局 */
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0 2rem;
+    gap: 0 3rem;
     > * {
         flex: 1 0 auto;
+        height: v-bind(height);
     };
 }
 </style>

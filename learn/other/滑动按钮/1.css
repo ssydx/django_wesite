@@ -1,0 +1,48 @@
+
+.button {
+    background-color: #f6bc00;
+    color: #fff;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-decoration: none;
+    line-height: 16px;
+    text-transform: uppercase;
+    transition: padding .2s ease,transform .5s ease;
+}
+
+
+.button:hover {
+    transform: scale(1, 1);
+    padding-left: 120px;
+    background-position: 5px center;
+}
+
+
+.button span:nth-child(1) {
+    position: absolute;
+    left: -170px;
+    transition: left .2s ease;
+}
+
+
+.button:hover span:nth-child(1) {
+    left: 10px;
+}
+
+
+
+
+
+  /* PRESENTATION */
+  body {
+    align-items: center;
+    background: #333;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }
+  
+  .button:nth-child(1) {
+    margin-right: 1em;
+  }

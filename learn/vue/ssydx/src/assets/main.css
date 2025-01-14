@@ -16,6 +16,16 @@ body {
 a {
     text-decoration: none;
     color: var(--tt-color);
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+a > * {
+    flex: 1 0 auto;
+}
+a:hover {
+    color: rgb(0, 140, 255);
+    transition: color 0.3s;
 }
 ul {
     margin: 0;
@@ -23,5 +33,7 @@ ul {
 }
 li {
     list-style: none;
+    display: flex;
+    align-items: center;
 }
 

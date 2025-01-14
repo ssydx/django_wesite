@@ -21,8 +21,8 @@ const navData = ref({
     rightNavData: {
         list: [
             {
-                title:'编程', 
                 type:'dropdown', 
+                title:'编程', 
                 dropdownList:[
                     {title:'前端', link: '', type: 'group'},
                     {title:'HTML', link: '#', type: 'item'},
@@ -41,8 +41,8 @@ const navData = ref({
                 ],
             },
             {
-                title:'动漫',
                 type:'dropdown',
+                title:'动漫',
                 dropdownList:[
                     {title:'漫画', link: '', type: 'group'},
                     {title:'搞笑', link: '#', type: 'item'},
@@ -57,8 +57,8 @@ const navData = ref({
                 ]
             },
             {
-                title:'小说',
                 type:'dropdown',
+                title:'小说',
                 dropdownList:[
                     {title:'玄幻', link: '#', type: 'item'},
                     {title:'都市', link: '#', type: 'item'},
@@ -66,9 +66,8 @@ const navData = ref({
                     {title:'日常', link: '#', type: 'item'},
                 ]
             },
-            {title:'文学',type:'link',link:'#'},
-            {title:'其他',type:'link',link:'#'},
-
+            {type:'link',title:'文学',link:'#'},
+            {type:'link',title:'其他',link:'#'},
         ],
         other: null,
     },
@@ -147,34 +146,8 @@ const mainData = ref({
         },
     ],
     footer: {id:'-1', author:'ssydx',address: '中国北京', timeUpdate: '2025/01/01'},
-    article: [
-        {
-            id:'sec1',
-            text: '这避免了子组件意',
-            type:'h2',
-        },
-        {
-            id:'',
-            text: '所有的 props 都遵循着单向绑定原则，props',
-            type:'h3',
-        },
-        {
-            id:'',
-            text: '所有的 props 都遵循着单向绑定原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。',
-            type:'p',
-        },
-        {
-            id:'',
-            text:{href:'http://www.baidu.com',title:'链接'},
-            type:'inline-link',
-        },
-        {
-            id:'',
-            text: '所有的 props 都遵循着单向绑定原则，props 因父组件的更新而变化，自然地将新的状态向下流往子组件，而不会逆向传递。这避免了子组件意外修改父组件的状态的情况，不然应用的数据流将很容易变得混乱而难以理解。',
-            type:'p',
-        },
-    ]
 });
+
 </script>
 
 
@@ -182,7 +155,6 @@ const mainData = ref({
     <vNav :nav-self-data="navData.navSelfData" :left-nav-data="navData.leftNavData" :right-nav-data="navData.rightNavData"></vNav>
     <vLeftAside :aside-list="asideLeftData.asideList"></vLeftAside>
     <vMain :main-data="mainData"></vMain>
-    
 </template>
 
 <style scoped>

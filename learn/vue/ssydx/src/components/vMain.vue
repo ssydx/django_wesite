@@ -47,6 +47,8 @@ div {
     align-items: flex-start;
     justify-content: space-between;
     gap: 0 1rem;
+    color: var(--tt-color);
+    background-color: var(--bg-color);
 }
 main {
     flex: 1 1 auto;
@@ -64,7 +66,7 @@ hgroup > * {
 }
 h2:hover > a {
     position: relative;
-    color: black;
+    display: inline;
 }
 h2:hover > a::before {
     content: '#';

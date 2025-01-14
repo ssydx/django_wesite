@@ -6,6 +6,10 @@ const rightData = defineProps({
     },
 })
 const actEle = ref('');
+const actEvt = function(evt) {
+    actEle.value = evt.target.getAttribute('href').slice(1);
+}
+// 点击两次才能切换
 onMounted(() => {
   window.addEventListener('scroll', () => {
     rightData.sections.forEach((item) => {
@@ -22,7 +26,7 @@ onMounted(() => {
     <h5>本页目录</h5>
     <ul>
         <li v-for="item in sections">
-            <a :href="'#' + item.id" :class="{ active: actEle === item.id}">{{ item.title }}</a>
+            <a :href="'#' + item.id" :class="{ active: actEle === item.id}" @click="actEvt">{{ item.title }}</a>
         </li>
     </ul>
 </aside>
@@ -43,15 +47,15 @@ li {
     margin-bottom: 0.5rem;
 }
 a {
-    text-decoration: none;
-    color: rgb(70, 70, 70);
+    color: rgb(128, 128, 128);
     height: 1.5rem;
-    line-height: 1.5rem;
 }
 a.active {
-    font-weight: 900;
+    font-weight: 600;
+    color: var(--tt-color);
     position: relative;
 }
+
 a.active::before {
     content: '';
     display: inline-block;

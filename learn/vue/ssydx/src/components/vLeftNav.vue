@@ -11,7 +11,7 @@ const navLeftData = defineProps({
 
 <template>
 <div class="leftNav">
-    <img :src="navLeftData.navImg" alt="首页" width="24px">
+    <img :src="navLeftData.navImg" alt="首页">
     <div v-if="typeof navLeftData.navOther !== 'object'">{{ navLeftData.navOther }}</div>
     <ul v-else-if="navLeftData.navOther instanceof Array">
         <li v-for="item in navLeftData.navOther">
@@ -27,23 +27,25 @@ div.leftNav {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 0 1rem;
+    gap: 0 2rem;
     > * {
         flex: 0 0 auto;
     }
     > img {
+        height: calc(1.5rem + (100% - 3rem) / 2);
         display: block;
     }
     > ul {
+        height: 100%;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: flex-start;
-        gap: 0 0.5rem;
         > li {
             flex: 0 0 auto;
-            > a:hover {
-                font-weight: 900;
+            height: 100%;
+            > * {
+                padding: 0 0.5rem;
             }
         }
     }

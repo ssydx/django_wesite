@@ -1,6 +1,7 @@
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, onMounted } from 'vue';
 import vDropdown from './vDropdown.vue';
+import vThemeSwitch from './vThemeSwitch.vue';
 const navRightData = defineProps({
     navList: {
         type: Object,
@@ -10,6 +11,20 @@ const navRightData = defineProps({
 
     },
 });
+const switchTheme = function(evt) {
+    if (evt.currentTarget.checked) {
+        document.body.setAttribute('data-theme','dark');
+        localStorage.setItem('data-theme','dark');
+    } else {
+        document.body.setAttribute('data-theme', 'light');
+        localStorage.setItem('data-theme','light');
+    }
+}
+onMounted(() => {
+    if (localStorage.getItem('data-theme') == 'dark') {
+        document.querySelector('input[type=checkbox]').click();
+    }
+})
 </script>
 
 <template>
@@ -20,8 +35,8 @@ const navRightData = defineProps({
             <vDropdown v-else-if="navitem.type === 'dropdown'" :dropdown-name="navitem.title" :dropdown-list="navitem.dropdownList"></vDropdown>
         </li>
         <li v-if="navRightData.navOther">{{ navRightData.navOther }}</li>
-
     </ul>
+    <vThemeSwitch @switch="switchTheme"></vThemeSwitch>
 </div>
 </template>
 
@@ -31,20 +46,21 @@ div.rightNav {
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 0 1rem;
+    gap: 0 2rem;
     > * {
         flex: 0 0 auto;
     }
     > ul {
+        height: 100%;
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
         justify-content: flex-start;
-        gap: 0 0.5rem;
         > li {
             flex: 0 0 auto;
-            > a:hover {
-                font-weight: 900;
+            height: 100%;
+            > * {
+                padding: 0 0.5rem;
             }
         }
     }

@@ -48,6 +48,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 div.dropdown {
+    height: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
@@ -58,30 +59,24 @@ div.dropdown {
         flex: 0 0 auto;
     }
     > a {
-        height: 3rem;
         display: flex;
         align-items: center;
-        &:hover {
-            font-weight: 600;
-            & ~ ul {
-                visibility: visible;
-                opacity: 1;
-            }
+        > div {
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        > svg {
+            height: 100%;
         }
     }
     > ul {
-        &:hover {
-            visibility: visible;
-            opacity: 1;
-        }
         position: absolute;
-        top: calc(100%);
-        left: 100%;
-        transform: translateX(-100%);
-        margin: 0;
+        top: calc(100% - (100% - 1em) / 4);
+        right: 0;
         padding: 1rem;
         width: 11rem;
-        max-height: calc(100vh - 200% - 1rem);
+        max-height: calc(100vh - 200%);
         overflow-y: auto;
         background-color: var(--bg-color);
         color: var(--tt-color);
@@ -89,24 +84,39 @@ div.dropdown {
         box-shadow: 0 0 0.5rem -0.25rem black;
         visibility: hidden;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        transform: translateY(calc(-1 * ((1em - 1rem) * 4 + 3rem - 1rem) / 4));
+        transition: opacity 0.25s, transform 0.25s;
         > li {
-            > a:hover {
-                font-weight: 600;
+            > * {
+                width: 100%;
             }
-            &:not(:last-child) {
-                margin-bottom: 0.5rem;
-                > div {
+            > div {
                     font-weight: 600;
+                    position: relative;
                 }
-                & ~ li > div {
-                    border-top: 1px solid black;
+            &:not(:last-child) {
+                margin-bottom: 0.5em;
+                & ~ li > div::before {
+                    content: '';
+                    position: absolute;
+                    top:-0.5px;
+                    width: 100%;
+                    height: 1px;
+                    background-color: rgb(100, 100, 100);
                 }
             }
             &:not(:first-child) > div {
-                padding-top: 0.5rem;
+                padding-top: 0.5em;
             }
         }
+    }
+    &:hover > a {
+        color: rgb(100, 100, 100);
+        & ~ ul {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
     }
 }
 </style>

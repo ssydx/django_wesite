@@ -45,6 +45,8 @@ aside {
     overflow-y: auto;
     position: fixed;
     top: 48px;
+    color: var(--tt-color);
+    background-color: var(--bg-color);
 }
 div {
     display: flex;
@@ -56,19 +58,19 @@ div {
     top: 0;
     padding: 2rem 0;
     margin-top: 1rem;
-    border-bottom: 1px solid rgb(100, 100, 100);
-    background-color: white;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid rgb(128, 128, 128);
 }
 div > input {
     flex: 1 1 auto;
-    border: 1px solid black;
+    border: 1px solid var(--tt-color);
     border-radius: 1rem;
     padding: 0.25rem 0.5rem;
 }
 div > button {
-    border: 1px solid black;
+    border: 1px solid var(--tt-color);
     border-radius: 3px;
-    background-color: rgb(199, 199, 199);
+    background-color: rgb(128, 128, 128);
 }
 .list-move,
 .list-enter-active,
@@ -87,14 +89,14 @@ li:not(:last-child) {
     margin-bottom: 0.5rem;
 }
 a {
-    color: rgb(70, 70, 70);
+    color: rgb(128, 128, 128);
     padding-left: 1rem;
 }
 span {
     font-weight: 900;
 }
 a:hover {
-    color: black;
+    color: var(--tt-color);
     font-weight: 600;
 }
 @media (max-width: 900px) {
