@@ -1,3 +1,4 @@
 {
-    "livePreview.defaultPreviewPath": "/learn/bootstrap/other/idx.html"
+    "livePreview.defaultPreviewPath": "/learn/bootstrap/other/idx.html",
+    "svg.preview.background": "transparent"
 }
