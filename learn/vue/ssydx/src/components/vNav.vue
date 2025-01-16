@@ -1,16 +1,10 @@
 <script setup>
 import vLeftNav from './vLeftNav.vue';
 import vRightNav from './vRightNav.vue';
-import { defineProps,ref } from 'vue';
-
+import { defineProps } from 'vue';
 const navData = defineProps({
     navSelfData: {
         type: Object,
-        default() {
-            return {
-                navHeight: 3,
-            }
-        },
     },
     leftNavData: {
         type: Object,
@@ -37,13 +31,19 @@ const navData = defineProps({
         },
     },
 });
-const height = ref(navData.navSelfData.navHeight + 'rem');
 </script>
 
 <template>
 <nav class="nav">
-    <vLeftNav :nav-img="navData.leftNavData.img" :nav-other="navData.leftNavData.other"></vLeftNav>
-    <vRightNav :nav-list="navData.rightNavData.list" :nav-other="navData.rightNavData.other"></vRightNav>
+    <slot name="LTL"></slot>
+    <slot name="L">
+        <vLeftNav :nav-img="navData.leftNavData.img" :nav-other="navData.leftNavData.other"></vLeftNav>
+    </slot>
+    <slot></slot>
+    <slot name="R">
+        <vRightNav :nav-list="navData.rightNavData.list" :nav-other="navData.rightNavData.other"></vRightNav>
+    </slot>
+    <slot name="RTR"></slot>
 </nav>
 </template>
 
@@ -53,28 +53,26 @@ nav.nav {
     position: sticky;
     top: 0;
     z-index: 1000;
+    /* 字体 */
+    font-size: 1rem;
     /* 尺寸 */
-    margin: 0 0 1rem;
-    padding: 0.5rem 1rem;
+    margin: 0;
+    padding: 0 1em;
     width: 100%;
-    height: v-bind(height);
+    height: 3em;
     /* 外观 */
     background-color: var(--bg-color);
     color: var(--tt-color);
-    border-radius: 0 0 0.25rem 0.25rem;
-    box-shadow: 0 0 0.75rem -0.25rem var(--tt-color);
-    /* 字体 */
-    font-size: calc(1rem + (v-bind(height) - 3rem) / 4);
-    line-height: 1;
+    border-radius: 0 0 0.1em 0.1em;
+    box-shadow: 0 0 0.5em -0.25em var(--tt-color);
     /* 布局 */
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 0 3rem;
+    gap: 0 3em;
     > * {
-        flex: 1 0 auto;
-        height: v-bind(height);
+        flex: 0 0 auto;
     };
 }
 </style>

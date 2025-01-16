@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps, onMounted } from 'vue';
-import vDropdown from './vDropdown.vue';
 import vThemeSwitch from './vThemeSwitch.vue';
+import vNavBar from './vNavBar.vue';
 const navRightData = defineProps({
     navList: {
         type: Object,
@@ -29,13 +29,7 @@ onMounted(() => {
 
 <template>
 <div class="rightNav">
-    <ul>
-        <li v-for="navitem in navRightData.navList">
-            <a v-if="navitem.type === 'link'" :href="navitem.link">{{ navitem.title }}</a>
-            <vDropdown v-else-if="navitem.type === 'dropdown'" :dropdown-name="navitem.title" :dropdown-list="navitem.dropdownList"></vDropdown>
-        </li>
-        <li v-if="navRightData.navOther">{{ navRightData.navOther }}</li>
-    </ul>
+    <vNavBar :nav-list="navRightData.navList"></vNavBar>
     <vThemeSwitch @switch="switchTheme"></vThemeSwitch>
 </div>
 </template>
@@ -45,24 +39,9 @@ div.rightNav {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: flex-end;
     gap: 0 2rem;
     > * {
         flex: 0 0 auto;
-    }
-    > ul {
-        height: 100%;
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: center;
-        justify-content: flex-start;
-        > li {
-            flex: 0 0 auto;
-            height: 100%;
-            > * {
-                padding: 0 0.5rem;
-            }
-        }
     }
 }
 

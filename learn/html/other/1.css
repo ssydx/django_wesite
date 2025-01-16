@@ -1,0 +1,38 @@
+div {
+    position: relative;
+}
+a {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+ul {
+    margin: 0;
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    padding: 1em;
+    min-width: 10em;
+    max-height: calc(100vh - 200%);
+    overflow-y: auto;
+    background-color: var(--bg-color);
+    color: var(--tt-color);
+    border-radius: 0.5em;
+    box-shadow: 0 0 0.5em -0.25em grey;
+    display: none;
+}
+ul::before {
+    content: "";
+    display: block;
+    height: 18px;
+    left: 0;
+    position: absolute;
+    top: -8px;
+    width: 100%;
+}
+div:hover > a {
+    color: grey;
+}
+div:hover > ul {
+    display: block;
+}

@@ -1,14 +1,11 @@
+<script>
+    export default {
+        inheritAttrs: false,
+    }
+</script>
 <script setup>
 import { ref, defineProps, computed, defineEmits } from 'vue';
 const props = defineProps({
-    height: {
-        type: String,
-        default: '1.5rem',
-    },
-    width: {
-        type: String,
-        default: '3rem',
-    },
     leftImg: {
         type: String,
         default: 'src/assets/sun.png',
@@ -31,7 +28,7 @@ defineEmits(['switch']);
 <template>
 <div>
     <input type="checkbox" id="switch" @change="$emit('switch', $event)">
-    <label for="switch">
+    <label for="switch" v-bind="$attrs">
         <span></span>
     </label>
 </div>
@@ -44,24 +41,24 @@ div {
     > input {
         display: none;
         & ~ label {
-            width: v-bind('props.width');
-            height: v-bind('props.height');
-            border: calc(v-bind('props.height') / 20) solid rgba(128, 128, 128, 0.5);
-            border-radius: calc(v-bind('props.height') / 2);
+            width: 3em;
+            height: 1.5em; 
+            border: 0.05 * 1.5em solid rgba(128, 128, 128, 0.5);
+            border-radius: 1em;
             display: flex;
             align-items: center;
             background-color: rgb(230, 230, 230);
             &:hover {
-                border: calc(v-bind('props.height') / 20) solid rgb(128, 128, 128);
+                border: 0.05 * 1.5em solid rgb(128, 128, 128);
                 transition: all 0.3s;
             }
             > span {
                 display: inline-block;
-                width: calc(v-bind('props.height') / 10 * 8);
-                height: calc(v-bind('props.height') / 10 * 8);
-                border-radius: calc(v-bind('props.height') / 20 * 8);
+                width: 0.8 * 1.5em;
+                height: 0.8 * 1.5em;
+                border-radius: 0.4 * 1.5em;
                 background: v-bind(leftImg) no-repeat center/contain var(--bg-color);
-                margin-left: calc(v-bind('props.height') /10);
+                margin-left: 0.05 * 1.5em;
                 transition: all 0.3s ease-in-out;
             }
         }
@@ -69,7 +66,7 @@ div {
             background-color: rgb(50, 50, 50);
             > span {
             background: v-bind(rightImg) no-repeat center/contain var(--bg-color);
-            margin-left: calc(v-bind('props.width') - v-bind('props.height'));
+            margin-left: calc((1.1 - 0.05) * 1.5em);
         }
         }
     }

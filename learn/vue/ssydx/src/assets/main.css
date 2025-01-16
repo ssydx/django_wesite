@@ -18,7 +18,6 @@ a {
     color: var(--tt-color);
     display: flex;
     align-items: center;
-    height: 100%;
 }
 a > * {
     flex: 1 0 auto;

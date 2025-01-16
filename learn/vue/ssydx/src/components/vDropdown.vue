@@ -30,10 +30,11 @@ const props = defineProps({
 </script>
 
 <template>
+
 <div class="dropdown">
     <a>
-        <div>{{ props.dropdownName }}</div>
-        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" viewBox="0 0 24 24" class="vt-flyout-button-text-icon" width="16px">
+        <div><slot></slot></div>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path>
         </svg>
     </a>
@@ -48,44 +49,30 @@ const props = defineProps({
 
 <style scoped lang="scss">
 div.dropdown {
-    height: 100%;
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0 1rem;
     position: relative;
-    > * {
-        flex: 0 0 auto;
-    }
     > a {
         display: flex;
         align-items: center;
-        > div {
-            height: 100%;
-            display: flex;
-            align-items: center;
-        }
         > svg {
-            height: 100%;
+            height: 1em;
         }
     }
     > ul {
+        display: block;
         position: absolute;
-        top: calc(100% - (100% - 1em) / 4);
+        top: 100%;
         right: 0;
-        padding: 1rem;
-        width: 11rem;
-        max-height: calc(100vh - 200%);
+        padding: 1em;
+        min-width: 10em;
+        max-height: calc(100vh - 6em);
         overflow-y: auto;
         background-color: var(--bg-color);
         color: var(--tt-color);
-        border-radius: 0.5rem;
-        box-shadow: 0 0 0.5rem -0.25rem black;
+        border-radius: 0.5em;
+        box-shadow: 0 0 0.5em -0.25em grey;
         visibility: hidden;
         opacity: 0;
-        transform: translateY(calc(-1 * ((1em - 1rem) * 4 + 3rem - 1rem) / 4));
-        transition: opacity 0.25s, transform 0.25s;
+        transition: opacity 0.25s;
         > li {
             > * {
                 width: 100%;
@@ -102,7 +89,7 @@ div.dropdown {
                     top:-0.5px;
                     width: 100%;
                     height: 1px;
-                    background-color: rgb(100, 100, 100);
+                    background-color: grey;
                 }
             }
             &:not(:first-child) > div {
@@ -111,12 +98,12 @@ div.dropdown {
         }
     }
     &:hover > a {
-        color: rgb(100, 100, 100);
-        & ~ ul {
-                visibility: visible;
-                opacity: 1;
-                transform: translateY(0);
-            }
+        color: grey;
+    }
+    &:hover > ul {
+        visibility: visible;
+        opacity: 1;
+        display: block;
     }
 }
 </style>

@@ -5,19 +5,9 @@ import vMain from './components/vMain.vue';
 
 import { ref } from 'vue';
 const navData = ref({
-    navSelfData: {
-        navHeight: 3,
-    },
     leftNavData: {
         img: '/src/assets/home-icon.svg',
-        other: [
-            {title:'编程',link:'#'},
-            {title:'动漫',link:'#'},
-            {title:'小说',link:'#'},
-            {title:'文学',link:'#'},
-            {title:'其他',link:'#'},
-        ],
-    },
+    }, 
     rightNavData: {
         list: [
             {
@@ -148,13 +138,20 @@ const mainData = ref({
     footer: {id:'-1', author:'ssydx',address: '中国北京', timeUpdate: '2025/01/01'},
 });
 
+const navStyle = ref({
+    fontSize: '10rem',
+})
+
 </script>
 
 
 <template>
-    <vNav :nav-self-data="navData.navSelfData" :left-nav-data="navData.leftNavData" :right-nav-data="navData.rightNavData"></vNav>
-    <vLeftAside :aside-list="asideLeftData.asideList"></vLeftAside>
-    <vMain :main-data="mainData"></vMain>
+    <vNav :left-nav-data="navData.leftNavData" :right-nav-data="navData.rightNavData" :style="navStyle">
+    </vNav>
+    <vLeftAside :aside-list="asideLeftData.asideList">
+    </vLeftAside>
+    <vMain :main-data="mainData">
+    </vMain>
 </template>
 
 <style scoped>
