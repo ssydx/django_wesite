@@ -3,15 +3,11 @@ import vLeftNav from './vLeftNav.vue';
 import vRightNav from './vRightNav.vue';
 import { defineProps } from 'vue';
 const navData = defineProps({
-    navSelfData: {
-        type: Object,
-    },
     leftNavData: {
         type: Object,
         default() {
             return {
                 img: '/src/assets/home-icon.svg',
-                other: null,
             }
         },
     },
@@ -37,7 +33,7 @@ const navData = defineProps({
 <nav class="nav">
     <slot name="LTL"></slot>
     <slot name="L">
-        <vLeftNav :nav-img="navData.leftNavData.img" :nav-other="navData.leftNavData.other"></vLeftNav>
+        <vLeftNav :nav-img="navData.leftNavData.img"></vLeftNav>
     </slot>
     <slot></slot>
     <slot name="R">

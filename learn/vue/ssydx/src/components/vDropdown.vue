@@ -32,13 +32,18 @@ const props = defineProps({
 <template>
 
 <div class="dropdown">
-    <a>
-        <div><slot></slot></div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path>
-        </svg>
-    </a>
-    <ul>
+    <span class="dropdownName">
+        <slot name="name">
+            {{ dropdownName }}
+        </slot>
+        <slot name="tag">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="1em">
+                <path d="M12,16c-0.3,0-0.5-0.1-0.7-0.3l-6-6c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l5.3,5.3l5.3-5.3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-6,6C12.5,15.9,12.3,16,12,16z"></path>
+            </svg>
+        </slot>
+    </span>
+    <span class="dropdownHelper"></span>
+    <ul class="dropdownList">
         <li v-for="item in props.dropdownList">
             <div v-if="item.type === 'group'">{{ item.title }}</div>
             <a v-else :href="item.link">{{ item.title }}</a>
@@ -48,31 +53,52 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-div.dropdown {
+.dropdown {
     position: relative;
-    > a {
-        display: flex;
-        align-items: center;
-        > svg {
-            height: 1em;
+    &:hover {
+        > .dropdownName {
+            color: grey;
+        }
+        > .dropdownHelper {
+            visibility: visible;
+        }
+        > .dropdownList {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.25s;
         }
     }
-    > ul {
-        display: block;
+    > .dropdownName {
+        display: flex;
+        align-items: center;
+        height: 1em;
+        cursor: pointer;
+    }
+    > .dropdownHelper {
+        visibility: hidden;
         position: absolute;
         top: 100%;
-        right: 0;
-        padding: 1em;
-        min-width: 10em;
+        height: 1em;
+        left: 0;
+        width: 100%;
+    }
+    > .dropdownList {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-1em);
+        position: absolute;
+        top: calc(100% + 1em);
         max-height: calc(100vh - 6em);
+        right: 0;
+        min-width: 10em;
+        padding: 1em;
+        margin: 0;
+        border-radius: 0.5em;
+        box-shadow: 0 0 0.5em -0.25em grey;
         overflow-y: auto;
         background-color: var(--bg-color);
         color: var(--tt-color);
-        border-radius: 0.5em;
-        box-shadow: 0 0 0.5em -0.25em grey;
-        visibility: hidden;
-        opacity: 0;
-        transition: opacity 0.25s;
         > li {
             > * {
                 width: 100%;
@@ -97,13 +123,6 @@ div.dropdown {
             }
         }
     }
-    &:hover > a {
-        color: grey;
-    }
-    &:hover > ul {
-        visibility: visible;
-        opacity: 1;
-        display: block;
-    }
+
 }
 </style>

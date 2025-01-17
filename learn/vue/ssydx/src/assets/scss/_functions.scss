@@ -1,0 +1,29 @@
+@function whitemix($color, $weight: 50%) {
+    @return mix(white, $color, $weight);
+}
+@function blackmix($color, $weight: 50%) {
+    @return mix(black, $color, $weight);
+}
+@function colormix($color, $tag: 0, $weight: 50%) {
+    @if $tag > 0 {
+        @return mix(white, $color, $weight);
+    } @else if $tag < 0 {
+        @return mix(black, $color, $weight);
+    } @else {
+        @return $color;
+    }
+}
+@function to-rgb($value) {
+    @return red($value), green($value), blue($value);
+}
+@function map-loop($map, $func, $args...) {
+    $_map: ();
+    @each $key, $value in $map {
+        $_args: ();
+        @each $arg in $args {
+            $_args: append($_args, if($arg == "$key", $key, if($arg == "$value", $value, $arg)));
+        }
+        $_map: map-merge($_map, ($key: call(get-function($func), $_args...)));
+    }
+    @return $_map;
+}

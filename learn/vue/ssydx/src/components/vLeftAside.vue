@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, watch } from 'vue';
+import { defineProps, ref, computed } from 'vue';
 const AsideData = defineProps({
     asideList: {
         type: Object,
@@ -7,14 +7,13 @@ const AsideData = defineProps({
     }
 });
 const filterVal = ref('');
-let filteredList = ref(AsideData.asideList);
-watch(filterVal,(newVal, oldVal) => {
-    filteredList.value = AsideData.asideList.filter(function(val) {
-        if (val.isGroup && newVal) {
+const filteredList = computed(() => {
+    return AsideData.asideList.filter(item => {
+        if (item.isGroup && filterVal.value) {
             return false;
         }
-        return val.title.search(newVal) == -1 ? false:true;
-    })
+        return filterVal.value ? item.title.toLowerCase().includes(filterVal.value.toLowerCase()) : true;
+    });
 });
 function resetFilterVal() {
     filterVal.value = '';
@@ -72,6 +71,7 @@ div > button {
     border-radius: 3px;
     background-color: rgb(128, 128, 128);
 }
+
 .list-move,
 .list-enter-active,
 .list-leave-active {

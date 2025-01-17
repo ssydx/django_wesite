@@ -1,6 +1,6 @@
 <script setup>
 import { defineProps, onMounted } from 'vue';
-import vThemeSwitch from './vThemeSwitch.vue';
+import vThemeSwitch from './vSwitchButton.vue';
 import vNavBar from './vNavBar.vue';
 const navRightData = defineProps({
     navList: {

@@ -1,0 +1,15 @@
+:root {
+    @each $color, $value in $colors {
+        --#{$prefix}#{$color}: #{$value};
+      }
+    @each $color, $value in $grays {
+        --#{$prefix}gray-#{$color}: #{$value};
+    }
+    @each $color, $value in $theme-colors {
+        --#{$prefix}#{$color}: #{$value};
+    }
+    @each $color, $value in $theme-colors-rgb {
+        --#{$prefix}#{$color}-rgb: #{$value};
+    }
+    
+}
