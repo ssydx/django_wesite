@@ -1,14 +1,12 @@
-// 解决副作用函数嵌套的问题
 let activeEffect;
-// 副作用栈
 const effectStack = [];
 // 对象=》属性=》副作用
 const bucket = new WeakMap();
-const data = { foo: true, bar: true };
+const data = { foo: 1, bar: 2 };
 function track(target, key) {
     // 没有副作用函数则直接返回
     if (!activeEffect) {
-        return;
+        return
     };
     // 获得当前对象的 属性=》副作用 数据结构（此处为字典）
     let depsMap = bucket.get(target);
@@ -41,8 +39,20 @@ function trigger(target, key) {
         return
     }
     // 依次执行每个副作用
-    const effectToRun = new Set(effects);
-    effectToRun.forEach(fn => fn());
+    const effectToRun = new Set();
+    effects.forEach(effectFn => {
+        // 避免执行副作用函数时候触发，造成无限递归调用
+        if (effectFn !== activeEffect) {
+            effectToRun.add(effectFn);
+        }
+    })
+    effectToRun.forEach(effectFn => {
+        if (effectFn.options.scheduler) {
+            effectFn.options.scheduler(effectFn);
+        } else {
+            effectFn();
+        }
+    });
 }
 const obj = new Proxy(data, {
     get(target, key) {
@@ -54,6 +64,7 @@ const obj = new Proxy(data, {
         target[key] = newVal;
         // 触发副作用：即设置当前对象属性会触发所有相关副作用函数
         trigger(target, key);
+        return true;
     }
 })
 function cleanUp(effectFn) {
@@ -63,27 +74,61 @@ function cleanUp(effectFn) {
     }
     effectFn.deps.length = 0;
 }
-function effect(fn) {
+function effect(fn, options = {}) {
     const effectFn = () => {
         // 清空依赖集
         cleanUp(effectFn);
         activeEffect = effectFn;
-        // 解决嵌套副作用的顺序问题
         effectStack.push(effectFn);
-        fn();
+        const res = fn();
         effectStack.pop();
-        activeEffect = effectStack[effectStack.length - 1]; 
+        activeEffect = effectStack[effectStack.length - 1];
+        return res;
     }
+    effectFn.options = options;
     effectFn.deps = [];
-    effectFn();
+    // 如果设置延后执行则副作用函数并不执行，否则才执行
+    if (!options.lazy) {
+        effectFn();
+    }
+    return effectFn;
 }
-let temp1, temp2;
-effect(function effectFn1() {
-    console.log('effectFn1 执行')
-    effect(function effectFn2() {
-        console.log('effectFn2 执行')
-        temp2 = obj.bar
-    })
-    temp1 = obj.foo
-})
-obj.foo = false;
+
+
+
+function computed(getter) {
+    let value;
+    let dirty = true;
+    const effectFn = effect(getter, 
+        { 
+            lazy:true, 
+            scheduler() {
+                // 每次调度器被触发就说明其依赖的值已被更新，声明值为旧
+                dirty = true;
+                // 解决计算属性作为依赖项时无法响应的问题，强制建立计算属性的响应性
+                trigger(obj, 'value');
+            }
+        }
+    );
+    const obj = {
+        get value() {
+            // 如果旧数据已过期则重新执行副作用函数获取最新值
+            if (dirty) {
+                value = effectFn();
+                console.log('执行');
+                // 标示值非旧
+                dirty = false;
+            }
+            // 强制
+            track(obj, 'value');
+            return value;
+        }
+    }
+    return obj;
+}
+const sumRes = computed(() => obj.foo + obj.bar);
+// 第一次执行副作用
+console.log(sumRes.value);
+obj.foo++;
+console.log(sumRes.value);
+

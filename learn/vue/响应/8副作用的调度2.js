@@ -80,86 +80,46 @@ function effect(fn, options = {}) {
         cleanUp(effectFn);
         activeEffect = effectFn;
         effectStack.push(effectFn);
-        const res = fn();
+        fn();
         effectStack.pop();
         activeEffect = effectStack[effectStack.length - 1];
-        return res;
     }
     effectFn.options = options;
     effectFn.deps = [];
-    if (!options.lazy) {
-        effectFn();
-    }
-    return effectFn;
+    effectFn();
 }
 
+// 省略中间过程，只触发一次
+// 集合会去重反复加入的副作用函数，从而只保留一个
+const jobQueue = new Set()
+const p = Promise.resolve()
 
-const effectFn = effect(
-    () => {
-        console.log(obj.foo);
-    },
-    {
-        lazy: true,
-    }
-)
-function computed(getter) {
-    let value;
-    let dirty = true;
-    const effectFn = effect(getter, 
-        { 
-            lazy:true, 
-            scheduler() {
-                dirty = true;
-                trigger(obj, 'value');
-            }
-        }
-    );
-    const obj = {
-        get value() {
-            if (dirty) {
-                value = effectFn();
-                console.log('执行');
-                dirty = false;
-            }
-            track(obj, 'value');
-            return value;
-        }
-    }
-    return obj;
-}
-function traverse(value, seen = new Set()) {
-    if (typeof value !== 'object' || value !== null || seen.has(value)) {
+let isFlushing = false
+function flushJob() {
+    if (isFlushing) {
         return;
     }
-    seen.add(value);
-    for (const k in value) {
-        traverse(value[k], seen);
-    }
-    return value;
+    isFlushing = true
+    p.then(() => {
+        jobQueue.forEach(job => job())
+    }).finally(() => {
+        isFlushing = false
+    })
 }
-function watch(source, cb) {
-    let getter;
-    if (typeof source === 'function') {
-        getter = source;
-    } else {
-        getter = () => traverse(source);
-    }
-    let oldValue, newValue;
-    const effectFn = effect(
-        () => getter(),
-        {
-            lazy: true,
-            scheduler() {
-                newValue = effectFn();
-                cb(newValue,oldValue);
-                oldValue = newValue;
-            }
+effect(() => {
+    console.log(obj.foo);
+    },
+    {
+        scheduler(fn) {
+            jobQueue.add(fn);
+            // 虽然会刷新多次，但由于首次刷新时变量设置为true后续刷新操作实际被终止，只刷新了一次，而该刷新操作是微任务，会在同步代码执行后执行，所以实际只输出了最后结果
+            flushJob();
         }
-    )
-    oldValue = effectFn();
-}
-watch(obj, () => {
-    console.log('数据产生变动');
-})
+    }
+)
+
 obj.foo++;
+obj.foo++;
+console.log(123);
+
 

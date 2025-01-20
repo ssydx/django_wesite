@@ -90,13 +90,28 @@ function effect(fn, options = {}) {
 }
 effect(
     () => {
+        // 仅首次为同步任务
         console.log(obj.foo);
     },
     {
         scheduler(fn) {
-            setTimeout(fn);
+            // 第一个宏任务，在结束了4之后如果时间已达1s则执行，否则等待
+            // 1000ms是最小延迟时间，其总是晚于同步任务和可执行的微任务（可执行指在该宏任务执行前可执行的微任务）
+            setTimeout(() => {
+                console.log('1宏任务');
+            }, 1000);
         }
     }
 );
+// 注意输出内容的顺序，便于理解js的事件循环机制
 obj.foo++;
-console.log('结束了');
+console.log('2同步任务');
+setTimeout(() => {
+    console.log('3宏任务');
+});
+const p = Promise.resolve();
+p.then(() => {
+    console.log('4微任务');
+}).then(() => {
+    console.log('5微任务');
+})

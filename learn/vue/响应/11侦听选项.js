@@ -2,7 +2,7 @@ let activeEffect;
 const effectStack = [];
 // 对象=》属性=》副作用
 const bucket = new WeakMap();
-const data = { foo: 1, bar: 2 };
+const data = { foo: 1 }
 function track(target, key) {
     // 没有副作用函数则直接返回
     if (!activeEffect) {
@@ -127,8 +127,56 @@ function computed(getter) {
     }
     return obj;
 }
-const sumRes = computed(() => obj.foo + obj.bar);
-console.log(sumRes.value);
-obj.foo++;
-console.log(sumRes.value);
+function traverse(value, seen = new Set()) {
+    if (typeof value !== 'object' || value === null || seen.has(value)) {
+        return;
+    }
+    seen.add(value);
+    for (const k in value) {
+        traverse(value[k], seen);
+    }
+    return value;
+}
 
+function watch(source, cb, options = {}) {
+    let getter;
+    if (typeof source === 'function') {
+        getter = source;
+    } else {
+        getter = () => traverse(source);
+    }
+    let oldValue, newValue;
+    const job = () => {
+        newValue = effectFn();
+        cb(newValue,oldValue);
+        oldValue = newValue;
+    }
+    const effectFn = effect(
+        () => getter(),
+        {
+            lazy: true,
+            scheduler() {
+                // 延后执行
+                if (options.flush === 'post') {
+                    const p = Promise.resolve();
+                    p.then(job);
+                // 同步执行
+                } else {
+                    job();
+                }
+            }
+        }
+    )
+    if (options.immediate) {
+        job();
+    } else {
+        oldValue = effectFn();
+    }
+}
+watch(obj, () => {
+    console.log('数据产生变动');
+},{ flush:'post',immediate:true });
+// 修改数据前先触发
+// 修改数据后触发但延期执行，因此先输出1，再输出数据变动
+obj.foo++;
+console.log(1);

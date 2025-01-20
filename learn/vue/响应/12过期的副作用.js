@@ -80,43 +80,129 @@ function effect(fn, options = {}) {
         cleanUp(effectFn);
         activeEffect = effectFn;
         effectStack.push(effectFn);
-        fn();
+        const res = fn();
         effectStack.pop();
         activeEffect = effectStack[effectStack.length - 1];
+        return res;
     }
     effectFn.options = options;
     effectFn.deps = [];
-    effectFn();
+    if (!options.lazy) {
+        effectFn();
+    }
+    return effectFn;
 }
 
-// 省略中间过程，只触发一次
-const jobQueue = new Set()
-const p = Promise.resolve()
-let isFlushing = false
-function flushJob() {
-    if (isFlushing) {
-        return;
-    }
-    isFlushing = true
-    p.then(() => {
-        jobQueue.forEach(job => job())
-    }).finally(() => {
-        isFlushing = false
-    })
-}
-effect(() => {
-    console.log(obj.foo);
+
+const effectFn = effect(
+    () => {
+        console.log(obj.foo);
     },
     {
-        scheduler(fn) {
-            jobQueue.add(fn);
-            flushJob();
-        }
+        lazy: true,
     }
 )
+function computed(getter) {
+    let value;
+    let dirty = true;
+    const effectFn = effect(getter, 
+        { 
+            lazy:true, 
+            scheduler() {
+                dirty = true;
+                trigger(obj, 'value');
+            }
+        }
+    );
+    const obj = {
+        get value() {
+            if (dirty) {
+                value = effectFn();
+                console.log('执行');
+                dirty = false;
+            }
+            track(obj, 'value');
+            return value;
+        }
+    }
+    return obj;
+}
+function traverse(value, seen = new Set()) {
+    if (typeof value !== 'object' || value === null || seen.has(value)) {
+        return;
+    }
+    seen.add(value);
+    for (const k in value) {
+        traverse(value[k], seen);
+    }
+    return value;
+}
+function watch(source, cb, options = {}) {
+    let getter;
+    if (typeof source === 'function') {
+        getter = source;
+    } else {
+        getter = () => traverse(source);
+    }
+    let oldValue, newValue;
+    let cleanup;
+    function onInvalidate(fn) {
+        cleanup = fn;
+    }
+    const job = () => {
+        newValue = effectFn();
+        if (cleanup) {
+            cleanup();
+        }
+        cb(newValue,oldValue,onInvalidate);
+        oldValue = newValue;
+    }
+    const effectFn = effect(
+        () => getter(),
+        {
+            lazy: true,
+            scheduler() {
+                // 延后执行
+                if (options.flush === 'post') {
+                    const p = Promise.resolve();
+                    p.then(job);
+                // 同步执行
+                } else {
+                    job();
+                }
+            }
+        }
+    )
+    if (options.immediate) {
+        job();
+    } else {
+        oldValue = effectFn();
+    }
+}
 
+watch(obj,async (newVal, oldVal, onInvalidate) => {
+    let expired = false;
+    let finalData;
+    onInvalidate(() => {
+        expired = true;
+    })
+    const asyncfun = () => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(Date.now())
+            },1000);
+        });
+    }
+    const res = await asyncfun();
+    if (!expired) {
+        finalData = res;
+    }
+    console.log(finalData);
+})
 obj.foo++;
-obj.foo++;
-console.log(123);
+setTimeout(() => {
+    obj.foo++;
+},200);
+
 
 

@@ -1,12 +1,12 @@
-// 解决分支依赖
 let activeEffect;
+const effectStack = [];
 // 对象=》属性=》副作用
 const bucket = new WeakMap();
-const data = { ok: true, text: 'hello world' };
+const data = { foo: 1 }
 function track(target, key) {
     // 没有副作用函数则直接返回
     if (!activeEffect) {
-        return;
+        return
     };
     // 获得当前对象的 属性=》副作用 数据结构（此处为字典）
     let depsMap = bucket.get(target);
@@ -30,17 +30,29 @@ function trigger(target, key) {
     const depsMap = bucket.get(target);
     // 没有则返回
     if (!depsMap) {
-        return;
+        return
     };
     // 获得当前对象当前属性的 副作用 数据结构（此处为集合）
     const effects = depsMap.get(key);
     // 没有则返回
     if (!effects) {
-        return;
+        return
     }
     // 依次执行每个副作用
-    const effectToRun = new Set(effects);
-    effectToRun.forEach(fn => fn());
+    const effectToRun = new Set();
+    effects.forEach(effectFn => {
+        // 避免执行副作用函数时候触发，造成无限递归调用
+        if (effectFn !== activeEffect) {
+            effectToRun.add(effectFn);
+        }
+    })
+    effectToRun.forEach(effectFn => {
+        if (effectFn.options.scheduler) {
+            effectFn.options.scheduler(effectFn);
+        } else {
+            effectFn();
+        }
+    });
 }
 const obj = new Proxy(data, {
     get(target, key) {
@@ -52,6 +64,7 @@ const obj = new Proxy(data, {
         target[key] = newVal;
         // 触发副作用：即设置当前对象属性会触发所有相关副作用函数
         trigger(target, key);
+        return true;
     }
 })
 function cleanUp(effectFn) {
@@ -61,16 +74,94 @@ function cleanUp(effectFn) {
     }
     effectFn.deps.length = 0;
 }
-function effect(fn) {
+function effect(fn, options = {}) {
     const effectFn = () => {
         // 清空依赖集
         cleanUp(effectFn);
         activeEffect = effectFn;
-        fn();
+        effectStack.push(effectFn);
+        const res = fn();
+        effectStack.pop();
+        activeEffect = effectStack[effectStack.length - 1];
+        return res;
     }
+    effectFn.options = options;
     effectFn.deps = [];
-    effectFn();
+    if (!options.lazy) {
+        effectFn();
+    }
+    return effectFn;
 }
-effect(function effectFn() {
-    document.body.innerText = obj.ok ? obj.text : 'not'
+
+
+const effectFn = effect(
+    () => {
+        console.log(obj.foo);
+    },
+    {
+        lazy: true,
+    }
+)
+function computed(getter) {
+    let value;
+    let dirty = true;
+    const effectFn = effect(getter, 
+        { 
+            lazy:true, 
+            scheduler() {
+                dirty = true;
+                trigger(obj, 'value');
+            }
+        }
+    );
+    const obj = {
+        get value() {
+            if (dirty) {
+                value = effectFn();
+                console.log('执行');
+                dirty = false;
+            }
+            track(obj, 'value');
+            return value;
+        }
+    }
+    return obj;
+}
+
+function traverse(value, seen = new Set()) {
+    if (typeof value !== 'object' || value === null || seen.has(value)) {
+        return;
+    }
+    seen.add(value);
+    for (const k in value) {
+        traverse(value[k], seen);
+    }
+    return value;
+}
+function watch(source, cb) {
+    let getter;
+    if (typeof source === 'function') {
+        getter = source;
+    } else {
+        getter = () => traverse(source);
+    }
+    let oldValue, newValue;
+    const effectFn = effect(
+        () => getter(),
+        {
+            lazy: true,
+            scheduler() {
+                newValue = effectFn();
+                cb(newValue,oldValue);
+                oldValue = newValue;
+            }
+        }
+    )
+    oldValue = effectFn();
+}
+watch(obj, (newVal,oldVal) => {
+    console.log('数据产生变动');
 })
+obj.foo++;
+console.log(1);
+
