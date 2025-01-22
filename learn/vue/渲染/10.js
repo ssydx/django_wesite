@@ -137,6 +137,7 @@ const renderer = createRenderer({
         parent.insertBefore(el, anchor);
     },
     patchProps(el, key, prevValue, nextValue) {
+        // 事件
         if (/^on/.test(key)) {
             const evtName = key.slice(2).toLowerCase();
             const invokers = el._vei || (el._vei = {});
@@ -162,6 +163,7 @@ const renderer = createRenderer({
             } else if (invoker) {
                 el.removeEventListener(evtName, invoker);
             }
+        // 类
         } else if (key === 'class') {
             el.className = nextValue || '';
         // 避开无法直接设置属性的属性类型
@@ -188,6 +190,25 @@ const renderer = createRenderer({
         } else if (Array.isArray(newVnode.children)) {
             if (Array.isArray(oldVnode.children)) {
                 // 核心DIFF算法
+                const oldChildren = oldVnode.children;
+                const newChildren = newVnode.children;
+                const oldLen = oldChildren.length;
+                const newLen = newChildren.length;
+                const minLen = Math.min(oldLen,newLen);
+                for (let i=0; i<minLen; i++) {
+                    patch(oldChildren[i],newChildren[i], container);
+                }
+                if (newLen > oldLen) {
+                    for (let i = minLen; i < newLen; i++) {
+                        patch(null, newChildren[i], container);
+                    }
+                } else if (newLen < oldLen) {
+                    for (let i = minLen; i < oldLen; i++) {
+                        unmount(oldChildren[i]);
+                    }
+                } else {
+
+                }
                 oldVnode.children.forEach(child => unmount(child))
                 newVnode.children.forEach(child => patch(null, child, container))
             } else {
