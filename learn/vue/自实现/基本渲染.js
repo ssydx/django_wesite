@@ -75,7 +75,7 @@ function createRenderer(options = {}) {
             }
         };
         for (const key in oldProps) {
-            if (oldProps[key] !== newProps[key]) {
+            if (newProps[key] !== oldProps[key]) {
                 setProps(el, key, null);
             }
         }
@@ -89,7 +89,7 @@ function createRenderer(options = {}) {
             if (typeof newVnode.type === 'string') {
                 const el = newVnode.el = oldVnode.el;
                 patchChildren(oldVnode.children, newVnode.children, el);
-                patchProps(oldVnode.props, newVnode.props, el);
+                patchProps((oldProps = oldVnode.props || {}), (newProps = newVnode.props || {}), el);
             }
         }
     };
@@ -142,6 +142,9 @@ const renderer = createRenderer({
         }
         else if (propkey === 'class') {
             function normalizeClass(cls) {
+                if (cls == null) {
+                    return '';
+                }
                 if (typeof cls === 'string') {
                     return cls.trim();
                 }
@@ -219,9 +222,9 @@ const vnode4 = {
         { type:'div',children:'div1',props:{ class:['c1','c2 c3',{ c4:false,c5:true }] } },
         { type:'div',children:'div2',props:{ class:'c1' } },
     ],
-    props: {
-        class: 'h1',
-    }
+    // props: {
+    //     class: 'h1',
+    // }
 }
 const vnode5 = {
     type: 'h1',
@@ -229,6 +232,9 @@ const vnode5 = {
         { type:'div',children:'div1',props:{ class:['c1','c2 c3'] } },
         { type:'div',children:'div2',props:{ class:'c1 c2' } },
     ],
+    props: {
+        id: 'h1',
+    }
 }
 // render测试
 // renderer.render(null,document.querySelector('#div1'));
