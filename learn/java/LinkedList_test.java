@@ -1,9 +1,9 @@
-import java.lang.reflect.Array;
+
 import java.util.Arrays;
 import java.util.LinkedList;
-public class Containers {
+public class LinkedList_test {
     public static void main(String[] args) {
-        LinkedList<Object> l1 = new LinkedList<>();
+        LinkedList_test<Object> l1 = new LinkedList_test<>();
         // l1.remove();
         System.out.println(l1.poll());
         l1.add("zs");
@@ -33,7 +33,7 @@ public class Containers {
         // 比较的是内容
         System.out.println(l2.equals(l1));
         // 强转后才能使用链表方法
-        LinkedList<Object> l3 = (LinkedList<Object>) l1.clone();
+        LinkedList_test<Object> l3 = (LinkedList_test<Object>) l1.clone();
         System.out.println(l3 == l1);
         System.out.println(l1);
         System.out.println(l2);
@@ -44,7 +44,7 @@ public class Containers {
         System.out.println('a' == Character.valueOf('a'));
         // 显式调用
         System.out.println(Arrays.toString(l1.toArray()));
-        l1.addAll((LinkedList<Object>)l2);
+        l1.addAll((LinkedList_test<Object>)l2);
         System.out.println(l1);
     }
 }
