@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class BaseTest {
@@ -398,6 +400,96 @@ public class BaseTest {
             }
         }
     }
+    private class Test5_1 {
+        public static void run() {
+            int[] arr1 = {1,2,3};
+            int[] arr2 = new int[3];
+            int[] arr3 = new int[]{1,2,3};
+            System.out.println(Arrays.toString(arr1));
+            System.out.println(Arrays.toString(arr2));
+            System.out.println(Arrays.toString(arr3));
+            System.out.println(arr1.length);
+            System.out.println(arr1[1]);
+            for (int i : arr1) {
+                System.out.println(i);
+            }
+
+            int[][] tarr1 = {{1,2,3},{1,},{1,2}};
+            System.out.println(Arrays.toString(tarr1));
+            int[][] tarr2 = new int[3][3];
+            int[][] tarr3 = new int[3][];
+            tarr3[0] = new int[3];
+            tarr3[1] = new int[1];
+            tarr3[2] = new int[2];
+            for (int[] arr : tarr1) {
+                for (int i : arr) {
+                    System.out.print(i + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+    private class Test5_2 {
+        public static void run() {
+            int[] arr1 = {1,2,3,4,5};
+            Arrays.fill(arr1, 10);
+            System.out.println(Arrays.toString(arr1));
+            Arrays.fill(arr1,1,3,5);
+            System.out.println(Arrays.toString(arr1));
+            int[] arr2 = Arrays.copyOf(arr1, 3);
+            System.out.println(Arrays.toString(arr2));
+            int[] arr3 = Arrays.copyOfRange(arr1, 5,5);
+            System.out.println(Arrays.toString(arr3));
+            Integer[] arr4 = {3,4,5,1,4,6,13,34,1};
+            Arrays.sort(arr4);
+            System.out.println(Arrays.toString(arr4));
+            // 逆序
+            Arrays.sort(arr4, (a,b) -> { return Integer.compare(b, a); });
+            System.out.println(Arrays.toString(arr4));
+            // 自定义类的自定义排序
+            class Peo {
+                String name;
+                int age;
+                Peo(String name, int age) {
+                    this.name = name;
+                    this.age = age;
+                }
+                @Override
+                public String toString() {
+                    return name + " " + age;
+                }
+            }
+            Peo[] pc = {
+                new Peo("zs", 22),
+                new Peo("ls", 19),
+                new Peo("ww", 31),
+            };
+            Comparator<Peo> comp = new Comparator<Peo>() {
+                @Override
+                public int compare(Peo p1, Peo p2) {
+                    return Integer.compare(p2.age, p1.age);
+                }
+            };
+            Arrays.sort(pc, comp);
+            System.out.println(Arrays.toString(pc));
+        }
+    }
+    private class Test5_3 {
+        public static void run() {
+            Integer[] arr = {34,45,12,21,56,32,51};
+            System.out.println(Arrays.binarySearch(arr, 34));
+            Arrays.sort(arr);
+            System.out.println(Arrays.toString(arr));
+            System.out.println(Arrays.binarySearch(arr, 34));
+            // 未找到会返回-（插入点-1)，即值本应在返回值的绝对值-1的索引处
+            System.out.println(Arrays.binarySearch(arr, 35));
+            List<Integer> ls = Arrays.asList(arr);
+            System.out.println(ls);
+            Arrays.setAll(arr, x -> arr[x] * arr[x]);
+            System.out.println(ls);
+            Arrays.stream(arr).filter(x -> x > 500).forEach(x -> System.out.println(x));
+        }
+    }
     public static void main(String[] args) {
         Test3_1.run();
         Test3_2.run();
@@ -430,6 +522,9 @@ public class BaseTest {
         Test4_z2.run();
         Test4_z3.run();
         Test4_z5.run();
+        Test5_1.run();
+        Test5_2.run();
+        Test5_3.run();
 
     }
 }
