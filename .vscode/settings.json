@@ -1,4 +1,10 @@
 {
     "livePreview.defaultPreviewPath": "/learn/bootstrap/other/idx.html",
-    "svg.preview.background": "transparent"
+    "svg.preview.background": "transparent",
+    "java.project.sourcePaths": [
+        "learn\\java"
+    ],
+    "java.project.referencedLibraries": [
+        "d:\\Download\\Edge\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0.jar"
+    ]
 }

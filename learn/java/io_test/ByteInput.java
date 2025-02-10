@@ -176,16 +176,18 @@ class BufferedInputStream_test {
     }
 }
 
-// 没搞懂
 class DataInputStream_test {
     public final static void run() {
         try (
-            FileInputStream fin = new FileInputStream("D://字节输入流-字节流.txt");
+            FileInputStream fin = new FileInputStream("D://数据输出流-字节流.txt");
             DataInputStream fdin = new DataInputStream(fin);
         ) {
-            System.out.println(fdin.available());
-            int i = fdin.readInt();
-            System.out.println(i);
+            System.out.println("可读字节数：" + fdin.available());
+            System.out.println(fdin.readInt());
+            System.out.println(fdin.readInt());
+            System.out.println(fdin.readBoolean());
+            System.out.println(fdin.readInt());
+            System.out.println(fdin.readInt());
         } catch (Exception e) {
             e.printStackTrace();
         }
