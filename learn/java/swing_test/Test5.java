@@ -105,14 +105,14 @@ public class Test5 {
         // jf.setJMenuBar(jmb);
 
 
-        // JComboBox jcb = new JComboBox<>(new Object[]{1,1.2,"abc",'a'});
-        // jcb.setSelectedIndex(2);
-        // jf.add(jcb);
+        JComboBox jcb = new JComboBox<>(new Object[]{1,1.2,"abc",'a'});
+        jcb.setSelectedIndex(2);
+        jf.add(jcb);
 
-        // JList jl = new JList<>(new Object[]{1,1.2,"abc",'a'});
-        // jl.setSelectedIndex(2);
-        // System.out.println(Arrays.toString(jl.getSelectedIndices()));
-        // jf.add(jl);
+        JList jl = new JList<>(new Object[]{1,1.2,"abc",'a'});
+        jl.setSelectedIndex(2);
+        System.out.println(Arrays.toString(jl.getSelectedIndices()));
+        jf.add(jl);
 
         // JPopupMenu jpm = new JPopupMenu("弹出菜单");
         // jpm.add(new JMenuItem("a"));
@@ -160,16 +160,16 @@ public class Test5 {
         // jf.setLayout(new BorderLayout());
         // jf.add(jsp, BorderLayout.CENTER);
 
-        JSpinner js = new JSpinner();
-        jf.add(js);
-        JScrollBar jsb = new JScrollBar();
-        jf.add(jsb);
-        JSlider jsl = new JSlider(0, 100, 50);
-        jf.add(jsl);
-        JProgressBar jpb = new JProgressBar(0, 100);
-        jf.add(jpb);
-        JToolTip jtt = new JToolTip();
-        jf.add(jtt);
+        // JSpinner js = new JSpinner();
+        // jf.add(js);
+        // JScrollBar jsb = new JScrollBar();
+        // jf.add(jsb);
+        // JSlider jsl = new JSlider(0, 100, 50);
+        // jf.add(jsl);
+        // JProgressBar jpb = new JProgressBar(0, 100);
+        // jf.add(jpb);
+        // JToolTip jtt = new JToolTip();
+        // jf.add(jtt);
 
 
 
