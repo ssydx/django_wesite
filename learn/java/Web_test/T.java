@@ -1,13 +1,13 @@
 package Web_test;
 
+import java.util.Calendar;
+import java.util.Random;
+import java.util.Scanner;
+
 public class T {
     public static void main(String[] args) {
-        int cnt = 0;
-        int n = 0;
-        for (int i = 1; i <= 10; i++) {
-            n = n * 10 + 9;
-            cnt += n;
-        }
-        System.out.println(cnt);
+        Calendar c =  Calendar.getInstance();
+        c.set(2021, 1, 1);
+        System.out.println(c.DAY_OF_MONTH);
     }
 }
