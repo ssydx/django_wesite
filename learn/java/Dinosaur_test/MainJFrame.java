@@ -8,10 +8,11 @@ import javax.swing.JFrame;
 
 public class MainJFrame extends JFrame {
     public MainJFrame() {
-        setBounds(300, 200, 800, 300);
+        setBounds(400, 200, 800, 230);
         setTitle("小游戏");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
+        setResizable(false);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {

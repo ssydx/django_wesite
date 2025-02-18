@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements KeyListener {
                 g2.drawImage(o.image, o.x, o.y, this);
                 if (o.getBounds().intersects(golden.getFootBounds()) || o.getBounds().intersects(golden.getHeadBounds())) {
                     Sound.hit();
-                    gameOver();
+                    // gameOver();
                 }
             } else {
                 list.remove(i);

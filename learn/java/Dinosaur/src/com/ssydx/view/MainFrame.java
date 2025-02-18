@@ -2,6 +2,7 @@ package Dinosaur.src.com.ssydx.view;
 
 import java.awt.Container;
 import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -29,7 +30,7 @@ public class MainFrame extends JFrame {
     }
     public void addListener() {
         addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowConstants e) {
+            public void windowClosing(WindowEvent e) {
                 ScoreRecorder.saveScore();
             }
         });

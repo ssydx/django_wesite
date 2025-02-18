@@ -11,7 +11,7 @@ public class BackgroundImage {
     private BufferedImage image1,image2;
     private Graphics2D g;
     public int x1,x2;
-    public static final int SPEED = 4;
+    public static final int SPEED = 5;
     public BackgroundImage() {
         try {
             image1 = ImageIO.read(new File("C:\\Users\\ssydx\\Desktop\\学习\\GIT\\django_wesite\\learn\\java\\Dinosaur\\image\\背景.png"));
@@ -19,7 +19,9 @@ public class BackgroundImage {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // 作为容器的缓冲图像，可理解为画布
         image = new BufferedImage(800, 300, BufferedImage.TYPE_INT_RGB);
+        // 建立用于绘制缓冲图像的图形，可理解为绑定画布的画笔，通过它将图形绘制到画布上
         g = image.createGraphics();
         x1 = 0;
         x2 = 800;
