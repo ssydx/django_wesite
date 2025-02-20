@@ -1,5 +1,7 @@
 package simpledatatype;
 import java.util.Date;
+
+import tool.PrintMethods;
 public class DateType {
     public static void main(String[] args) {
         Date d1 = new Date();
@@ -7,5 +9,6 @@ public class DateType {
         Date d2 = new Date(22345555551111l);
         System.out.println(d2);
         System.out.println(d1.before(d2));
+        PrintMethods.print(Date.class);
     }
 }

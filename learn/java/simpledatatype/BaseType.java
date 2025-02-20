@@ -192,7 +192,7 @@ class IntegerType {
         System.out.println(s);
 
         System.out.println("-".repeat(10) + "哈希码及相等判定" + "-".repeat(10));
-        // 同Boolean
+        // valueOf在一定范围（-128-127）内返回的对象地址是相同，其他情况则不同
         Integer Integer5 = Integer.valueOf(10);
         Integer Integer6 = Integer.valueOf(10);
         Integer Integer7 = Integer.valueOf(20);
@@ -233,15 +233,18 @@ class ByteAndShortAndLong {
         // 构造函数同废弃
 
         // Long基本类同Integer
+        // valueOf在一定范围（-128-127）内返回的对象地址是相同，其他情况则不同
         /* 
         Short没有位运算相关的方法，除reverseBytes
         也没有变基转换方法，除valueOf(String s, int radix) parseShort(String s, int radix)
         也没有数学运算的相关方法
+        valueOf相同值的对象的地址相同
         */ 
         /* 
         Byte没有位运算相关的方法
         也没有变基转换方法，除valueOf(String s, int radix) parseShort(String s, int radix)
         也没有数学运算的相关方法
+        valueOf相同值的对象的地址相同
         */ 
         System.out.println("-".repeat(10) + "所有方法等" + "-".repeat(10));
         Class<?>[] nums = {Byte.class,Short.class,Integer.class,Long.class,Float.class,Double.class};
@@ -274,7 +277,7 @@ class DoubleAndFloatType {
         Double没有位运算相关的方法
         也没有变基转换方法，除toHexString(double d)
         有数学运算的相关方法（sum min max）
-        相等比较同Boolean
+        valueOf相同值的对象地址也不相同
         比较器同Boolean
         */ 
         System.out.println("-".repeat(10) + "特有方法" + "-".repeat(10));
@@ -322,6 +325,7 @@ class 数字补充 {
 
 class CharacterType {
     public static final void run() {
+        // valueOf相同值的对象的地址相同
         System.out.println("-".repeat(10) + "字符" + "-".repeat(10));
         // 不支持空字符
         // char c1 = '';
