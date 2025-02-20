@@ -1,3 +1,4 @@
+package tooltype;
 import java.util.Random;
 
 public class Random_test {

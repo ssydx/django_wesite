@@ -1,3 +1,4 @@
+package other;
 class O1 {
     O1(String name, int age) {
         this.name = name;

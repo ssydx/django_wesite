@@ -1,3 +1,4 @@
+package tooltype;
 public class Throwable_test {
     public static void main(String[] args) {
         try {

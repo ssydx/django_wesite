@@ -1,5 +1,6 @@
+package complexdatatype;
 import java.util.Stack;
-public class Stack_test {
+public class StackTest {
     public static void main(String[] args) {
         Stack<Object> s1 = new Stack<Object>();
         System.out.println(s1.empty());

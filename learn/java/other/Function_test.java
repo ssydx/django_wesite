@@ -1,3 +1,4 @@
+package other;
 
 public class Function_test {
     @FunctionalInterface 

@@ -1,3 +1,4 @@
+package other;
 public class NumberType {
     public static void main(String[] args) {
         System.out.println(Byte.BYTES);

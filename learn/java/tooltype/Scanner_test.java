@@ -1,3 +1,4 @@
+package tooltype;
 import java.util.Scanner;
 
 public class Scanner_test {

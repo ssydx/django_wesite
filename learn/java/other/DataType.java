@@ -1,3 +1,4 @@
+package other;
 // 基本数据类型
 public class DataType {
     /** 布尔类型 */

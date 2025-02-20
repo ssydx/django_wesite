@@ -1,3 +1,4 @@
+package simpledatatype;
 import java.util.Date;
 public class String_test {
     public static void main(String[] args) {

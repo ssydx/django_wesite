@@ -1,6 +1,7 @@
+package complexdatatype;
 import java.util.Arrays;
 
-public class Enum_test {
+public class EnumTest {
     public enum Day1 {
         SPRING,SUMMER,FALLEN,WINTER
     }

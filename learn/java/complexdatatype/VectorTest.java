@@ -1,6 +1,7 @@
+package complexdatatype;
 import java.util.Vector;
 import java.util.function.UnaryOperator;
-public class Vector_test {
+public class VectorTest {
     public static void main(String[] args) {
         Vector<Object> v1 = new Vector<Object>(); 
         System.out.println(v1.capacity());

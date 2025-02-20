@@ -1,3 +1,4 @@
+package tooltype;
 public class System_test {
     public static void main(String[] args) {
         long s = System.currentTimeMillis();

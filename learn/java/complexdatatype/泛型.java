@@ -1,3 +1,4 @@
+package complexdatatype;
 class BookInfo<T> {
     private T bookinfo;
     BookInfo(T bookinfo) {
@@ -7,7 +8,7 @@ class BookInfo<T> {
         return bookinfo;
     }
 }
-public class Fanxing {
+public class 泛型 {
 
     public static void main(String[] args) {
         BookInfo<String> b1 = new BookInfo<String>("abc");

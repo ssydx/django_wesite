@@ -1,3 +1,4 @@
+package other;
 public class IntegerType {
     public static void main(String[] args) {
         var m = 10;

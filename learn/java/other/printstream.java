@@ -1,3 +1,4 @@
+package other;
 import java.util.Locale;
 
 public class printstream {

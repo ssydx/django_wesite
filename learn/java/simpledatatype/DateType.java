@@ -1,5 +1,6 @@
+package simpledatatype;
 import java.util.Date;
-public class Date_test {
+public class DateType {
     public static void main(String[] args) {
         Date d1 = new Date();
         System.out.println(d1);
