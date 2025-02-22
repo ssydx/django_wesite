@@ -13,8 +13,6 @@ public class 整型溢出 {
         byte s7 = (byte)0b10000111;
         System.out.println(s6);
         System.out.println(s7);
-        while () {
-            
-        }
+        
     }
 }

@@ -76,7 +76,15 @@ public class ArrayType {
         // 流，详见流
         IntStream s1 = Arrays.stream(arr1);
         s1.forEach(e -> System.out.println("流：" + e));
-        Stream s2 = Arrays.stream(arr4);
+        Stream<Integer> s2 = Arrays.stream(arr4);
         System.out.println(s2.count());
+        // 累积
+        int[] arr5 = {5,4,3,2,1};
+        Arrays.parallelPrefix(arr5, 0, 3, (a,b) -> a + b);
+        System.out.println(Arrays.toString(arr5));
+        // 比较
+        Integer[] arr6 = {1,2,3,4,5};
+        Integer[] arr7 = {1,2,3,4,5};
+        System.out.println(Arrays.compare(arr6, 1, 4, arr7, 1, 4, (a,b) -> a - b));
     }
 }
