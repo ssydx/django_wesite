@@ -6,5 +6,6 @@
     ],
     "java.project.referencedLibraries": [
         "d:\\Download\\Edge\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0.jar"
-    ]
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
 }
