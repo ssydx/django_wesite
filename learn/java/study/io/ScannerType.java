@@ -12,5 +12,6 @@ public class ScannerType {
         // sc1.close();
         Scanner sc2 = new Scanner(System.in);
         System.out.println(sc2.nextInt());
+        sc2.close();
     }
 }
