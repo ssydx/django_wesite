@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+<class name="spring.hibernate.People" table="tb2">
+            <!-- 手动指定主键值 -->
+            <id name="id">
+            <generator class="assigned"></generator>
+            </id>
+            <!-- 如果模型属性名与数据表列名不同 -->
+            <property name="name" column="name"></property>
+            <!-- 相同时只指定属性名即可 -->
+            <property name="age"></property>
+</class>
+          
+</hibernate-mapping>
