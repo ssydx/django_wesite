@@ -2,9 +2,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.ssydx</groupId>
-    <artifactId>springdemo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <groupId>spring.mvcbase</groupId>
+    <artifactId>SpringMVC</artifactId>
+    <packaging>war</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>SpringMVC Maven Webapp</name>
+    <url>http://maven.apache.org</url> 
 
     <dependencies>
 
@@ -22,7 +25,7 @@
             <version>1.9.20</version>
         </dependency>
 
-        <!-- jdbctemplate -->
+        <!-- jdbc -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
@@ -49,12 +52,56 @@
             <version>5.6.14.Final</version>
         </dependency>
 
+        <!-- mvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.1.1.RELEASE</version>
+        </dependency>
+        <!-- servlet -->
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>servlet-api</artifactId>  
+            <version>3.0-alpha-1</version>  
+        </dependency>
+        <!-- jsp -->
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>javax.servlet.jsp-api</artifactId>
+            <version>2.3.3</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- jsp标签库 -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <!-- jsp解析器 -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-jasper</artifactId>
+            <version>9.0.12</version>
+        </dependency>
 
+    <dependency>
+        <groupId>commons-fileupload</groupId>
+        <artifactId>commons-fileupload</artifactId>
+        <version>1.4</version>
+    </dependency>
+
+    <!-- Apache Commons IO -->
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.11.0</version>
+    </dependency>
 
 
     </dependencies>
  
     <build>
+        <finalName>springmvc-demo</finalName>
         <plugins>
             <plugin>
                 <!-- 构建工具，可以自动下载对应的依赖，否则需要手动下载并加入当前项目，且设置路径（比较麻烦） -->

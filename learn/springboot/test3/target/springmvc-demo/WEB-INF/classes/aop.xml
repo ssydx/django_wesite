@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 定义 HelloWorld bean -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/aop 
+	                        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!-- 自动应用注解 -->
+	<!-- <bean class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean> -->
+
+    <bean id="o1" class="spring.aoppointcut.Operation1"></bean>
+    <bean id="o2" class="spring.aoppointcut.Operation2"></bean>
+    <bean id="trackMyBean1" class="spring.aoppointcut.TrackOperation"></bean>
+    
+    <bean id="o" class="spring.aopadvice.Operation"></bean>
+    <bean id="trackMyBean2" class="spring.aopadvice.TrackOperation"></bean>
+
+    <bean id="o3" class="spring.aopadviceparameter.Operation"></bean>
+    <bean id="trackMyBean3" class="spring.aopadviceparameter.TrackOperation"></bean>
+
+    <!-- 手动应用注解，与自动不可同时使用 -->
+    <aop:aspectj-autoproxy/>
+    <bean id="o4" class="spring.aopxml.Operation"></bean>
+    <bean id="trackMyBean4" class="spring.aopxml.TrackOperation"></bean>
+    <aop:config>
+        <aop:aspect id="myaspect1" ref="trackMyBean4" >
+            <aop:pointcut id="point1" expression="execution(* spring.aopxml.Operation.before1(..))" />
+            <aop:before method="before" pointcut-ref="point1" />
+        </aop:aspect>
+        <aop:aspect id="myaspect2" ref="trackMyBean4" >
+            <aop:pointcut id="point2" expression="execution(* spring.aopxml.Operation.after*(..))" />
+            <aop:after method="after" pointcut-ref="point2" />
+        </aop:aspect>
+        <aop:aspect id="myaspect3" ref="trackMyBean4" >
+            <aop:pointcut id="point3" expression="execution(* spring.aopxml.Operation.after*(..))" />
+            <aop:after-returning method="afterReturning" pointcut-ref="point3" returning="o"/>
+        </aop:aspect>
+        <aop:aspect id="myaspect4" ref="trackMyBean4" >
+            <aop:pointcut id="point4" expression="execution(* spring.aopxml.Operation.after*(..))" />
+            <aop:after-throwing method="afterThrowing" pointcut-ref="point4" throwing="t"/>
+        </aop:aspect>
+        <aop:aspect id="myaspect5" ref="trackMyBean4" >
+            <aop:pointcut id="point5" expression="execution(* spring.aopxml.Operation.around*(..))" />
+            <aop:around method="around" pointcut-ref="point5"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>
