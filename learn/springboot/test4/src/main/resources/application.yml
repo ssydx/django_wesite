@@ -1,0 +1,8 @@
+server:
+  port: 8099
+
+blog:
+  title: Blog
+  banner:
+    title: Surprise!
+    content: You made it!!!

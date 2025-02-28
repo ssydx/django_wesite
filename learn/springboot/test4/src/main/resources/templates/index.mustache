@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    {{! 显示对象 }}
+    <h1>people</h1>
+    <p>{{people.id}}</p>
+    <p>{{people.name}}</p>
+    <p>{{people.age}}</p>
+    {{! 为真显示 }}
+    {{ #show }}
+    <p>show</p>
+    {{ /show }}
+    {{! 为假显示 }}
+    {{ ^hide }}
+    <p>hide</p>
+    {{ /hide }}
+    {{! 循环基本数组 }}
+    {{ #arr }}
+        <span>{{.}}</span>
+    {{ /arr }}
+    <br/>
+    {{! 循环引用数组 }}
+    {{ #peoples }}
+        <span>{{name}}</span>
+        <span>{{age}}</span>
+    {{ /peoples }}
+    {{! 插入子内容 }}
+    {{ >insert }}
+    {{! 更换定定界符 }}
+    {{=<% %>=}}
+    <% var %>
+    <%={{ }}=%>
+</body>
+</html>

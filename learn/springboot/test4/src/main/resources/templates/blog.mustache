@@ -1,0 +1,33 @@
+{{! 子模板 }}
+{{ >header }}
+{{! 插值 }}
+{{ #banner.title }}
+    <section>
+        <header class="banner">
+            <h2 class="banner-title">{{banner.title}}</h2>
+        </header>
+        <div class="bannner-content">
+            {{banner.content}}
+        </div>
+    </section>
+{{ /banner.title }}
+<div class="articles">
+    {{! 循环语句 }}
+    {{ #articles }}
+        <section>
+            <header class="article-header">
+                <h2 class="article-title">
+                    <a href="/article/{{ slug }}">{{ title }}</a>
+                </h2>
+                <div class="article-meta">
+                    By <strong>{{ author.firstName }}</strong>,on <strong>{{ addedAt }}</strong>
+                </div>
+            </header>
+            <div class="article-description">
+                {{ headline }}
+            </div>
+        </section>
+    {{ /articles }}
+</div>
+{{! 子模板 }}
+{{ >footer }}

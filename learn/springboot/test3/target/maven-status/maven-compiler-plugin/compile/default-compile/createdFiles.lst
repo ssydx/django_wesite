@@ -19,10 +19,12 @@ spring\jdbctemplate\PeopleDao1$3.class
 spring\proxy1\App.class
 spring\aoppointcut\App.class
 spring\mvcbase\HelloController.class
+spring\mvcbase\PasswordConstraintValidator.class
 spring\proxy1\proxyUser.class
 spring\aopadvice\TrackOperation.class
 spring\dependency\AnswerMapKey.class
 spring\jdbctemplate\PeopleDao2$1.class
+spring\mvcbase\Password.class
 spring\mvcbase\EmployeeController2.class
 spring\mvcbase\HelloController2.class
 spring\dependency\B.class
@@ -39,6 +41,7 @@ spring\mvcbase\HelloController3.class
 spring\dependency\A.class
 spring\dependency\App.class
 spring\jdbctemplate\PeopleDao1.class
+spring\mvcbase\Student.class
 spring\mvcbase\EmployeeDao2.class
 spring\aopxml\TrackOperation.class
 spring\aopadviceparameter\TrackOperation.class
@@ -46,6 +49,7 @@ spring\dependency\Question.class
 spring\dependency\Department.class
 spring\jdbctemplate\App.class
 spring\aopxml\Operation.class
+spring\mvcbase\StudentController.class
 spring\mvcbase\PeopleController.class
 spring\dependency\AnswerLs.class
 spring\jdbctemplate\PeopleDao1$1.class

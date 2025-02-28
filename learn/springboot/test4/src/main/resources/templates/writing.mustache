@@ -1,0 +1,45 @@
+{{ >header }}
+
+    <div class="writing">
+        <a href="/">Home</a>
+        <form class="to-save">
+            <label for="title">title</label>
+            <input type="text" name="title" id="title">
+            <br/>
+            <label for="headline">headline</label>
+            <input type="text" name="headline" id="headline">
+            <br/>
+            <label for="content">content</label>
+            <textarea name="content" id="content" rows="10" cols="70"></textarea>
+            <label for="author">author</label>
+            <select name="author" id="author">
+                {{ #users }}
+                <option value="{{ login }}">{{ login }}</option>
+                {{ /users }}
+            </select>
+            <br/>
+            <input type="submit" name="提交">
+        </form>
+    </div>
+    <script type="text/javascript">
+        $("form").submit(function() {
+            var formObject = {};
+            var formArray = $("form").serializeArray();
+            $.each(formArray, (i,item) => {
+                formObject[item.name] = item.value;
+            });
+            $.ajax({
+                type:"POST",
+                url:"/article",
+                data:JSON.stringify(formObject),
+                contentType: "application/json",
+                success:function(data) {
+                    console.log(data);
+                },
+                error:function(data) {
+                    console.log(data);
+                },
+            });
+        })
+    </script>
+{{ >footer }}

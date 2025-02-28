@@ -27,5 +27,6 @@
 <a href="viewemp">View Employees</a>
 <a href="viewempls/1">查看分页雇员列表</a>
 <a href="uploadform">上传文件</a>
+<a href="studentadd">增加学生</a>
 </body>
 </html>
