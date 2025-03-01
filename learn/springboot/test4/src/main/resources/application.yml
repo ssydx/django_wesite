@@ -6,3 +6,5 @@ blog:
   banner:
     title: Surprise!
     content: You made it!!!
+file:
+  upload-dir: ./assets
