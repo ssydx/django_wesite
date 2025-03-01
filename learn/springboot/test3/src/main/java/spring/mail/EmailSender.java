@@ -15,8 +15,8 @@ public class EmailSender {
     public static void main(String[] args) {
         String host = "smtp.qq.com";
         String port = "465"; 
-        final String username = "ssydx@qq.com"; 
-        final String password = "mmasuknthdsudjfc"; 
+        final String username = ""; 
+        final String password = ""; 
 
         Properties props = new Properties();
         props.put("mail.smtp.host", host);
