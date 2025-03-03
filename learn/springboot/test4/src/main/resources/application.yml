@@ -8,3 +8,7 @@ blog:
     content: You made it!!!
 file:
   upload-dir: ./assets
+
+logging:
+  level:
+    root: debug

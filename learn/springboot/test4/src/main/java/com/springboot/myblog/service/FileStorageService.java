@@ -1,17 +1,19 @@
 package com.springboot.myblog.service;
 
+import java.io.FileNotFoundException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.UUID;
 
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.myblog.config.FileStorageProperties;
-
-import org.apache.tomcat.util.file.ConfigurationSource.Resource;
 
 @Service
 public class FileStorageService {
@@ -41,7 +43,17 @@ public class FileStorageService {
         }
         return fileName;
     }
-    public Resource loadFile(String fileName) {
-        return null;
+    public Resource loadFile(String fileName) throws FileNotFoundException {
+        Path filePath = fileStorageLocation.resolve(fileName).normalize();
+        try {
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists()) {
+                return resource;
+            } else {
+                throw new FileNotFoundException("文件未找到" + fileName);
+            }
+        } catch (MalformedURLException e) {
+            throw new FileNotFoundException("文件未找到" + fileName);
+        }
     }
 }

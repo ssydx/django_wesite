@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>年龄</th>
+        </thead>
+        <tbody>
+            <tr th:each="author: ${authors}">
+                <td th:text="${author.name}"></td>
+                <td th:text="${author.age}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <a th:href="@{/}">添加作者</a>
+    </div>
+</body>
+</html>
