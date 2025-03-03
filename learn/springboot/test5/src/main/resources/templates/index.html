@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringBoot</title>
+</head>
+<body>
+    <h1>SpingBoot框架</h1>
+    <h2 th:text="${name}"></h2>
+    <form th:action="@{/addAuthor}" method="post" th:object="${author}">
+        <div>
+            <label for="name">作者姓名</label>
+            <input type="text" name="name" id="name" th:field="*{name}">
+        </div>
+        <div>
+            <label for="age">作者年龄</label>
+            <input type="number" name="age" id="age" max="120" min="3" step="1" th:field="*{age}">
+        </div>
+        <div>
+            <button type="submit">提交</button>
+            <button type="reset">重置</button>
+        </div>
+    </form>
+</body>
+</html>

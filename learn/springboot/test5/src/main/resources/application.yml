@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: test5
+  datasource:
+    url: jdbc:mysql://localhost:3306/javadb
+    username: ssydx
+    password: 
+  jpa:
+    hibernate.ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8099
+
