@@ -1,0 +1,22 @@
+spring:
+  # 数据库源配置
+  datasource:
+    # 驱动器类名
+    driver-class-name: org.h2.Driver
+    # 连接协议:数据库管理系统:内存模式:数据库地址
+    url: jdbc:h2:file:~/testdb
+    username: ssydx
+    password: 123456
+  # h2数据库配置
+  h2:
+    console:
+      # 是否启用控制台，即可在浏览器图形化查看
+      enabled: true
+      # 设置访问路径
+      path: /h2-console 
+      settings:
+        # 是否开启跟踪输出
+        trace: true 
+        # 是否允许从其他计算机访问控制台
+        web-allow-others: false
+

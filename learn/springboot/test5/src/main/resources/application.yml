@@ -6,9 +6,28 @@ spring:
     username: ssydx
     password: 
   jpa:
-    hibernate.ddl-auto: update
+    hibernate:
+      # 自动建表，必须定义了实体类，发生在程序启动时，而不是执行具体操作时
+      ddl-auto: update
+    # 控制台显示对应的SQL语句
     show-sql: true
+    format-sql: true
+  # 设置活动配置文件
+  profiles:
+    active: h22
 
+# 服务器配置
 server:
+  # 启用端口，0表示任意可用端口，
   port: 8099
+  # 响应压缩
+  compression:
+    enabled: true
+    min-response-size: 1024
+  ssl:
+    key-store: file:D:/spring.keystore
+    key-store-password: 123456
+  http2:
+    enabled: true
+  
 

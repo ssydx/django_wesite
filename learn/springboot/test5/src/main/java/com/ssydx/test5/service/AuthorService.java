@@ -3,6 +3,9 @@ package com.ssydx.test5.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.ssydx.test5.dto.AuthorDto;
@@ -23,5 +26,12 @@ public class AuthorService {
     }
     public void deleteAuthor(Long id) {
         authorRepository.deleteById(id);
+    }
+    private Page<AuthorEntity> page(int page,int size)  {
+        Pageable pageable = PageRequest.of(page, size);
+        return authorRepository.findAll(pageable);
+    }
+    public Page<AuthorEntity> getAllAuthorPage(int page,int size) {
+        return page(page, size);
     }
 }

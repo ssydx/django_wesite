@@ -1,4 +1,5 @@
-package com.ssydx.test5.entity;
+package com.ssydx.data1.entity;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,19 +14,20 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 
+@Entity
 @Accessors(chain = true)
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @ToString
-@Entity(name = "AuthorEntity")
-@Table(name = "AuthorTable")
-public class AuthorEntity {
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "user_info")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @Column(name = "AuthorName",unique = true,nullable = false,length = 50 )
+    @Column(name = "user_id")
+    private Integer id;
     private String name;
-    private Byte age;
+    private char gender;
+    private int age;
 }
