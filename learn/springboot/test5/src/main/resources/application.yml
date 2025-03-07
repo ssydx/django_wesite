@@ -6,7 +6,7 @@ spring:
     username: ssydx
     password: 
   jpa:
-    hibernate:
+    hibernate: 
       # 自动建表，必须定义了实体类，发生在程序启动时，而不是执行具体操作时
       ddl-auto: update
     # 控制台显示对应的SQL语句

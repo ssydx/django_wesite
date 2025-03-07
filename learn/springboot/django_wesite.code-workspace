@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		}
+	],
+	"settings": {
+		"svg.preview.background": "transparent",
+		"java.project.sourcePaths": [
+			"learn/springboot/test/src/main/java/com/ssydx1/demo",
+			"learn/springboot/ssydx1/src/main/java/com/ssydx1/demo",
+			"learn/java",
+			"learn/springboot/ssydx1/src/main/java/com/ssydx1/ssydx1"
+		],
+		"java.project.referencedLibraries": [
+			"d:\\Download\\Edge\\mysql-connector-j-9.2.0\\mysql-connector-j-9.2.0.jar"
+		],
+		"java.debug.settings.onBuildFailureProceed": true,
+		"java.configuration.updateBuildConfiguration": "automatic"
+	}
+}
