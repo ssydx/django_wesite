@@ -9,4 +9,4 @@ spring:
     initialization-mode: always
 mybatis:
   mapper-locations: classpath:com/ssydx/mybatis/dao/*.xml
-  type-aliases-package: com.ssydx.mybatis.domain
+  # type-aliases-package: com.ssydx.mybatis.domain
