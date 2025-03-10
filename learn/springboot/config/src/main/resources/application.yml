@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/javadb
+    user: ssydx
+    password: 
+  # main:
+  #   # lazy-initialization: true
+  #   log-startup-info: false
+  #   # banner-mode: off
+  banner:
+    charset: UTF-8
+    image:
+      height: 60
+      width: 20
+      bitdepth: 1
+server:
+  port: 8099
+
+# logging:
+#   level:
+    # org.springframework.boot.autoconfigure.logging: debug
+ssydx: aaa
+zhangsan: "${random.uuid}"
+com.ssydx.config: 
+  enabled: true
+  name: ssydx
+  age: 20
+  items: banana,apple
+
+---

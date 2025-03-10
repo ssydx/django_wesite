@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://ssydx:123456@localhost:27017/javadb?authSource=javadb&authMechanism=SCRAM-SHA-256
