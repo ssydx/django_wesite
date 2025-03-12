@@ -16,8 +16,6 @@ import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
@@ -26,12 +24,8 @@ import org.springframework.stereotype.Repository;
 public class UserDao2 {
     @Autowired
     private JdbcTemplate template;
-    // @Autowired
-    // private NamedParameterJdbcTemplate namedTemplate;
-    // @Autowired
-    // private SimpleJdbcInsert  jdbcInsert;
-    // @Autowired
-    // private SimpleJdbcCall jdbcCall;
+    @Autowired
+    private NamedParameterJdbcTemplate namedTemplate;
 
     public int insert1(UserDomain2 userDomain) {
         return template.update("insert into user_info(name,desc,score) values(?,?,?)", userDomain.getName(),userDomain.getDesc(),userDomain.getScore());

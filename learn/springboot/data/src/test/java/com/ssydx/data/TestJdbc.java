@@ -14,6 +14,6 @@ public class TestJdbc {
 
     @Test
     public void testQuery1() {
-        userDao.query1().forEach(System.out::println);
+        userDao.findAll().forEach(System.out::println);
     }
 }

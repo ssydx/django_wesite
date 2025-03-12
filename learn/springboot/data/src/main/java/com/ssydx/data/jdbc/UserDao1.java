@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class UserDao1 {
     @Autowired
     private DsProperty dsProperty;
-    public List<UserDomain1> query1() {
+    public List<UserDomain1> findAll() {
         List<UserDomain1> list = new ArrayList<>();
         try (Connection conn = DriverManager.getConnection(dsProperty.getUrl(), dsProperty.getUsername(), dsProperty.getPassword())) {
             Statement statement = conn.createStatement();
