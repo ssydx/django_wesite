@@ -1,11 +1,8 @@
 package com.ssydx.jooq.dao;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import org.jooq.DSLContext;
-import org.jooq.Field;
 import org.jooq.InsertSetStep;
 import org.jooq.InsertValuesStep2;
 import org.jooq.InsertValuesStepN;

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shizhan
+    username: ssydx
+    password:
+  sql:
+    init:
+      mode: always # 确保总是初始化
+server:
+  port: 8099

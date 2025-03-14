@@ -4,15 +4,15 @@ import java.util.List;
 
 import org.springframework.data.jdbc.repository.query.Modifying;
 import org.springframework.data.jdbc.repository.query.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.data.repository.ListPagingAndSortingRepository;
+import org.springframework.data.repository.query.ListQueryByExampleExecutor;
 import org.springframework.data.repository.query.Param;
-import org.springframework.data.repository.query.QueryByExampleExecutor;
 import org.springframework.stereotype.Repository;
 
 @Repository
 // 继承自定义接口
-public interface UserDao3 extends CrudRepository<UserDomain3,Integer>,UserCustomDao3,QueryByExampleExecutor<UserDomain3>,ListPagingAndSortingRepository<UserDomain3,Integer> {
+public interface UserDao3 extends ListCrudRepository<UserDomain3,Integer>,UserCustomDao3,ListQueryByExampleExecutor<UserDomain3>,ListPagingAndSortingRepository<UserDomain3,Integer> {
     // 方法名生成查询，不支持生成增删改
     public List<UserDomain3> findByUserName(String name);
     // Query注解，不支持无名注解

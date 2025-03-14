@@ -4,7 +4,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.ExampleMatcher.GenericPropertyMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 
 import com.ssydx.data.springDataJdbc.UserDao3;
 import com.ssydx.data.springDataJdbc.UserDomain3;
@@ -55,5 +61,22 @@ public class TestSpringDataJdbc {
     public void test7() {
         test1();
         userDao3.test("大学").forEach(System.out::println);
+    }
+    @Test
+    public void test8() {
+        test1();
+        userDao3.findAll(Sort.by("score").ascending()).forEach(System.out::println);
+    }
+    @Test
+    public void test9() {
+        test1();
+        Pageable pageable = PageRequest.of(0, 3, Sort.by("userName").ascending());
+        userDao3.findAll(pageable).getContent().forEach(System.out::println);
+    }
+    @Test
+    public void test10() {
+        test1();
+        UserDomain3 userDomain3 = new UserDomain3("李四", "学生", 0D);
+        userDao3.findAll(Example.of(userDomain3, ExampleMatcher.matching().withIgnorePaths("score","userName").withMatcher("desc", GenericPropertyMatcher.of(StringMatcher.CONTAINING)))).forEach(System.out::println);
     }
 }
