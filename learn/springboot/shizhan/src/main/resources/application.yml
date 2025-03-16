@@ -7,5 +7,15 @@ spring:
   sql:
     init:
       mode: always # 确保总是初始化
+  redis:
+    host: 172.29.68.48
+    port: 6379
+    database: 0
+    lettuce: 
+      pool: 
+        maxActive: 20
+        maxIdle: 20
+        minIdle: 2
+
 server:
   port: 8099

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssydx.website.app.dao.UserMapper">
+    <resultMap id="userResultMap" type="com.ssydx.website.app.domain.User">
+        <id property="userId" column="user_id" />
+        <result property = "userName" column = "user_name" />
+        <result property = "userPwd" column = "user_pwd" />
+        <result property = "userRegisterDate" column = "user_register_date" />
+        <result property = "userLastLoginDate" column = "user_last_login_date" />
+        <association property="clazz" column="clazz_id" javaType="com.ssydx.website.app.domain.Clazz" select="com.ssydx.website.app.dao.ClazzMapper.findById" />
+    </resultMap>
+    <select id="findAll1" resultMap="userResultMap">
+        select * from user_info
+    </select>
+    <select id="find1" resultMap="userResultMap">
+        select * from user_info where user_id = #{userId}
+    </select>
+    <insert id="save1" useGeneratedKeys="true" keyProperty="userId" keyColumn = "user_id">
+        insert into user_info(user_name,user_pwd,user_register_date,user_last_login_date,user_login_count,clazz_id) values(#{userName},#{userPwd},#{userRegisterDate},#{userLastLoginDate},#{userLoginCount},#{clazz.clazz_id})
+    </insert>
+    <delete id="remove1">
+        delete from user_info where user_id = #{userId}
+    </delete>
+    <update id="update1">
+        update user_info set user_name = #{userName},user_pwd = #{userPwd},user_register_date = #{userRegisterDate},user_last_login_date = #{userLastLoginDate},user_login_count = #{userLoginCount},clazz_id = #{clazz.clazz_id} where user_id = #{userId}
+    </update>
+</mapper>
