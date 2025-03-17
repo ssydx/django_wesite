@@ -60,4 +60,8 @@ public interface UserMapper {
     int remove1(Long userId);
     int update1(User user);
     User find1(Long userId);
+
+    @Select("select * from user_info where user_name = #{userName}")
+    @ResultMap("mymap")
+    User findByName(String name);
 }

@@ -6,5 +6,11 @@ spring:
   sql:
     init:
       mode: always
+  redis:
+    host: 172.29.68.48
+    port: 6379
+    database: 5
 mybatis:
   mapper-locations: classpath:com/ssydx/website/app/dao/*.xml
+server:
+  port: 8099
