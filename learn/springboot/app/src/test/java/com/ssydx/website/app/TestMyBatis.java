@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 import com.ssydx.website.app.dao.ClazzMapper;
+import com.ssydx.website.app.dao.ProductMapper;
 import com.ssydx.website.app.dao.UserMapper;
 import com.ssydx.website.app.domain.Clazz;
 import com.ssydx.website.app.domain.User;
@@ -83,5 +84,12 @@ public class TestMyBatis {
     @Test
     public void testFindAllUsers() {
         clazzMapper.findAllUsers().forEach(System.out::println);
+    }
+
+    @Autowired
+    private ProductMapper productMapper;
+    @Test
+    public void testFindAllProducts() {
+        productMapper.findAll().forEach(System.out::println);
     }
 }

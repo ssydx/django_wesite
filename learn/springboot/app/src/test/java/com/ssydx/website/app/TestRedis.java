@@ -1,23 +1,27 @@
 package com.ssydx.website.app;
 
+import java.util.Date;
+import java.util.UUID;
+
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-import com.ssydx.website.app.dao.UserDao;
-import com.ssydx.website.app.domain.UserHash;
+import com.ssydx.website.app.dao.RedisDao;
+import com.ssydx.website.app.domain.User;
+import com.ssydx.website.app.redis.UserRedis;
 
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
 public class TestRedis {
     @Autowired
-    private UserDao userDao;
+    private RedisDao redisDao;
 
-    @ParameterizedTest
-    @CsvSource({"1,zs,zs,60","2,ls,ls,120"})
-    public void testSave(Long id, String name, String pwd, Long timeout) {
-        userDao.save(new UserHash(id,name,pwd,timeout));
+    @Test
+    public void testSave() {
+        // String key = UUID.randomUUID().toString();
+        User user = new User(1L,"zhangsan","zhangsan",new Date(),new Date(),1,null);
+        redisDao.set(UserRedis.prefix, user.getUserName(), user, UserRedis.expiredSeconds);
+        System.out.println(redisDao.get(UserRedis.prefix, user.getUserName(), User.class));
     }
 }

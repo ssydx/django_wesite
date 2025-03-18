@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>商品列表</h1>
+    <ul>
+        <li th:each="product : ${productLs}">
+            <h2 th:text="${product.product_name}">商品名称</h2>
+            <p th:text="${product.product_desc}">商品描述</p>
+        </li>
+    </ul>
+</body>
+</html>
