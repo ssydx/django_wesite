@@ -16,4 +16,5 @@ import lombok.experimental.Accessors;
 public class UserVo {
     private String name;
     private String pwd;
+    private Integer vercode;
 }

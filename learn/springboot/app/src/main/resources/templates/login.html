@@ -7,11 +7,13 @@
 </head>
 <body>
     <h1>登录</h1>
-    <form action="/login" method="post" th:object="${login}">
+    <form action="/user/login" method="post" th:object="${login}">
         <label for="username">用户名称</label>
         <input type="text" id="username" th:field="*{name}">
         <label for="userpwd">用户密码</label>
         <input type="password" id="userpwd" th:field="*{pwd}">
+        <label for="userpwd"><img src="/user/vercode" alt="n"></label>
+        <input type="password" id="userpwd" th:field="*{vercode}">
         <button type="submit">登录</button>
     </form>
     <div th:text="${flag}"></div>

@@ -46,4 +46,8 @@ public class RedisDaoImpl implements RedisDao {
         String realKey = prefix + ":" + key;
         return redisTemplate.hasKey(realKey);
     }
+    public boolean delete(String prefix, String key) {
+        String realKey = prefix + ":" + key;
+        return redisTemplate.delete(realKey);
+    }
 }

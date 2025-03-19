@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
-import com.ssydx.website.app.dao.RedisDao;
 import com.ssydx.website.app.domain.User;
 import com.ssydx.website.app.redis.UserRedis;
+import com.ssydx.website.app.dao.RedisDao;
 
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
 public class TestRedis {
