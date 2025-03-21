@@ -18,9 +18,18 @@ public class RedisDaoImpl implements RedisDao {
     public <T> boolean set(String prefix, String key, T value, int expiredSeconds) {
         try {
             String realValue = objectMapper.writeValueAsString(value);
-            String realKey = prefix + ":" + key;
-            Duration realExpiredSeconds = Duration.ofSeconds(expiredSeconds);
-            redisTemplate.opsForValue().set(realKey, realValue, realExpiredSeconds);
+            String realKey = "";
+            if (key != null && key.length() != 0) {
+                realKey = prefix + ":" + key;
+            } else {
+                realKey = prefix;
+            }
+            if (expiredSeconds <= 0) {
+                redisTemplate.opsForValue().set(realKey, realValue);
+            } else {
+                Duration realExpiredSeconds = Duration.ofSeconds(expiredSeconds);
+                redisTemplate.opsForValue().set(realKey, realValue, realExpiredSeconds);
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -29,7 +38,12 @@ public class RedisDaoImpl implements RedisDao {
     }
     public <T> T get(String prefix, String key, Class<T> clazz) {
         try {
-            String realKey = prefix + ":" + key;
+            String realKey = "";
+            if (key != null && key.length() != 0) {
+                realKey = prefix + ":" + key;
+            } else {
+                realKey = prefix;
+            }
             String value = redisTemplate.opsForValue().get(realKey);
             T realValue = objectMapper.readValue(value, clazz);
             return realValue;
@@ -49,5 +63,9 @@ public class RedisDaoImpl implements RedisDao {
     public boolean delete(String prefix, String key) {
         String realKey = prefix + ":" + key;
         return redisTemplate.delete(realKey);
+    }
+    public Long decr(String prefix, String key) {
+        String realKey = prefix + ":" + key;
+        return redisTemplate.opsForValue().decrement(realKey);
     }
 }

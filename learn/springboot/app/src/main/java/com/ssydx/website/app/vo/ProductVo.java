@@ -1,5 +1,8 @@
 package com.ssydx.website.app.vo;
 
+import com.ssydx.website.app.domain.MiaoshaProduct;
+import com.ssydx.website.app.domain.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +17,8 @@ import lombok.experimental.Accessors;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProductVo {
-    private String product_name;
-    private String product_desc;
+    private User user;
+    private MiaoshaProduct  miaoshaProduct;
+    private int toStartTime = 0;
+    private int toEndTime = 0;
 }

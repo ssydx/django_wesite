@@ -23,7 +23,6 @@ public class SessionInterceptor implements HandlerInterceptor {
             // 非控制器方法
             return true;
         }
-
         HandlerMethod handlerMethod = (HandlerMethod) handler;
         AccessLimit accessLimit = handlerMethod.getMethodAnnotation(AccessLimit.class);
         // 无访问限制

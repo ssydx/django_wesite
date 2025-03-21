@@ -1,5 +1,7 @@
 package com.ssydx.website.app.domain;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,11 +15,11 @@ import lombok.experimental.Accessors;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class MiaoshaProduct extends Product {
+    private Long miaoshaproduct_id;
     private Long product_id;
-    private String product_name;
-    private String product_desc;
-    private String product_detail;
-    private Double product_price;
-    private Integer product_stocknum;
+    private Double miaoshaproduct_price;
+    private Integer miaoshaproduct_stocknum;
+    private Date start_date;
+    private Date end_date;
 }

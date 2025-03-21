@@ -3,22 +3,30 @@ package com.ssydx.website.app;
 import java.util.Date;
 
 import org.junit.jupiter.api.Test;
+import org.mybatis.spring.boot.test.autoconfigure.MybatisTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 
 import com.ssydx.website.app.dao.ClazzMapper;
+import com.ssydx.website.app.dao.MiaoshaOrderMapper;
+import com.ssydx.website.app.dao.MiaoshaProductMapper;
+import com.ssydx.website.app.dao.OrderMapper;
 import com.ssydx.website.app.dao.ProductMapper;
 import com.ssydx.website.app.dao.UserMapper;
 import com.ssydx.website.app.domain.Clazz;
+import com.ssydx.website.app.domain.MiaoshaOrder;
+import com.ssydx.website.app.domain.Order;
 import com.ssydx.website.app.domain.User;
 
 @SpringBootTest(webEnvironment = WebEnvironment.NONE)
+// @MybatisTest
 public class TestMyBatis {
     @Autowired
     private UserMapper userMapper;
     @Autowired
     private ClazzMapper clazzMapper;
+
     @Test
     public void testFindAll() {
         userMapper.findAll().forEach(System.out::println);
@@ -91,5 +99,29 @@ public class TestMyBatis {
     @Test
     public void testFindAllProducts() {
         productMapper.findAll().forEach(System.out::println);
+    }
+
+    @Autowired
+    private MiaoshaProductMapper miaoshaProductMapper;
+    @Test
+    public void testFindAllMiaoshaProducts() {
+        miaoshaProductMapper.findAll().forEach(System.out::println);
+        System.out.println(miaoshaProductMapper.findAll().get(0).getProduct_desc());;
+    }
+
+    @Autowired
+    private OrderMapper orderMapper;
+    @Test
+    public void testOrder() {
+        orderMapper.save(new Order().setUser_id(1L).setProduct_id(1L).setProduct_name("aaa"));
+        System.out.println(orderMapper.findByIdAndOwnerId(1, 1));
+    }
+    @Autowired
+    private MiaoshaOrderMapper miaoshaOrderMapper;
+    @Test
+    public void testMiaoshaOrder() {
+        orderMapper.save(new Order().setUser_id(1L).setProduct_id(1L).setProduct_name("aaa"));
+        miaoshaOrderMapper.save(new MiaoshaOrder().setOrder_id(1L).setProduct_id(1L).setUser_id(1L));
+        System.out.println(miaoshaOrderMapper.findByUserIdItemId(1, 1));
     }
 }

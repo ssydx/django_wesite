@@ -10,7 +10,28 @@ spring:
     host: 172.29.68.48
     port: 6379
     database: 5
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: root
+    password: 123456
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 10
+        max-concurency: 20
+        prefetch: 1
+        auto-startup: true
+        default-requeue-rejected: true
+    template:
+      retry:
+        enabled: true
+        initial-interval: 1000
+        max-attempts: 3
+        max-interval: 10000
+        multiplier: 1.5
 mybatis:
   mapper-locations: classpath:com/ssydx/website/app/dao/*.xml
 server:
   port: 8099
+

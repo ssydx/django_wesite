@@ -6,4 +6,5 @@ public interface RedisDao {
     boolean reset(String prefix, String key, int expiredSeconds);
     boolean isExist(String prefix, String key);
     boolean delete(String prefix, String key);
+    Long decr(String prefix, String key);
 }

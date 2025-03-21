@@ -12,8 +12,8 @@
         <input type="text" id="username" th:field="*{name}">
         <label for="userpwd">用户密码</label>
         <input type="password" id="userpwd" th:field="*{pwd}">
-        <label for="userpwd"><img src="/user/vercode" alt="n"></label>
-        <input type="password" id="userpwd" th:field="*{vercode}">
+        <label for="vercode"><img src="/user/vercode" alt="n"></label>
+        <input type="password" id="vercode" th:field="*{vercode}">
         <button type="submit">登录</button>
     </form>
     <div th:text="${flag}"></div>

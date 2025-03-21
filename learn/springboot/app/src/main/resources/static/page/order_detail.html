@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta name="author" content="Yeeku.H.Lee(CrazyIt.org)"/>
+	<meta charset="UTF-8">
+	<title>订单详情</title>
+	<!-- jQuery -->
+	<script type="text/javascript" src="/jquery/jquery.min.js"></script>
+	<!-- Layer -->
+	<script type="text/javascript" src="/js/util.js"></script>
+	<script>
+		// 页面加载完成后自动执行
+		$(function () {
+			// 获取订单ID
+			let orderId = getParam("orderId");
+			$.get("/page/detail", {
+				orderId: orderId,
+			}, function (data) {
+				if (data.order_id != null) {
+					render(data);
+				} else {
+					console.log("没有该订单");
+				}
+			});
+		});
+		// 动态更新页面的脚本
+		function render(detail) {
+			$("#order_id").text(detail.order_id);
+			$("#product_name").text(detail.product_name);
+			let status = "";
+			if (detail.order_status == 0) {
+				status = "未支付";
+			} else if (detail.order_status == 1) {
+				status = "待发货";
+			}
+			$("#orderStatus").text(status);
+		}
+	</script>
+</head>
+<body>
+<div>
+	<ul>
+		<li id="order_id"></li>
+		<li id="product_name"></li>
+		<li id="orderStatus"></li>
+	</ul>
+</div>
+</body>
+</html>
