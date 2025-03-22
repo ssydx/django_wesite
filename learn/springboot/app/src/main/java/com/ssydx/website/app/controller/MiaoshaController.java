@@ -30,28 +30,30 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/miaosha")
-public class MiaoshaController implements InitializingBean
-{
+public class MiaoshaController implements InitializingBean {
     @Autowired
 	private MiaoshaService miaoshaService;
     @Autowired
 	private RedisDao redisDao;
     @Autowired
-	private MiaoshaSender mqSender;
-	// 存放ItemId与秒杀是否结束的对应关系
-	private final Map<Long, Boolean> localOverMap =
-			Collections.synchronizedMap(new HashMap<>());
+	private MiaoshaSender miaoshaSender;
+	private final Map<Long, Boolean> localOverMap = Collections.synchronizedMap(new HashMap<>());
 
 	@Override
 	public void afterPropertiesSet() {
 		// 获取所有物品列表
-		List<MiaoshaProduct> itemList = miaoshaService.getProductList();
-		if (itemList == null) {
+		List<MiaoshaProduct> miaoshaProductList = miaoshaService.getProductList();
+		if (miaoshaProductList == null) {
 			return;
 		}
-		for (MiaoshaProduct item : itemList) {
-			redisDao.set(ProductRedis.prefix, item.getProduct_id().toString(), item.getMiaoshaproduct_stocknum(),ProductRedis.expiredSeconds);
-			localOverMap.put(item.getProduct_id(), false);
+		for (MiaoshaProduct miaoshaProduct : miaoshaProductList) {
+			redisDao.set(
+				ProductRedis.prefix, 
+				miaoshaProduct.getProduct_id().toString(), 
+				miaoshaProduct.getMiaoshaproduct_stocknum(), 
+				ProductRedis.expiredSeconds
+			);
+			localOverMap.put(miaoshaProduct.getProduct_id(), false);
 		}
 	}
 
@@ -110,10 +112,7 @@ public class MiaoshaController implements InitializingBean
 			return "重复秒杀";
 		}
 		// 执行实际的订单流程
-		var miaoshaMessage = new MiaoshaMessage();
-		miaoshaMessage.setUser(user);
-		miaoshaMessage.setItemId(itemId);
-		mqSender.sendMiaoshaMessage(miaoshaMessage);
+		miaoshaSender.sendMessage(new MiaoshaMessage(user.getUserId(),itemId));
 		return "成功秒杀";
 	}
 	@GetMapping(value = "/result")

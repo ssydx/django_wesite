@@ -53,45 +53,39 @@ public class MiaoshaService {
 	} 
 	// 创建普通订单和秒杀订单
 	@Transactional
-	public Order createOrder(User user, MiaoshaProduct product)
-	{
-		// 创建普通订单
+	public Order createOrder(Long userId, MiaoshaProduct miaoshaProduct) {
+
 		var order = new Order();
-		// 设置订单信息
-		order.setUser_id(user.getUserId());
+		order.setUser_id(userId);
 		order.setCreate_date(new Date());
 		order.setOrder_num(1);
-		order.setProduct_id(product.getProduct_id());
-		order.setProduct_name(product.getProduct_name());
-		order.setOrder_price(product.getMiaoshaproduct_price());
+		order.setProduct_id(miaoshaProduct.getProduct_id());
+		order.setProduct_name(miaoshaProduct.getProduct_name());
+		order.setOrder_price(miaoshaProduct.getMiaoshaproduct_price());
 		order.setOrder_channel(1);
-		// 设置订单状态，0代表未支付订单
 		order.setOrder_status(0);
-		// 保存普通订单
 		orderMapper.save(order);
-		// 创建秒杀订单
+
 		var miaoshaOrder = new MiaoshaOrder();
-		// 设置秒杀订单信息
-		miaoshaOrder.setUser_id(user.getUserId());
-		miaoshaOrder.setProduct_id(product.getProduct_id());
+		miaoshaOrder.setUser_id(userId);
+		miaoshaOrder.setProduct_id(miaoshaProduct.getProduct_id());
 		miaoshaOrder.setOrder_id(order.getOrder_id());
-		// 保存秒杀订单
 		miaoshaOrderMapper.save(miaoshaOrder);
-		// 将秒杀订单保存到Redis缓存中
-		redisDao.set(MiaoshaOrderRedis.prefix,user.getUserId() + "_" + product.getProduct_id(), miaoshaOrder,MiaoshaOrderRedis.expiredSeconds);
+
+		redisDao.set(MiaoshaOrderRedis.prefix, userId + "_" + miaoshaProduct.getProduct_id(), miaoshaOrder,MiaoshaOrderRedis.expiredSeconds);
 		return order;
 	}
 
 	@Transactional
-	public Order miaosha(User user, MiaoshaProduct item)
+	public Order miaosha(Long userId, MiaoshaProduct miaoshaProduct)
 	{
 		// 将秒杀商品的库存减1
-		boolean success = reduceStock(item);
+		boolean success = reduceStock(miaoshaProduct);
 		if (success) { 
-			return createOrder(user, item);
+			return createOrder(userId, miaoshaProduct);
 		}
 		else {
-			redisDao.set(MiaoshaRedis.prefix,item.getProduct_id().toString(), true,MiaoshaRedis.expiredSeconds);
+			redisDao.set(MiaoshaRedis.prefix,miaoshaProduct.getProduct_id().toString(), true,MiaoshaRedis.expiredSeconds);
 			return null;
 		}
 	}

@@ -1,29 +1,17 @@
 package com.ssydx.website.app.rabbitmq;
 
-import com.ssydx.website.app.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.Accessors;
 
-public class MiaoshaMessage
-{
-	private User user;
-	private long itemId;
-
-	public User getUser()
-	{
-		return user;
-	}
-
-	public void setUser(User user)
-	{
-		this.user = user;
-	}
-
-	public long getItemId()
-	{
-		return itemId;
-	}
-
-	public void setItemId(long itemId)
-	{
-		this.itemId = itemId;
-	}
+@Accessors(chain = true)
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class MiaoshaMessage {
+	private long userId;
+	private long productId;
 }
