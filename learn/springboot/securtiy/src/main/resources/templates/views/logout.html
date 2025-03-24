@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>你确定退出？</h1>
+    <form action="/virtual_logout" method="post">
+        <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+        <button type="submit">注销</button>
+    </form>
+</body>
+</html>
